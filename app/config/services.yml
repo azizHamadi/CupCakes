@@ -14,6 +14,9 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
+    redirect.after.login:
+            class: CupCakesBundle\Redirection\AfterLoginRedirection
+            arguments: ['@router']
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:
@@ -28,6 +31,16 @@ services:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
+
+    app.form.registration:
+           class: CupCakesBundle\Form\RegistrationFormType
+           tags:
+               - { name: form.type, alias: app_user_registration }
+
+    app.form.profile:
+           class: CupCakesBundle\Form\ProfileType
+           tags:
+               - { name: form.type, alias: app_user_profile }
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:

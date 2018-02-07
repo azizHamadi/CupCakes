@@ -1,0 +1,21 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "::base.html.twig" %}
+{% block titreh3 %}Changer mot de passe{% endblock %}
+{% block description %}Mot de passe{% endblock %}
+{% block fos_user_content %}
+    <div class="login">
+        <form name="fos_user_resetting_request" action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="login-form">
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="username"class="sr-only">resetting.request.username</label>
+                    <input type="text"  class="form-username form-control" id="username" name="username" required="required" placeholder="username..">
+                </div>
+            </div>
+            <div>
+                <input type="submit" class="btn" value="resetting.request.submit">
+            </div>
+
+        </form>
+    </div>
+{% endblock fos_user_content %}

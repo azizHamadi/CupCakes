@@ -8,6 +8,21 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CupCakesBundle:Default:index.html.twig');
+        return $this->render('CupCakesBundle:Patisseuri:layout.html.twig');
+    }
+
+    public function AdminAction()
+    {
+        return $this->render('CupCakesBundle:Admin:LayoutA.html.twig');
+    }
+
+    public function FormateurAction()
+    {
+        return $this->render('CupCakesBundle:Formateur:LayoutF.html.twig');
+    }
+
+    public function clientAction()
+    {
+        return $this->render('CupCakesBundle:Client:LayoutC.html.twig');
     }
 }
