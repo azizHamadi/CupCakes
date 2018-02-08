@@ -25,4 +25,9 @@ class DefaultController extends Controller
     {
         return $this->render('CupCakesBundle:Client:LayoutC.html.twig');
     }
+
+    public function DashAdAction()
+    {
+        return $this->render('CupCakesBundle::DashAd.layout.twig');
+    }
 }

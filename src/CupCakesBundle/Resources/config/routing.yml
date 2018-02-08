@@ -10,3 +10,6 @@ cup_cakes_Eshop:
 cup_cakes_Formateur:
     path:   /Formateur
     defaults: { _controller: CupCakesBundle:Default:Formateur }
+cup_cakes_DashAdmin:
+    path:   /DashAdmin
+    defaults: { _controller: CupCakesBundle:Default:DashAd }
