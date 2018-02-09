@@ -13,3 +13,15 @@ cup_cakes_Formateur:
 cup_cakes_DashAdmin:
     path:   /DashAdmin
     defaults: { _controller: CupCakesBundle:Default:DashAd }
+CommandeMain:
+    path:     /Commande
+    defaults: { _controller: CupCakesBundle:Commande:Main }
+CommandeSuivie:
+    path:     /SuivieCommande
+    defaults: { _controller: CupCakesBundle:Commande:Suivie }
+ProduitListe:
+    path:     /ProduitListe
+    defaults: { _controller: CupCakesBundle:Produit:Liste}
+ProduitSeul:
+    path:     /ProduitNom
+    defaults: { _controller: CupCakesBundle:Produit:Proddet}
