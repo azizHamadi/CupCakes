@@ -25,3 +25,6 @@ ProduitListe:
 ProduitSeul:
     path:     /ProduitNom
     defaults: { _controller: CupCakesBundle:Produit:Proddet}
+ListeRecette:
+    path:     /RecetteAcc
+    defaults: { _controller: CupCakesBundle:Recette:Liste}

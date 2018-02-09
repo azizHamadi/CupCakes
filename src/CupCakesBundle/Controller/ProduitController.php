@@ -7,21 +7,22 @@
  */
 
 namespace CupCakesBundle\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class ProduitController
+class ProduitController extends Controller
 {
 
 
     public function ListeAction()
     {
-        return $this->render('CupCakesBundle:Client:ListeProd.html.twig');
+        return $this->render('CupCakesBundle:Client/Produit:ListeProd.html.twig');
 
     }
 
     public function ProddetAction()
     {
-        return $this->render('CupCakesBundle:Client:ProduitSingle.html.twig');
+        return $this->render('CupCakesBundle:Client/Produit:ProduitSingle.html.twig');
 
     }
 

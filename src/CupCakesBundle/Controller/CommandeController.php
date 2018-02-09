@@ -7,18 +7,19 @@
  */
 
 namespace CupCakesBundle\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class CommandeController
+class CommandeController extends Controller
 {
 
     public function MainAction()
     {
-        return $this->render('CupCakesBundle:Client:Commande.html.twig');
+        return $this->render('CupCakesBundle:Client/Commande:Commande.html.twig');
     }
 
     public function SuivieAction()
     {
-        return $this->render('CupCakesBundle:Client:Suivie.html.twig');
+        return $this->render('CupCakesBundle:Client/Commande:Suivie.html.twig');
     }
 }
