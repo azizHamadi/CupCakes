@@ -18,4 +18,10 @@ class RecetteController extends Controller
     {
         return $this->render('CupCakesBundle:Client/Recette:RecetteListe.html.twig');
 
-    }}
+    }
+    public function RecetteSingleAction()
+    {
+        return $this->render('CupCakesBundle:Client/Recette:RecetteSingle.html.twig');
+
+    }
+}

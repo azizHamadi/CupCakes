@@ -1,0 +1,6 @@
+ListeRecette:
+    path:     /listeRecette
+    defaults: { _controller: CupCakesBundle:Recette:Liste}
+SingleRecette:
+    path:     /SingleRecette
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingle}

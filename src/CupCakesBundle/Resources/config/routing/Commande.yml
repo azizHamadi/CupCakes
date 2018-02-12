@@ -1,0 +1,6 @@
+CommandeMain:
+    path:     /main
+    defaults: { _controller: CupCakesBundle:Commande:Main }
+CommandeSuivie:
+    path:     /suivie
+    defaults: { _controller: CupCakesBundle:Commande:Suivie }

@@ -13,18 +13,12 @@ cup_cakes_Formateur:
 cup_cakes_DashAdmin:
     path:   /DashAdmin
     defaults: { _controller: CupCakesBundle:Default:DashAd }
-CommandeMain:
-    path:     /Commande
-    defaults: { _controller: CupCakesBundle:Commande:Main }
-CommandeSuivie:
-    path:     /SuivieCommande
-    defaults: { _controller: CupCakesBundle:Commande:Suivie }
-ProduitListe:
-    path:     /ProduitListe
-    defaults: { _controller: CupCakesBundle:Produit:Liste}
-ProduitSeul:
-    path:     /ProduitNom
-    defaults: { _controller: CupCakesBundle:Produit:Proddet}
-ListeRecette:
-    path:     /RecetteAcc
-    defaults: { _controller: CupCakesBundle:Recette:Liste}
+cup_cakes_commande:
+    resource: "@CupCakesBundle/Resources/config/routing/Commande.yml"
+    prefix:   /Commande
+cup_cakes_produit:
+    resource: "@CupCakesBundle/Resources/config/routing/Produit.yml"
+    prefix:   /Produit
+cup_cakes_recette:
+    resource: "@CupCakesBundle/Resources/config/routing/Recette.yml"
+    prefix:   /Recette

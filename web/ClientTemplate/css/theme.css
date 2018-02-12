@@ -1882,7 +1882,7 @@ textarea {
 
 .menu-main {
     float: left;
-    width: 40%;
+    width: 50%;
     font-family: 'Graviola-Regular';
 }
 
@@ -1913,7 +1913,7 @@ textarea {
 }
 
 .menu-main>ul>li>a:before {
-    content: "â€¢";
+    content: "";
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);

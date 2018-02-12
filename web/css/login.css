@@ -5,8 +5,21 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-    background-image: url(http://i367.photobucket.com/albums/oo117/missdollymixx/cupcake2-1.jpg);
+}
+.body{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background-image: url(../img/background/cupcake.jpg);
     background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    -webkit-filter: blur(5px);
+    z-index: 0;
 }
 
 strong { font-weight: 500; }

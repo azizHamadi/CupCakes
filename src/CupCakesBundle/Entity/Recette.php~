@@ -162,28 +162,4 @@ class Recette
     {
         return $this->idUser;
     }
-
-    /**
-     * Set idCatRec
-     *
-     * @param \CupCakesBundle\Entity\CategorieRec $idCatRec
-     *
-     * @return Recette
-     */
-    public function setIdCatRec(\CupCakesBundle\Entity\CategorieRec $idCatRec = null)
-    {
-        $this->idCatRec = $idCatRec;
-
-        return $this;
-    }
-
-    /**
-     * Get idCatRec
-     *
-     * @return \CupCakesBundle\Entity\CategorieRec
-     */
-    public function getIdCatRec()
-    {
-        return $this->idCatRec;
-    }
 }

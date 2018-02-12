@@ -1,0 +1,6 @@
+ProduitListe:
+    path:     /listeProduit
+    defaults: { _controller: CupCakesBundle:Produit:Liste}
+ProduitSeul:
+    path:     /produitDetaille
+    defaults: { _controller: CupCakesBundle:Produit:Proddet}

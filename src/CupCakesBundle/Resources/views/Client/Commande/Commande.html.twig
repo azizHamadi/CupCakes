@@ -29,61 +29,61 @@
                     <div class="row">
                         <div class="col-md-7 col-sm-7 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                             <div class="shop-checkout-left">
-                                <h6>Returning customer? Click here to <a href="{{ path('login.html.twig') }}">login</a></h6>
+                                <h6>Returning customer? Click here to <a href="{{ path('fos_user_security_login') }}">login</a></h6>
                                 <form class="form-checkout" name="form" method="post">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <h5>Billing Details</h5>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <h5>Billing Details</h5>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="text" name="txt" placeholder="First Name" />
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="text" name="txt" placeholder="Last Name" />
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" name="txt" placeholder="Company Name" />
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="email" name="email" placeholder="Email" />
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input type="text" name="text" placeholder="Phone" />
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <select class="select-dropbox">
+                                                <option>Country</option>
+                                                <option>India</option>
+                                                <option>USA</option>
+                                                <option>London</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <textarea placeholder="Address"></textarea>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <select class="select-dropbox">
+                                                <option>Province</option>
+                                                <option>list 1</option>
+                                                <option>list 2</option>
+                                                <option>list 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label>
+                                                <input type="checkbox" name="checkbox" />Create an account ?</label>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <h5>Shipping Address</h5>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label>
+                                                <input type="checkbox" name="checkbox" />Ship to a different address ?</label>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <textarea placeholder="Order Notes"></textarea>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <input type="text" name="txt" placeholder="First Name" />
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <input type="text" name="txt" placeholder="Last Name" />
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <input type="text" name="txt" placeholder="Company Name" />
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <input type="email" name="email" placeholder="Email" />
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <input type="text" name="text" placeholder="Phone" />
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <select class="select-dropbox">
-                                            <option>Country</option>
-                                            <option>India</option>
-                                            <option>USA</option>
-                                            <option>London</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <textarea placeholder="Address"></textarea>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <select class="select-dropbox">
-                                            <option>Province</option>
-                                            <option>list 1</option>
-                                            <option>list 2</option>
-                                            <option>list 3</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" />Create an account ?</label>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <h5>Shipping Address</h5>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <label>
-                                            <input type="checkbox" name="checkbox" />Ship to a different address ?</label>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <textarea placeholder="Order Notes"></textarea>
-                                    </div>
-                                </div>
                                 </form>
                             </div>
                         </div>
