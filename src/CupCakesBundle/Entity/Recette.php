@@ -33,14 +33,21 @@ class Recette
      *
      * @ORM\Column(name="dateRec", type="date", nullable=true)
      */
-    private $dateRec;
+    private $dateRec ;
 
     /**
      * @var string
      *
      * @ORM\Column(name="etatRec", type="string", length=255, nullable=true)
      */
-    private $etatRec;
+    private $etatRec = "oui";
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionRec", type="string", length=10000, nullable=true)
+     */
+    private $descriptionRec ;
 
     /**
      * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\CategorieRec")
@@ -185,5 +192,29 @@ class Recette
     public function getIdCatRec()
     {
         return $this->idCatRec;
+    }
+
+    /**
+     * Set descriptionRec
+     *
+     * @param string $descriptionRec
+     *
+     * @return Recette
+     */
+    public function setDescriptionRec($descriptionRec)
+    {
+        $this->descriptionRec = $descriptionRec;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionRec
+     *
+     * @return string
+     */
+    public function getDescriptionRec()
+    {
+        return $this->descriptionRec;
     }
 }

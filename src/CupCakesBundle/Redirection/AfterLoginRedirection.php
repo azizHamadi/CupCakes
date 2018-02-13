@@ -59,7 +59,7 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             }
             else {
                 // c'est un utilisaeur formateur : on le rediriger vers l'accueil formateur
-                $redirection = new RedirectResponse($this->router->generate('cup_cakes_Formateur'));
+                $redirection = new RedirectResponse($this->router->generate('formateur_accueil'));
             }
         }}
         return $redirection;

@@ -7,9 +7,6 @@ cup_cakes_Dashbord:
 cup_cakes_Eshop:
     path:   /Client
     defaults: { _controller: CupCakesBundle:Default:client }
-cup_cakes_Formateur:
-    path:   /Formateur
-    defaults: { _controller: CupCakesBundle:Default:Formateur }
 cup_cakes_DashAdmin:
     path:   /DashAdmin
     defaults: { _controller: CupCakesBundle:Default:DashAd }
@@ -22,3 +19,6 @@ cup_cakes_produit:
 cup_cakes_recette:
     resource: "@CupCakesBundle/Resources/config/routing/Recette.yml"
     prefix:   /Recette
+cup_cakes_formation:
+    resource: "@CupCakesBundle/Resources/config/routing/Formation.yml"
+    prefix:   /Formateur

@@ -101,5 +101,4 @@ hwi_oauth:
             options:
                 display: popup #dialog is optimized for popup window
                 auth_type: rerequest # Re-asking for Declined Permissions
-            options:
                 csrf: true

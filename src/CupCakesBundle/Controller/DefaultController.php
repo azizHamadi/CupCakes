@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CupCakesBundle:Patisseuri:layout.html.twig');
+        return $this->render('CupCakesBundle:Admin:LayoutA.html.twig');
     }
 
     public function AdminAction()

@@ -43,6 +43,14 @@ class Formation
     private $idUser;
 
     /**
+     * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\TypeFormation")
+     *
+     * @ORM\JoinColumn(name="idTypeFor",referencedColumnName="idTypeFor")
+     */
+    private $idTypeFor;
+
+
+    /**
      * Get id
      *
      * @return integer
