@@ -1,0 +1,90 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block containt %}
+
+    {{ form_start(form) }}
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter un produit</h4>
+            </div>
+            <div class="content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.nomProd, {'label':"Nom Produit" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+                <div class="content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_row(form.qteStockProd, {'label':"Quantite" ,'attr': {'class': 'form-control border-input'}}) }}
+                                </div>
+                            </div>
+
+                        </div>
+                </div>
+            <div class="content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.typeProd, {'label':"Type" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.prixProd, {'label':"Prix" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.etatProd, {'label':"Etat" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.idCat, {'label':"Nom" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.imageProd, {'label':"Image" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                <div>
+                    <input type="submit" class="btn btn-info btn-fill btn-wd" value="Enregistrer" />
+                    {{ form_row(form._token) }}
+                </div>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

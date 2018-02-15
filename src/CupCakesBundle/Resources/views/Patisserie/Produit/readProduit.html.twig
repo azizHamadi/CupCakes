@@ -1,0 +1,74 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des formations</h4>
+
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                    <th>  Image</th>
+                    <th> num produit </th>
+                    <th> Nom Produit</th>
+                    <th> Quantité</th>
+                    <th> Type Produit </th>
+                    <th> Prix</th>
+                    <th>  Etat</th>
+                    <th>  Patisserie</th>
+                    <th>  Categorie</th>
+
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
+                    </thead>
+                    <tbody>
+                    {% for produit in produit  %}
+                        <tr>
+                            <td>
+                                <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" style="height: 70px; width: 100px" >
+                            </td>
+                            <td>
+                                {{  produit.id }}
+                            </td>
+                            <td>
+                                {{  produit.nomProd }}
+                            </td>
+                            <td>
+                                {{  produit.qteStockProd }}
+                            </td>
+                            <td>
+                                {{  produit.typeProd }}
+                            </td>
+                            <td>
+                                {{  produit.prixProd }}
+                            </td>
+                            <td>
+                                {{  produit.etatProd }}
+                            </td>
+                            <td>
+                                {{  produit.idCat.nomCat }}
+                            </td>
+
+                            <td>
+
+                            </td>
+                            <td>
+                                <a href="{{ path('update_Produit',{'id':produit.id}) }}">Modifier</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

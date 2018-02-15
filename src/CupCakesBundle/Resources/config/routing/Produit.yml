@@ -4,3 +4,29 @@ ProduitListe:
 ProduitSeul:
     path:     /produitDetaille
     defaults: { _controller: CupCakesBundle:Produit:Proddet}
+Ajouter_Produit:
+    path:     /create_Produit
+    defaults: { _controller: CupCakesBundle:Produit:create_Produit}
+read_produit:
+    path:     /read_produit
+    defaults: { _controller: CupCakesBundle:Produit:read_produit}
+update_Produit:
+    path:     /update_Produit{id}
+    defaults: { _controller: CupCakesBundle:Produit:update_Produit}
+Ajouter_Categorie:
+    path:     /Create_categorie
+    defaults: { _controller: CupCakesBundle:Categorie:create_Categorie}
+Supprimer_Categorie:
+    path:     /delete_categorie{id}
+    defaults: { _controller: CupCakesBundle:Categorie:delete_categorie}
+read:
+    path:     /read_categorie
+    defaults: { _controller: CupCakesBundle:Categorie:read_categorie}
+update_Categorie:
+    path:     /update_Categorie{id}
+    defaults: { _controller: CupCakesBundle:Categorie:update_Categorie}
+
+Detail_Produit:
+    path:     /Proddet{id}
+    defaults: { _controller: CupCakesBundle:Produit:Proddet}
+

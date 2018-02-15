@@ -3,6 +3,7 @@
 namespace CupCakesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * produit
@@ -69,6 +70,14 @@ class Produit
      * @ORM\JoinColumn(name="idCat",referencedColumnName="idCat")
      */
     private $idCat;
+
+    /**
+     * @ORM\Column(name="imageprod",type="string", length=10000, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $imageProd;
 
     /**
      * Get id
@@ -246,5 +255,29 @@ class Produit
     public function getTypeProd()
     {
         return $this->typeProd;
+    }
+
+    /**
+     * Set imageProd
+     *
+     * @param string $imageProd
+     *
+     * @return Produit
+     */
+    public function setImageProd($imageProd)
+    {
+        $this->imageProd = $imageProd;
+
+        return $this;
+    }
+
+    /**
+     * Get imageProd
+     *
+     * @return string
+     */
+    public function getImageProd()
+    {
+        return $this->imageProd;
     }
 }

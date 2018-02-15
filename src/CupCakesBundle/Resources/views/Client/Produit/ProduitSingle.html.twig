@@ -23,43 +23,21 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                             <div class="slider slider-for slick-shop">
                                 <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
+                                    <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" />
                                 </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
-                                <div>
-                                    <img src="{{ asset('ClientTemplate/images/img64.png') }}" alt="" />
-                                </div>
+
                             </div>
                             <div class="slider slider-nav slick-shop-thumb">
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
-                                <div><img src="{{ asset('ClientTemplate/images/img65.png') }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+                                <div><img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" /></div>
+
+
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <h4 class="text-coffee">Caramel Cheesecake</h4>
+                            <h4 class="text-coffee">{{  produit.nomProd }}</h4>
                             <div class="star-review-collect">
                                 <div class="star-rating">
                                         <span class="star-rating-customer" style="width: 100%">
@@ -67,8 +45,9 @@
                                 </div>
                                 <a href="#" class="review-text">03 customer review</a>
                             </div>
-                            <p>If you're planning to start an online store right away, look no further, get this template on templateForest. This product page demonstrates a "Simple Product".</p>
-                            <h3 class="text-coffee">$290.50</h3>
+                            <p> Stock: {{  produit.qteStockProd }}</p>
+                            <p> Type: {{  produit.typeProd }}</p>
+                            <h3 class="text-coffee"> {{  produit.prixProd }}</h3>
                             <div class="price-textbox">
                                 <span class="minus-text"><i class="icon-minus"></i></span>
                                 <input type="text" name="txt" placeholder="1" pattern="[0-9]" />
@@ -194,15 +173,18 @@
                         <h3>Related Products</h3>
                     </div>
                     <div class="owl-carousel owl-theme" data-items="4" data-laptop="3" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
-                        <div class="item">
-                            <div class="related-img">
-                                <img src="{{ asset('ClientTemplate/images/img66.png') }}" alt="" />
-                            </div>
-                            <div class="related-info">
-                                <h6><a href="#">Blanched Garlic</a></h6>
-                                <h6><a href="#"><strong>$ 15.00</strong></a></h6>
-                            </div>
-                        </div>
+    {% for produit1 in produits  %}
+        <div class="item">
+            <div class="related-img">
+                <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit1.imageProd) }}"  height="262" width="227 alt="" />
+            </div>
+            <div class="related-info">
+                <h6><a href="{{ path('Detail_Produit',{'id':produit.id }) }}">{{ produit.nomProd }}</a></h6>
+                <h6><a href="#"><strong>{{  produit.prixProd }}</strong></a></h6>
+            </div>
+        </div>
+    {% endfor %}
+
                         <div class="item">
                             <div class="related-img">
                                 <img src="{{ asset('ClientTemplate/images/img67.png') }}" alt="" />

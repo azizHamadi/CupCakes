@@ -5816,6 +5816,9 @@ textarea {
 
 .shop-product img {
     width: 100%;
+    -webkit-border-radius: 17px;
+    height: 262px;
+    width: 277px;
 }
 
 .shop-main-list h5 {

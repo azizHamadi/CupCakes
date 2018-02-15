@@ -14,6 +14,7 @@
                 </div>
             </section>
             <!-- End Breadcrumb Part -->
+
             <section class="home-icon blog-main-section shop-page">
                 <div class="icon-default">
                     <img src="{{ asset('ClientTemplate/images/scroll-arrow.png')}}" alt="" />
@@ -29,119 +30,23 @@
                         </div>
                     </div>
                     <div class="portfolioContainer row" data-defaultfilter=".breakfast">
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img56.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast dinner lunch wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img57.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img58.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img59.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast freshfood wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img60.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast lunch wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img61.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast freshfood wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img62.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-12 breakfast lunch wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <div class="shop-main-list">
-                                <div class="shop-product">
-                                    <img src="{{ asset('ClientTemplate/images/img63.png')}}" alt="" />
-                                    <div class="cart-overlay-wrap">
-                                        <div class="cart-overlay">
-                                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#"><h5>Paper Pouch</h5></a>
-                                <h5><strong>$ 15.00</strong></h5>
-                            </div>
+    {% for produit in produits  %}
+        <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="shop-main-list">
+                <div class="shop-product">
+                    <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" height="220" width="220" />
+                    <div class="cart-overlay-wrap">
+                        <div class="cart-overlay">
+                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
                         </div>
                     </div>
+                </div>
+                <a href="{{ path('Detail_Produit',{'id':produit.id }) }}"><h5>{{ produit.nomProd }}</h5></a>
+                <h5><strong> {{  produit.prixProd }}</strong></h5>
+            </div>
+        </div>
+    {% endfor %}
+
                     <div class="gallery-pagination">
                         <div class="gallery-pagination-inner">
                             <ul>

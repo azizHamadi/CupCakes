@@ -1,0 +1,50 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des formations</h4>
+
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                    <th>ID</th>
+                    <th> Nom Categorie</th>
+
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                    </thead>
+                    <tbody>
+                    {% for categorie in categorie  %}
+                        <tr>
+                            <td>
+                                {{  categorie.id }}
+                            </td>
+                            <td>
+                                {{  categorie.nomCat }}
+                            </td>
+
+                            <td>
+                                <a href="{{ path('Supprimer_Categorie',{'id':categorie.id }) }}" >Supprimer</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('update_Categorie',{'id':categorie.id}) }}">Modifier</a>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
