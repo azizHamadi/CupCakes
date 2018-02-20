@@ -38,7 +38,7 @@ class LineCmd
      *
      * @ORM\Column(name="etatLineCmd", type="string", length=255, nullable=true)
      */
-    private $etatLineCmd;
+    private $etatLineCmd="vrai";
 
     /**
      * Set qteAcheter

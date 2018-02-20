@@ -1,0 +1,59 @@
+{% extends "CupCakesBundle:Client:LayoutC.html.twig" %}
+{% block containt %}
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('{{ asset('ClientTemplate/images/breadbg1.jpg') }}');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>SHOP CART</h2>
+                        <a href="#">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+            <section class="home-icon shop-cart bg-skeen">
+                <div class="icon-default icon-skeen">
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
+                </div>
+                <div class="container">
+                    <div class="checkout-wrap wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <ul class="checkout-bar">
+                            <li class="done-proceed">Mon Pannier</li>
+                            <li class="done-proceed">Livraison</li>
+                            <li class="active">Commande Complete</li>
+                            <li>Ma Commande</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-7 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <div class="shop-checkout-right">
+                            <div class="shop-checkout-box">
+                                <h5>Votre Commande</h5>
+                                <form method="post">
+                                    <div class="shop-checkout-title">
+                                        <h6>Produit <span>TOTAL</span></h6>
+                                    </div>
+                                    {% for produit in produits %}
+                                    <div class="shop-checkout-row">
+                                        <p><span>{{ produit.nomProd }}</span><small >{{ produit.prixProd * panier[produit.id] }}</small></p>
+                                        <input hidden name="Qte" value="{{ panier[produit.id] }}">
+                                    </div>
+                                    <div class="checkout-total">
+                                        <h6>Total produits <small>{{ panier[produit.id] }}</small></h6>
+                                    </div>
+                                    <input hidden name="idProd" value="{{ produit.id }}">
+                                    <div class="checkout-button">
+                                        <input type="submit" class="button-default btn-large btn-primary-gold" value="Suivre ma Commande">
+                                    </div>
+                                </form>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- End Main -->
+{% endblock %}

@@ -48,12 +48,17 @@
                             <p> Stock: {{  produit.qteStockProd }}</p>
                             <p> Type: {{  produit.typeProd }}</p>
                             <h3 class="text-coffee"> {{  produit.prixProd }}</h3>
-                            <div class="price-textbox">
-                                <span class="minus-text"><i class="icon-minus"></i></span>
-                                <input type="text" name="txt" placeholder="1" pattern="[0-9]" />
-                                <span class="plus-text"><i class="icon-plus"></i></span>
-                            </div>
-                            <a href="#" class="filter-btn btn-large"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Add to Cart</a>
+                            <form action="{{ path('PasserCommande', { 'id' : produit.id }) }}" method="get">
+                                <select name="qte">
+                                    {% for i in 1..10 %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <div>
+                                    <button class="filter-btn btn-large"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Ajouter au panier</button>
+                                </div>
+                            </form>
                             <div class="share-tag">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">

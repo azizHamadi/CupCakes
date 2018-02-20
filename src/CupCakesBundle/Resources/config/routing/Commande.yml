@@ -1,6 +1,33 @@
-CommandeMain:
-    path:     /main
-    defaults: { _controller: CupCakesBundle:Commande:Main }
+ValiderPanier:
+    path:     /main/{total}
+    defaults: { _controller: CupCakesBundle:Commande:ValiderPanier }
 CommandeSuivie:
     path:     /suivie
     defaults: { _controller: CupCakesBundle:Commande:Suivie }
+AfficherPanier:
+    path:     /panier
+    defaults: { _controller: CupCakesBundle:Commande:liste }
+CommandeListePatisserie:
+    path:     /ListeComm
+    defaults: { _controller: CupCakesBundle:Commande:PatisserieListe }
+ModificationEtat:
+    path:     /ModificationEtat/{id}
+    defaults: { _controller: CupCakesBundle:Commande:UpdateEtatLivraison }
+PasserCommande:
+    path:     /ajouter/{id}
+    defaults: { _controller: CupCakesBundle:Commande:AjouterPanier }
+SupprimerPanier:
+    path:     /supprimer/{id}
+    defaults: { _controller: CupCakesBundle:Commande:SupprimerPanier }
+AjouterFeedback:
+    path:     /Feedback/{id}
+    defaults: { _controller: CupCakesBundle:FeedBack:AjouterFeedback }
+ListeFeedback:
+    path:     /Feedback
+    defaults: { _controller: CupCakesBundle:FeedBack:ListeFeedback }
+DetailFeedback:
+    path:     /FeedbackDetail/{id}
+    defaults: { _controller: CupCakesBundle:FeedBack:DetailFeedback }
+AjouterLine:
+    path:     /Finie
+    defaults: { _controller: CupCakesBundle:Commande:AjouterLine }

@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    {%  block head %}
-        <meta charset="utf-8" />
+    {%  block head %}    {% endblock %}
+    <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Laboom - Food & Restaurant Bistro HTML Template</title>
@@ -25,8 +25,8 @@
         <script href="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script href="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+    {% block stylesheet %}{% endblock %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    {% endblock %}
 </head>
 <body>
 <!-- Page pre loader -->
@@ -140,7 +140,7 @@
                                 </ul>
                             </li>
                             <li class="has-child">
-                                <a href="{{ path('CommandeMain') }}">Commandes</a>
+                                <a href="#">Commandes</a>
                                 <ul class="drop-nav">
                                     <li><a href="./shop.html">Shop Page</a></li>
                                     <li><a href="./shop_single.html">Shop Single</a></li>
@@ -946,7 +946,6 @@
     </div>
 </div>
 <!-- End Book Table -->
-{% block javascript %}
     <a href="#" class="top-arrow"></a>
     <script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
     <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
@@ -965,6 +964,7 @@
     <script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
     <script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
 
+{% block javascript %}
 {% endblock %}
 </body>
 </html>

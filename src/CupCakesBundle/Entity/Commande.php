@@ -47,14 +47,14 @@ class Commande
      *
      * @ORM\Column(name="etatLivCmd", type="string", length=255, nullable=true)
      */
-    private $etatLivCmd;
+    private $etatLivCmd="en cour";
 
     /**
      * @var string
      *
      * @ORM\Column(name="etatCmd", type="string", length=255, nullable=true)
      */
-    private $etatCmd;
+    private $etatCmd="vrai";
 
     /**
      * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\User")
@@ -86,6 +86,7 @@ class Commande
     
         return $this;
     }
+
 
     /**
      * Get dateCmd

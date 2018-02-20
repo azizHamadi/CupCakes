@@ -1,0 +1,38 @@
+{% extends "::layout.html.twig" %}
+{% block containt %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste Des Commandes</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Sujet</th>
+                            <th>Description</th>
+                            <th>Montant de la commande</th>
+                            <th>Date Commande</th>
+                            <th>Date Livraison</th>
+                            </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ Feedback.sujet }}</td>
+                                    <td>{{ Feedback.description }}</td>
+                                    <td>{{ Feedback.idCmd.montantCmd }}</td>
+                                    <td>{{ Feedback.idCmd.dateCmd |date}}</td>
+                                    <td>{{ Feedback.idCmd.dateLivCmd| date }}</td>
+                                </tr>
+                                </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            {% endblock %}
+
+
