@@ -20,6 +20,10 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Http\HttplugBundle\HttplugBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new FPN\TagBundle\FPNTagBundle(),
+
+
 
 
         ];

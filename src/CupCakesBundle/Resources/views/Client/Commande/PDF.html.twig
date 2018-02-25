@@ -1,0 +1,29 @@
+<h3><span>Ma Commande:</span></h3>
+
+
+<table>
+    <tbody>
+    <tr>
+        <td>Poduit</td>
+        <td>Prix</td>
+        <td>Quantite</td>
+        <td>TOTAL</td>
+    </tr>
+    {% for line in LineCmd %}
+        <tr>
+        <td>
+            {{ line.idProd.nomProd }}
+        </td>
+        <td>
+            {{ line.idProd.prixProd }}
+        </td>
+        <td>
+            {{ line.qteAcheter }}
+        </td>
+        <td>
+            {{ line.idCmd.montantCmd }}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

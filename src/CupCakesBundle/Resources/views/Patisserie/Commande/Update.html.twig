@@ -3,7 +3,7 @@
     <div class="col-lg-8 col-md-7">
     <div class="card">
     <div class="header">
-        <h4 class="title">Modifier etat recette</h4>
+        <h4 class="title">Modifier etat Commande</h4>
     </div>
     <div class="content">
     <form method="post">
@@ -11,7 +11,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label>Etat Livraison</label>
-            <input type="text" name="Etatliv" value="{{ Commande.etatLivCmd }}">
+            {{ form_widget(form.etatLivCmd) }}
         </div>
         <div>
             <input type="submit" class="btn btn-info btn-fill btn-wd" value="Enregistrer" />

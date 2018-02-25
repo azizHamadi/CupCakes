@@ -29,27 +29,15 @@
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <div class="shop-checkout-right">
-                        <div class="shop-checkout-box">
                             <h5>Votre Commande</h5>
-                            <form method="post">
-                            <div class="shop-checkout-title">
-                                <h6>Produit <span>TOTAL</span></h6>
-                            </div>
-                                {% for produit in produits %}
-                            <div class="shop-checkout-row">
-                                <p><span>{{ produit.nomProd }}</span><small >{{ produit.prixProd * panier[produit.id] }}</small></p>
+
+
+    {% for produit in produits %}
                                 <input hidden name="total" value="{{ produit.prixProd * panier[produit.id] }}">
                                 <input hidden name="Qte" value="{{ panier[produit.id] }}">
-                            </div>
-                            <div class="checkout-total">
-                                <h6>Total produits <small>{{ panier[produit.id] }}</small></h6>
-                            </div>
+
                                 <input hidden name="idProd" value="{{ produit.id }}">
-                            <div class="checkout-button">
-                                <input type="submit" class="button-default btn-large btn-primary-gold" value="Suivre ma Commande">
-                            </div>
-                             </form>
-                        </div>
+
                         {% set totalPrix = totalPrix + (produit.prixProd * panier[produit.id]) %}
 
                         {% endfor %}
@@ -57,7 +45,9 @@
                         <div class="shop-checkout-title">
                                         <form method="post" action="{{ path('ValiderPanier' , {'total': totalPrix}) }}">
                                         <div class="checkout-total">
-                                            <h6>Livraison <small><input type="date" name="Dateliv">
+                                            <h6>Date Livraison <small><input type="date" name="Dateliv">
+                                                </small></h6>
+                                            <h6>add Livraison <small><input type="text" name="addLiv">
                                                 </small></h6>
                                         </div>
                                         <div class="checkout-button">

@@ -35,13 +35,12 @@
      {% endif %}
      {% for owner in hwi_oauth_resource_owners() %}
          {% if owner == 'facebook' %}
-             <a class="btn btn-link-2" href="{{ hwi_oauth_login_url(owner) }}">
-                 <i class="fa fa-facebook"></i> Facebook - {{ owner | trans({}, 'HWIOAuthBundle') }}
+             <a class="btn btn-link-2" href="{{ hwi_oauth_login_url('facebook') }}">
+                 <i class="fa fa-facebook"></i>
              </a>
          {% else %}
-             <a class="btn btn-link-2" href="{{ hwi_oauth_login_url(owner) }}">
-                 <i class="fa fa-google-plus"></i> Google Plus - {{ owner | trans({}, 'HWIOAuthBundle') }}
-             </a>
+             <a class="btn btn-link-2" href="{{ hwi_oauth_login_url('google') }}">
+                 <i class="fa fa-google-plus"></i>  </a>
          {% endif %}
      {% endfor %}
  {% endblock hwi_oauth_content %}

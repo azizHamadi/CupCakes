@@ -33,7 +33,47 @@
                                 <img src="{{ asset('ClientTemplate/images/clock-icon.png') }}" alt="" />
                             </div>
                             <div class="track-status">
-                                <h3><span>Order Status:</span> <br /> We are now baking your Coffee</h3>
+                                <h3><span>Mes Commande:</span></h3>
+
+                                        {% for line in LineCmd %}
+
+                                <table>
+                                    <tbody>
+                                            <tr>{{ line.idCmd.id }}
+                                                <td>
+                                                    <div class="product-cart-title">
+                                                        <span>{{ line.idProd.nomProd }}</span>
+                                                    </div>
+                                                </td>
+                                                <th>Prix</th>
+                                                <td>
+                                                    <div class="product-cart-title">
+                                                        <span class="pu">{{ line.idProd.prixProd }}</span>
+                                                    </div>
+                                                </td>
+                                                <th>Quantité</th>
+                                                <td>
+                                                            {{ line.qteAcheter }}
+                                                </td>
+                                                <th>TOTAL</th>
+                                                <td>
+                                                    <span class="price">{{ line.idCmd.montantCmd }}</span>
+                                                </td>
+                                                <th>Etat Commande</th>
+                                                <td>
+                                                    {{ line.idCmd.etatLivCmd }}
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('AjouterFeedback',{'id':line.idCmd.id}) }}">Feedback</a>
+                                                </td>
+                                                <td>
+                                                    <span><a href="{{ path('Pdf',{'id' : line.idCmd.id }) }}">Pdf</a></span>
+                                                </td>
+                                            </tr>
+
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
                             </div>
                         </div>
                     </div>

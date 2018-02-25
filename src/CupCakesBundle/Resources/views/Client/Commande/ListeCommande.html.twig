@@ -65,7 +65,7 @@
                                 <td>
                                     <form action="{{ path('PasserCommande', { 'id' : produit.id }) }}" method="get">
                                     <select name="qte" class="quantity" onChange="this.form.submit()">
-                                        {% for i in 1..50 %}
+                                        {% for i in 0.. produit.qteStockProd  %}
                                             <option value="{{ i }}" {% if i == panier[produit.id] %} selected="selected" {% endif %}>{{ i }}</option>
                                         {% endfor %}
                                     </select>&nbsp;

@@ -31,3 +31,12 @@ DetailFeedback:
 AjouterLine:
     path:     /Finie
     defaults: { _controller: CupCakesBundle:Commande:AjouterLine }
+Pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: CupCakesBundle:Commande:PDFFacture }
+AnnulationCmd:
+    path:     /Supp/{id}
+    defaults: { _controller: CupCakesBundle:Commande:SupprimerCmd }
+recherche_user_commande:
+    path:     /commandeRecherche
+    defaults: { _controller: CupCakesBundle:Commande:Recherche }

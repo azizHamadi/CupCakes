@@ -75,13 +75,17 @@ fos_user:
     user_class: CupCakesBundle\Entity\User
     from_email:
           address: aziz.hamadi@esprit.tn
-          sender_name:  Aziz
+          sender_name:  CupCakes
     registration:
            form:
                type: CupCakesBundle\Form\RegistrationFormType
     profile:
            form:
                type: CupCakesBundle\Form\ProfileType
+    registration:
+            confirmation:
+                template:   '@FOSUser/Registration/email.txt.twig'
+
 
 hwi_oauth:
     # list of names of the firewalls in which this bundle is active, this setting MUST be set
@@ -102,3 +106,17 @@ hwi_oauth:
                 display: popup #dialog is optimized for popup window
                 auth_type: rerequest # Re-asking for Declined Permissions
                 csrf: true
+# Windows configuration
+knp_snappy:
+    pdf:
+        enabled:    true
+        # If you have wkhtmltopdf as an environment variable you don't need to provide the
+        # full path to the executable, use it in the same way as you use in the console
+        binary:   "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options: []
+    process_timeout: 120 # In seconds
+
+fpn_tag:
+    model:
+        tag_class:     CupCakesBundle\Entity\Tag
+        tagging_class: CupCakesBundle\Entity\Tagging

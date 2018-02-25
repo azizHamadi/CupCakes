@@ -18,4 +18,6 @@ class produitRepository extends \Doctrine\ORM\EntityRepository
         ->setParameter('array', $array);
         return $qb->getQuery()->getResult();
     }
+
+
 }

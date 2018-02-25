@@ -45,6 +45,13 @@ class Commande
     /**
      * @var string
      *
+     * @ORM\Column(name="addLiv", type="string", length=255, nullable=true)
+     */
+    private $adresseLi;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="etatLivCmd", type="string", length=255, nullable=true)
      */
     private $etatLivCmd="en cour";
@@ -217,4 +224,21 @@ class Commande
     {
         return $this->idUser;
     }
+
+    /**
+     * @return string
+     */
+    public function getAdresseLi()
+    {
+        return $this->adresseLi;
+    }
+
+    /**
+     * @param string $adresseLi
+     */
+    public function setAdresseLi($adresseLi)
+    {
+        $this->adresseLi = $adresseLi;
+    }
+
 }
