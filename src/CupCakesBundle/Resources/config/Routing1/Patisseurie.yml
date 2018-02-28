@@ -1,0 +1,45 @@
+CommandeListePatisserie:
+    path:     /ListeComm
+    defaults: { _controller: CupCakesBundle:Commande:PatisserieListe }
+ModificationEtat:
+    path:     /ModificationEtat/{id}
+    defaults: { _controller: CupCakesBundle:Commande:UpdateEtatLivraison }
+ListeFeedback:
+    path:     /Feedback
+    defaults: { _controller: CupCakesBundle:FeedBack:ListeFeedback }
+DetailFeedback:
+    path:     /FeedbackDetail/{id}
+    defaults: { _controller: CupCakesBundle:FeedBack:DetailFeedback }
+AnnulationCmd:
+    path:     /Supp/{id}
+    defaults: { _controller: CupCakesBundle:Commande:SupprimerCmd }
+recherche_user_commande:
+    path:     /commandeRecherche
+    defaults: { _controller: CupCakesBundle:Commande:Recherche }
+recherche_feedback:
+    path:     /feedbackRecherche
+    defaults: { _controller: CupCakesBundle:Commande:RechercheFeedback }
+Ajouter_Produit:
+    path:     /create_Produit
+    defaults: { _controller: CupCakesBundle:Produit:create_Produit}
+update_Produit:
+    path:     /update_Produit{id}
+    defaults: { _controller: CupCakesBundle:Produit:update_Produit}
+Ajouter_Categorie:
+    path:     /Create_categorie
+    defaults: { _controller: CupCakesBundle:Categorie:create_Categorie}
+Supprimer_Categorie:
+    path:     /delete_categorie{id}
+    defaults: { _controller: CupCakesBundle:Categorie:delete_categorie}
+update_Categorie:
+    path:     /update_Categorie{id}
+    defaults: { _controller: CupCakesBundle:Categorie:update_Categorie}
+read:
+    path:     /read_categorie
+    defaults: { _controller: CupCakesBundle:Categorie:read_categorie}
+read_produit:
+    path:     /read_produit
+    defaults: { _controller: CupCakesBundle:Produit:read_produit }
+Stat_vente:
+    path:     /stat
+    defaults: { _controller: CupCakesBundle:Commande:Stat }

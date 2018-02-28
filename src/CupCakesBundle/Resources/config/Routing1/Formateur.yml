@@ -1,0 +1,7 @@
+formateur_accueil:
+    path:   /
+    defaults: { _controller: CupCakesBundle:Default:Formateur }
+ListeFRecette:
+    path:     /listeRecetteF
+    defaults: { _controller: CupCakesBundle:Recette:CreateRecetteFormateur }
+

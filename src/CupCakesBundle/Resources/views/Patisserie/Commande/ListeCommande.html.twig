@@ -1,4 +1,8 @@
-{% extends "::layout.html.twig" %}
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block stylesheet %}
+    <link href="{{ asset('css/bouton.css') }}" rel="stylesheet"/>
+
+{% endblock %}
 {% block containt %}
 
     <div class="content">
@@ -6,11 +10,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <h1>Recherche</h1>
-                        Rechercher: <input type="text" id="recherche">
                         <div class="header">
-                            <h4 class="title">Liste Des Commandes</h4>
+                            <h4 class="title">Liste Des Commandes</h4><BR>
+                            Rechercher: <input type="text" id="recherche">
+
                         </div>
+
                         <div class="content table-responsive table-full-width" id="tableau">
                             <table class="table table-striped">
                                 <thead>
@@ -28,14 +33,14 @@
                                 <tbody>
                                 <tr>
                                     <td>{{ commande.id }}</td>
-                                    <td>{{ commande.idUser.username }}</td>
+                                    <td>{{ commande.idUser.nom }} {{ commande.idUser.prenom }}</td>
                                     <td>{{ commande.dateCmd| date }}</td>
                                     <td>{{ commande.montantCmd }}</td>
                                     <td>{{ commande.etatCmd }}</td>
-                                    <td>{{ commande.dateLivCmd| date }}</td>
+                                    <td>{{ commande.dateLivCmd| date('d M Y') }}</td>
                                     <td>{{ commande.etatLivCmd }}</td>
-                                    <td><a href="{{ path('ModificationEtat',{'id':commande.id}) }}">Modifier etat</a></td>
-                                    <td><a href="{{ path('AnnulationCmd',{'id':commande.id}) }}" >Annuler</a></td>
+                                    <td><a href="{{ path('ModificationEtat',{'id':commande.id}) }}" class="material-icons button delete">Modifier etat</a></td>
+                                    <td><a href="{{ path('AnnulationCmd',{'id':commande.id}) }}" class="material-icons button edit">Annuler</a></td>
                                 </tr>
 
                                 </tbody>

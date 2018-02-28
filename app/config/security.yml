@@ -41,3 +41,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/Patisserie/, role: ROLE_PATISSERIE }
+        - { path: ^/Client/, role: ROLE_CLIENT }
+        - { path: ^/Client, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/Formateur/, role: ROLE_FORMATEUR }

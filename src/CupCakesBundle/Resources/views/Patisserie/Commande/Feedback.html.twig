@@ -1,4 +1,4 @@
-{% extends "::layout.html.twig" %}
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
 {% block containt %}
 
 <div class="content">
@@ -23,8 +23,8 @@
                                     <td>{{ Feedback.sujet }}</td>
                                     <td>{{ Feedback.description }}</td>
                                     <td>{{ Feedback.idCmd.montantCmd }}</td>
-                                    <td>{{ Feedback.idCmd.dateCmd |date}}</td>
-                                    <td>{{ Feedback.idCmd.dateLivCmd| date }}</td>
+                                    <td>{{ Feedback.idCmd.dateCmd |date('d M Y')}}</td>
+                                    <td>{{ Feedback.idCmd.dateLivCmd| date('d M Y') }}</td>
                                 </tr>
                                 </tbody>
                         </table>

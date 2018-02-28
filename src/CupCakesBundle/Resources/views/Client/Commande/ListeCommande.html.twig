@@ -10,9 +10,9 @@
             <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
                 <div class="container">
                     <div class="breadcrumb-inner">
-                        <h2>SHOP CART</h2>
-                        <a href="#">Home</a>
-                        <span>Shop</span>
+                        <h2>PANIER</h2>
+                        <a href="{{ path('cup_cakes_Eshop') }}">Acceuil</a>
+                        <span>Achat</span>
                     </div>
                 </div>
             </section>
@@ -24,9 +24,12 @@
                 <div class="container">
                     <div class="checkout-wrap wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                         <ul class="checkout-bar">
-                            <li class="active">Mon Pannier</li>
-                            <li>Livraison</li>
-                            <li>Commande Complete</li>
+                            <ul class="checkout-bar">
+                                <li class="active">Mon Pannier</li>
+                                <li>Livraison</li>
+                                <li>Commande Complete</li>
+                                <li>Ma Commande</li>
+                            </ul>
                         </ul>
                     </div>
                     <div class="shop-cart-list wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -34,7 +37,7 @@
                             <thead>
                             <tr>
                                 <th>Produit</th>
-                                <th>Prix</th>
+                                <th>Prix unitaire</th>
                                 <th>Quantité</th>
                                 <th>Total</th>
                                 <th>Action</th>
@@ -55,7 +58,7 @@
                                         <span>{{ produit.nomProd }}</span>
                                     </div>
                                 </td>
-                                <th>Prix</th>
+                                <th>Prix Unitaire</th>
                                 <td>
                                     <div class="product-cart-title">
                                         <span class="pu">{{ produit.prixProd }}</span>
@@ -71,13 +74,13 @@
                                     </select>&nbsp;
                                 </form>
                                 </td>
-                                <th>TOTAL</th>
+                                <th>prix</th>
                                 <td>
                                     <span class="price">{{ produit.prixProd * panier[produit.id] }}</span>
                                 </td>
                                 <th>Action</th>
                                 <td>
-                               <span><a href="{{ path('SupprimerPanier', { 'id' : produit.id }) }}">Supprimer</a></span>
+                               <span><a href="{{ path('SupprimerPanier', { 'id' : produit.id }) }}"><img src="{{ asset('ClientTemplate/images/close-blue.png') }}"></a></span>
                                 </td>
                             </tr>
                                 {% set totalPrix = totalPrix + (produit.prixProd * panier[produit.id]) %}
@@ -85,9 +88,7 @@
                             {% endfor %}
                             </tbody>
                         </table>
-                        <div class="product-cart-detail">
-                            <a href="{{  path('ValiderPanier',{'total': totalPrix }) }}" class="btn-medium btn-skin pull-right">Valider Ma Commande</a>
-                        </div>
+
                     </div>
                     <div class="cart-total wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                         <div class="cart-total-title">
@@ -99,12 +100,9 @@
                                 {{ totalPrix }}
                             </span>
                         </div>
-                        <div class="product-cart-total">
-                            <small>Nombre Produits</small>
-                            <span> {{ totalQuantite }}</span>
-                        </div>
-                        <div class="grand-total">
-                            <h5>TOTAL <span>{{ totalPrix }}</span></h5>
+                        <div class="product-cart-detail">
+
+                            <a href="{{  path('ValiderPanier',{'total': totalPrix }) }}" class="btn-medium btn-skin pull-right">Valider Ma Commande</a>
                         </div>
                     </div>
                 </div>
@@ -115,10 +113,4 @@
 {% endblock %}
 
 {% block javascript %}
-
-    <script >
-
-
-
-    </script>
 {% endblock %}

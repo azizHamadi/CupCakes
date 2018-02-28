@@ -1,9 +1,9 @@
 ListeCRecette:
     path:     /listeRecette
-    defaults: { _controller: CupCakesBundle:Recette:ListeC}
+    defaults: { _controller: CupCakesBundle:Recette:ListeC }
 SingleRecette:
     path:     /SingleRecette
-    defaults: { _controller: CupCakesBundle:Recette:RecetteSingle}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingle }
 ListeFRecette:
     path:     /listeRecetteF
-    defaults: { _controller: CupCakesBundle:Recette:CreateRecetteFormateur}
+    defaults: { _controller: CupCakesBundle:Recette:CreateRecetteFormateur }

@@ -39,7 +39,7 @@ class CommandeRepository extends EntityRepository
     {
         $q=$this->createQueryBuilder('m')
             ->from('CupCakesBundle:User','u')
-            ->where('u.username LIKE :username')
+            ->where('u.nom LIKE :username')
             ->andWhere('m.idUser=u.id')
             ->setParameter(':username',"%$username%");
         return $q->getQuery()->getResult();

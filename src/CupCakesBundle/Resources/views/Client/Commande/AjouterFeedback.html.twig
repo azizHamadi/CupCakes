@@ -1,46 +1,52 @@
 {% extends "CupCakesBundle:Client:LayoutC.html.twig" %}
 {% block containt %}
 <!-- Start Main -->
-<main>
-    <div class="main-part">
-        <section class="contact-map">
-            <div class="map-outer">
-                <div id="map"></div>
-            </div>
-        </section>
-        <!-- Start Contact Part -->
-        <section class="default-section contact-part home-icon">
-            <div class="icon-default">
-                <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
-            </div>
-            <div class="container">
-                <div class="title text-center">
-                    <h2 class="text-coffee">Donnez Votre Avis</h2>
-                    <h6 class="heade-xs">Votre Avis Nous Interesse</h6>
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>Donnez Votre Avis</h2>
+                        <a href="{{ path('cup_cakes_Eshop') }}">Acceuil</a>
+                        <span>Reclamation</span>
+                    </div>
                 </div>
+            </section>
+    <section class="home-icon shop-cart bg-skeen wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="icon-default icon-skeen">
+            <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
+        </div>
+        <div class="container">
+            <div class="checkout-wrap wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="title text-center">
+                    <h4 class="text-coffee">Votre Avis Nous Interesse</h4>
+                </div>
+                <br>
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                        <form class="form" method="post" name="contact-form" />
-                        <div class="alert-container"></div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-6 col-xs-12">
-                                <label>Sujet</label>
-                                <input type="text"  name="Desc" value="{{ Feedback.sujet }}" required="">
+                    <div class="col-md-12 col-sm-8 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <form class="form" method="post" name="contact-form">
+                            <div class="alert-container"></div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label>Sujet</label>
+                                    <input type="text"  name="sujet" value="{{ Feedback.sujet }}" required="required">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label>Description</label>
+                                    <textarea name="Desc" value="{{ Feedback.description }}" required="required"></textarea>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <input name="submit" value="Envoyer" class="btn-black pull-right send_message" type="submit" />
+                                </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <label>Description</label>
-                                <textarea name="sujet" value="{{ Feedback.description }}" required=""></textarea>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <input name="submit" value="SEND MESSAGE" class="btn-black pull-right send_message" type="submit" />
-                            </div>
-                        </div>
                         </form>
                     </div>
                 </div>
             </div>
+        </div>
         </section>
         <!-- End Contact Part -->
-    </div>
+        </div>
 </main>
 {% endblock %}

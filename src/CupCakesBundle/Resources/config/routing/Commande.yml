@@ -40,3 +40,6 @@ AnnulationCmd:
 recherche_user_commande:
     path:     /commandeRecherche
     defaults: { _controller: CupCakesBundle:Commande:Recherche }
+recherche_feedback:
+    path:     /feedbackRecherche
+    defaults: { _controller: CupCakesBundle:Commande:RechercheFeedback }

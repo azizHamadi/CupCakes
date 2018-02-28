@@ -7,9 +7,9 @@
             <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('{{ asset('ClientTemplate/images/breadbg1.jpg') }}');">
                 <div class="container">
                     <div class="breadcrumb-inner">
-                        <h2>SHOP CART</h2>
-                        <a href="#">Home</a>
-                        <span>Shop</span>
+                        <h2>PANIER</h2>
+                        <a href="{{ path('cup_cakes_Eshop') }}">Acceuil</a>
+                        <span>Achat</span>
                     </div>
                 </div>
             </section>
@@ -31,9 +31,9 @@
                         <div class="shop-checkout-right">
                             <div class="shop-checkout-box">
                                 <h5>Votre Commande</h5>
-                                <table>
-                                    <form method="post">
 
+                                    <form method="post">
+                                        <table>
                                         <tr><td>Produit</td><td>Nombre</td><td>Prix</td></tr>
 
                                         {% for produit in produits %}
@@ -48,12 +48,14 @@
                                     <div class="checkout-total">
                                         <tr><td>Total</td><td>{{ totalPrix }}</td></tr>
                                     </div>
-                                    <div class="checkout-button">
-                                        <tr><input type="submit" class="button-default btn-large btn-primary-gold" value="Confirmer"></tr>
-                                    </div>
+                                </table>
+                                        <br>
+                                        <div class="checkout-button">
+                                            <input type="submit" class="button-default btn-large btn-primary-gold" value="Confirmer">
+                                        </div>
                                     </form>
 
-                                </table>
+
 
 
 

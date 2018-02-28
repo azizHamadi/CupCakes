@@ -21,9 +21,9 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "cmen/google-charts-bundle": "^3.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
-        "fpn/tag-bundle": "^0.9.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "hwi/oauth-bundle": "^0.6.1",
         "incenteev/composer-parameter-handler": "^2.0",

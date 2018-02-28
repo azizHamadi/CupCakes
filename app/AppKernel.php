@@ -21,9 +21,7 @@ class AppKernel extends Kernel
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Http\HttplugBundle\HttplugBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-            new FPN\TagBundle\FPNTagBundle(),
-
-
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
 
 
         ];

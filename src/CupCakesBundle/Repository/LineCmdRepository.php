@@ -41,5 +41,27 @@ class LineCmdRepository extends \Doctrine\ORM\EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function findLastcomm($user){
+        $query = $this->createQueryBuilder('lc')
+            ->select('lc')
+            ->from('CupCakesBundle:Commande','c')
+            ->orderBy('c.id', 'DESC')
+            ->setMaxResults(1)
+            ->andWhere('c.id = lc.idCmd')
+            ->andWhere('c.idUser = :user' )
+            ->andWhere('c.etatCmd = \'vrai\'')
+            ->setParameter(':user',$user);
+        return $query->getQuery()->getResult();
+
+    }
+
+    public function TotalProduit ($id){
+        $query = $this->createQueryBuilder('lc')
+            ->select('lc')
+            ->andWhere('lc.idProd = :id' )
+            ->setParameter(':id',$id);
+        return $query->getQuery()->getResult();
+
+    }
 
 }

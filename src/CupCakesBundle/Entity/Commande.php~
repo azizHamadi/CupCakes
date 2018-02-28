@@ -3,6 +3,7 @@
 namespace CupCakesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Commande
@@ -37,24 +38,31 @@ class Commande
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(name="dateLivCmd", type="date", nullable=true)
+     * @Assert\GreaterThan("today")
      */
     private $dateLivCmd;
 
     /**
      * @var string
      *
+     * @ORM\Column(name="addLiv", type="string", length=255, nullable=true)
+     */
+    private $adresseLi;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="etatLivCmd", type="string", length=255, nullable=true)
      */
-    private $etatLivCmd;
+    private $etatLivCmd="en cour";
 
     /**
      * @var string
      *
      * @ORM\Column(name="etatCmd", type="string", length=255, nullable=true)
      */
-    private $etatCmd;
+    private $etatCmd="vrai";
 
     /**
      * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\User")
@@ -86,6 +94,7 @@ class Commande
     
         return $this;
     }
+
 
     /**
      * Get dateCmd
@@ -216,4 +225,21 @@ class Commande
     {
         return $this->idUser;
     }
+
+    /**
+     * @return string
+     */
+    public function getAdresseLi()
+    {
+        return $this->adresseLi;
+    }
+
+    /**
+     * @param string $adresseLi
+     */
+    public function setAdresseLi($adresseLi)
+    {
+        $this->adresseLi = $adresseLi;
+    }
+
 }

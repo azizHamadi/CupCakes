@@ -64,6 +64,7 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
+    encryption: '%mailer_encryption%'
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
@@ -114,9 +115,7 @@ knp_snappy:
         # full path to the executable, use it in the same way as you use in the console
         binary:   "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
         options: []
-    process_timeout: 120 # In seconds
+    process_timeout: 200 # In seconds
 
-fpn_tag:
-    model:
-        tag_class:     CupCakesBundle\Entity\Tag
-        tagging_class: CupCakesBundle\Entity\Tagging
+cmen_google_charts:
+    version: "current"

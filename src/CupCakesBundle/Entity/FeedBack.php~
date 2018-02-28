@@ -13,8 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class FeedBack
 {
     /**
-     * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\Commande")
+     * @var int
+     *
+     * @ORM\Column(name="idFeed", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+
+    private $id;
+    /**
+     * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\Commande")
      * @ORM\JoinColumn(name="idCmd",referencedColumnName="idCmd")
      */
     private $idCmd;
@@ -32,7 +40,15 @@ class FeedBack
      * @ORM\Column(name="description", type="string", length=10000, nullable=true)
      */
     private $description;
-
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * Set sujet
      *

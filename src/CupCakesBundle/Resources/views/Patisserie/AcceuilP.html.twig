@@ -1,0 +1,41 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block containt %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-15 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                            <p style="position: center">Votre Derniere Connexion a ete le {{ app.user.lastlogin|date('d-M-Y') }}<br>
+                                on vous souhaite la bienvenue parmi nous</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Statistique</h4>
+                        <p class="category">Statistique de Vente</p>
+                    </div>
+                    <div class="content">
+                        <div id="div_graph"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        {{ gc_draw(ProduitQte, 'div_graph') }}
+    </script>
+
+{% endblock %}

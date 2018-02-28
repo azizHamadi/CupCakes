@@ -46,15 +46,15 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="http://www.creative-tim.com" class="simple-text">
-                        Creative Tim
+                      {{ app.user }}
                     </a>
                 </div>
 
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a href="{{ path('cup_cakes_homepage') }}">
                             <i class="ti-panel"></i>
-                            <p>Dashboard</p>
+                            <p>Acceuil</p>
                         </a>
                     </li>
                     <li>
@@ -83,35 +83,18 @@
                     </li>
 
                     <li>
-                        <a href="typography.html">
+                        <a href="{{ path('CommandeListePatisserie') }}">
                             <i class="ti-text"></i>
-                            <p>Typography</p>
+                            <p>Liste Commandes</p>
                         </a>
                     </li>
                     <li>
-                        <a href="icons.html">
+                        <a href="{{ path('ListeFeedback') }}">
                             <i class="ti-pencil-alt2"></i>
-                            <p>Icons</p>
+                            <p>Liste Feedback</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="maps.html">
-                            <i class="ti-map"></i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="notifications.html">
-                            <i class="ti-bell"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="upgrade.html">
-                            <i class="ti-export"></i>
-                            <p>Upgrade to PRO</p>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -126,35 +109,26 @@
                             <span class="icon-bar bar2"></span>
                             <span class="icon-bar bar3"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Dashboard</a>
+                        <a class="navbar-brand" href="{{ path('cup_cakes_Eshop') }}">Acceuil</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="ti-panel"></i>
-                                    <p>Stats</p>
+                                    <p>Statistique de vue</p>
                                 </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="ti-bell"></i>
-                                    <p class="notification">5</p>
-                                    <p>Notifications</p>
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notification 1</a></li>
-                                    <li><a href="#">Notification 2</a></li>
-                                    <li><a href="#">Notification 3</a></li>
-                                    <li><a href="#">Notification 4</a></li>
-                                    <li><a href="#">Another notification</a></li>
-                                </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ path('Stat_vente') }}" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-panel"></i>
+                                    <p>Statistique de ventes</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_security_logout') }}">
                                     <i class="ti-settings"></i>
-                                    <p>Settings</p>
+                                    <p>Deconnexion</p>
                                 </a>
                             </li>
                         </ul>
@@ -191,22 +165,7 @@
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('js/demo.js') }}"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
 
-            demo.initChartist();
-
-            $.notify({
-                icon: 'ti-gift',
-                message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
-
-            },{
-                type: 'success',
-                timer: 4000
-            });
-
-        });
-    </script>
 {% block javascript %}
 {% endblock %}
 </html>

@@ -1,0 +1,45 @@
+ValiderPanier:
+    path:     /main/{total}
+    defaults: { _controller: CupCakesBundle:Commande:ValiderPanier }
+CommandeSuivie:
+    path:     /suivie
+    defaults: { _controller: CupCakesBundle:Commande:Suivant }
+AfficherPanier:
+    path:     /panier
+    defaults: { _controller: CupCakesBundle:Commande:liste }
+PasserCommande:
+    path:     /ajouter/{id}
+    defaults: { _controller: CupCakesBundle:Commande:AjouterPanier }
+SupprimerPanier:
+    path:     /supprimer/{id}
+    defaults: { _controller: CupCakesBundle:Commande:SupprimerPanier }
+AjouterFeedback:
+    path:     /Feedback/{id}
+    defaults: { _controller: CupCakesBundle:FeedBack:AjouterFeedback }
+AjouterLine:
+    path:     /Finie
+    defaults: { _controller: CupCakesBundle:Commande:AjouterLine }
+Pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: CupCakesBundle:Commande:PDFFacture }
+ProduitListe:
+    path:     /listeProduit
+    defaults: { _controller: CupCakesBundle:Produit:Liste }
+ProduitSeul:
+    path:     /produitDetaille
+    defaults: { _controller: CupCakesBundle:Produit:Proddet }
+Detail_Produit:
+    path:     /Proddet{id}
+    defaults: { _controller: CupCakesBundle:Produit:Proddet }
+ListeCRecette:
+    path:     /listeRecette
+    defaults: { _controller: CupCakesBundle:Recette:ListeC }
+SingleRecette:
+    path:     /SingleRecette
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingle }
+ListeCommandeClient:
+    path:     /MesCommandes
+    defaults: { _controller: CupCakesBundle:Commande:ListeC }
+TraceCommande:
+    path:     /TrackOrder/{id}
+    defaults: { _controller: CupCakesBundle:Commande:TrackOrder }

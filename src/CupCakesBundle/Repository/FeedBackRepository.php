@@ -10,4 +10,11 @@ namespace CupCakesBundle\Repository;
  */
 class FeedBackRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findSujet($sujet)
+    {
+        $q=$this->createQueryBuilder('m')
+            ->where('m.sujet LIKE :sujet')
+            ->setParameter(':sujet',"%$sujet%");
+        return $q->getQuery()->getResult();
+    }
 }

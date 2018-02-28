@@ -2,6 +2,7 @@
 
 namespace CupCakesBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -13,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Produit
 {
+
+
     /**
      * @var int
      *
@@ -79,6 +82,29 @@ class Produit
      */
     private $imageProd;
 
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="QteAcheter", type="integer", nullable=true)
+     */
+    private $QteAcheter;
+
+    /**
+     * @return mixed
+     */
+    public function getQteAcheter()
+    {
+        return $this->QteAcheter;
+    }
+
+    /**
+     * @param mixed $QteAcheter
+     */
+    public function setQteAcheter($QteAcheter)
+    {
+        $this->QteAcheter = $QteAcheter;
+    }
     /**
      * Get id
      *

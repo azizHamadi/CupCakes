@@ -1,0 +1,42 @@
+{% extends "CupCakesBundle:Client:LayoutC.html.twig" %}
+{% block containt %}
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>COMMANDE COMPLETE</h2>
+                        <a href="{{ path('cup_cakes_Eshop') }}">Acceuil</a>
+                        <span>Achat</span>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+            <section class="home-icon shop-cart bg-skeen wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="icon-default icon-skeen">
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
+                </div>
+                <div class="container">
+                    <div class="checkout-wrap wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <ul class="checkout-bar">
+                            <li class="done-proceed">Mon Pannier</li>
+                            <li class="done-proceed">Livraison</li>
+                            <li class="done-proceed">Commande Complete</li>
+                            <li class="active">Ma Commande</li>
+                        </ul>
+                    </div>
+                    <div class="order-complete-box">
+                        <img src="{{ asset('ClientTemplate/images/complete-sign.png') }}" alt="" />
+                        <p>Merci de commander dans notre site.
+                            <br /> Vous Pouvez Telecharger votre facture en PDF.</p>
+    {% for line in LineCmd %}
+
+        <a href="{{ path('Pdf',{'id' : line.idCmd.id }) }}" class="btn-medium btn-primary-gold btn-large">Telecharger Ma Facture</a>
+        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}

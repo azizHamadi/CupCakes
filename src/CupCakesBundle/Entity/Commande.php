@@ -3,6 +3,7 @@
 namespace CupCakesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Commande
@@ -37,8 +38,8 @@ class Commande
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(name="dateLivCmd", type="date", nullable=true)
+     * @Assert\GreaterThan("today")
      */
     private $dateLivCmd;
 

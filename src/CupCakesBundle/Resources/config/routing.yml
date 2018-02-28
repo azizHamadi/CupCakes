@@ -7,15 +7,12 @@ cup_cakes_Dashbord:
 cup_cakes_Eshop:
     path:   /Client
     defaults: { _controller: CupCakesBundle:Default:client }
-cup_cakes_commande:
-    resource: "@CupCakesBundle/Resources/config/routing/Commande.yml"
-    prefix:   /Commande
-cup_cakes_produit:
-    resource: "@CupCakesBundle/Resources/config/routing/Produit.yml"
-    prefix:   /Produit
-cup_cakes_recette:
-    resource: "@CupCakesBundle/Resources/config/routing/Recette.yml"
-    prefix:   /Recette
-cup_cakes_formation:
-    resource: "@CupCakesBundle/Resources/config/routing/Formation.yml"
+cup_cakes_client:
+    resource: "@CupCakesBundle/Resources/config/routing1/Client.yml"
+    prefix:   /Client
+cup_cakes_Patisseurie:
+    resource: "@CupCakesBundle/Resources/config/Routing1/Patisseurie.yml"
+    prefix:   /Patisserie
+cup_cakes_Formateur:
+    resource: "@CupCakesBundle/Resources/config/Routing1/Formateur.yml"
     prefix:   /Formateur

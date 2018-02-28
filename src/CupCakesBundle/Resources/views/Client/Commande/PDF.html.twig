@@ -1,29 +1,75 @@
+
+
 <h3><span>Ma Commande:</span></h3>
+{% set frais = 0 %}
+{% set tot = 0 %}
+<table style="margin-left: 70%;margin-top: auto">
+    {% for c in Commande %}
+        <tr><td>Adresse de livraison</td></tr>
+        <tr><td>{{ c.idUser.prenom }}</td><td>{{ c.idUser.nom }}</td></tr>
+        <tr><td>{{ c.adresseLi }}</td></tr>
+        <tr><td>Frais de livraison</td><td> 0 tnd</td></tr>
+        <tr><td>{{ c.idUser.phoneNumber }}</td></tr>
+</table>
+<br><br>
+<table style="margin-top: 20%;width: 100%;border: 1px solid black;">
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">id Commande</th>
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">Date de Livraison</th>
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">Date de commande</th>
+    <tr><td style="padding: 15px;
+    text-align: left;">{{ c.id }}</td>
+        <td style="padding: 15px;
+    text-align: left;"> {{ c.dateLivCmd|date('d M Y') }}</td><td style="padding: 15px;
+    text-align: left;">{{ c.dateCmd|date('d M Y') }}</td></tr>
+</table>
+{% endfor %}
 
-
-<table>
+<table style="margin-top: 40%;width: 100%;border: 1px solid black;">
+    <thead>
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">Poduit</th>
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">Prix Unitaire</th>
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">Quantite</th>
+    <th style="height: 50px;background-color: #dc5552;
+    color: white;">TOTAL</th>
+    </thead>
     <tbody>
-    <tr>
-        <td>Poduit</td>
-        <td>Prix</td>
-        <td>Quantite</td>
-        <td>TOTAL</td>
-    </tr>
     {% for line in LineCmd %}
         <tr>
-        <td>
+        <td style="padding: 15px;
+    text-align: left;">
             {{ line.idProd.nomProd }}
         </td>
-        <td>
+        <td style="padding: 15px;
+    text-align: left;">
             {{ line.idProd.prixProd }}
         </td>
-        <td>
+        <td style="padding: 15px;
+    text-align: left;">
             {{ line.qteAcheter }}
         </td>
-        <td>
+        <td style="padding: 15px;
+    text-align: left;">
             {{ line.idCmd.montantCmd }}
         </td>
     </tr>
+
     {% endfor %}
     </tbody>
+</table>
+<table style="margin-bottom: 60%;width: 50%;border: 1px solid black;">
+    <tr><td>Moyenne de Paiment</td><td>A la livraison</td></tr>
+</table>
+<table style="margin-top: 80%;width: 50%;border: 1px solid black;">
+    {% for c in Commande %}
+    <tr><td>Total Produit</td><td>{{ c.montantCmd }}</td></tr>
+    <tr><td>Frais de livraison</td><td>{{ frais }}</td></tr>
+        {% set tot = c.montantCmd  + frais %}
+    <tr><td>Total</td><td>{{ tot }}</td></tr>
+    {% endfor %}
 </table>

@@ -20,7 +20,7 @@
     <link href="{{ asset('ClientTemplate/plugin/animation/animate.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('ClientTemplate/css/responsive.css') }}" rel="stylesheet" />
-
+{% block stylesheet %}{% endblock %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
@@ -41,43 +41,17 @@
                     <div class="header-info">
                         <div class="header-info-inner">
                             <div class="book-table header-collect book-md">
-                                <a href="#" data-toggle="modal" data-target="#booktable"><img src="./images/icon-table.png" alt="" />Book a Table</a>
+                                <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
                             </div>
                             <div class="shop-cart header-collect">
                                 <a href="#"><img src="{{ asset('ClientTemplate/images/icon-basket.png') }}" alt="" /></a>
                                 <div class="cart-wrap">
                                     <div class="cart-blog">
                                         <div class="cart-item">
-                                            <div class="cart-item-left">
-                                                <img src="./images/img59.png" alt="" />
-                                            </div>
-                                            <div class="cart-item-right">
-                                                <h6>Caramel Chesse Cake</h6>
-                                                <span>$ 14.00</span>
-                                            </div>
-                                            <span class="delete-icon"></span>
-                                        </div>
-                                        <div class="cart-item">
-                                            <div class="cart-item-left">
-                                                <img src="./images/img60.png" alt="" />
-                                            </div>
-                                            <div class="cart-item-right">
-                                                <h6>Caramel Chesse Cake</h6>
-                                                <span>$ 14.00</span>
-                                            </div>
-                                            <span class="delete-icon"></span>
-                                        </div>
-                                        <div class="subtotal">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <h6>Subtotal :</h6>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <span>$ 140.00</span>
-                                            </div>
-                                        </div>
+
+                                          </div>
                                         <div class="cart-btn">
-                                            <a href="#" class="btn-black view">VIEW ALL</a>
-                                            <a href="#" class="btn-main checkout">CHECK OUT</a>
+                                            <a href="{{ path('AfficherPanier') }}" class="btn-black view">Afficher</a>
                                         </div>
                                     </div>
                                 </div>
@@ -91,15 +65,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="menu-icon">
-                        <a href="#" class="hambarger">
-                            <span class="bar-1"></span>
-                            <span class="bar-2"></span>
-                            <span class="bar-3"></span>
-                        </a>
-                    </div>
                     <div class="book-table header-collect book-sm">
-                        <a href="#" data-toggle="modal" data-target="#booktable"><img src="./images/icon-table.png" alt="" />Book a Table</a>
+                        <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
                     </div>
                     <div class="menu-main">
                         <ul>
@@ -135,11 +102,10 @@
                                 </ul>
                             </li>
                             <li class="has-child">
-                                <a href="{{ path('CommandeSuivie') }}">Commandes</a>
+                                <a href="#">Commandes</a>
                                 <ul class="drop-nav">
-                                    <li><a href="./shop.html">Shop Page</a></li>
-                                    <li><a href="./shop_single.html">Shop Single</a></li>
-                                    <li><a href="./shop_cart.html">Shop Cart</a></li>
+                                    <li><a href="{{ path('CommandeSuivie') }}">Ma derniere Commande</a></li>
+                                    <li><a href="{{ path('ListeCommandeClient') }}">Mes Commandes</a></li>
                                 </ul>
                             </li>
                             <li class="has-child">
@@ -175,64 +141,17 @@
         </div>
     </header>
     <!-- End Header -->
-    {% block containt %}{% endblock %}
-    <!-- Start Main -->
+
     <main>
         <div class="main-part">
-            <!-- Start Slider Part -->
-            <section class="home-slider home-ride">
-                <div class="home-slider-target">
-                    <div class="tp-banner-container">
-                        <div class="tp-banner">
-                            <ul>
-                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="./images/dummy.png" alt="slidebg1" data-lazyload="images/slider3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">FIVE STAR <i>RESTAURANT</i>
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Traditional Turkish Delicacies
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="#" class="button-white">Explore NOW</a>
-                                    </div>
-                                </li>
-                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="./images/dummy.png" alt="slidebg1" data-lazyload="images/slider3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">FIVE STAR <i>RESTAURANT</i>
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Traditional Turkish Delicacies
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="#" class="button-white">Explore NOW</a>
-                                    </div>
-                                </li>
-                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
-                                    <img src="./images/dummy.png" alt="slidebg1" data-lazyload="images/slider3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">FIVE STAR <i>RESTAURANT</i>
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Traditional Turkish Delicacies
-                                    </div>
-                                    <!-- LAYERS -->
-                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="#" class="button-white">Explore NOW</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="on-scroll">
-                    <a href="#reach-to" class="scroll"><img src="./images/scroll-down.png" alt="" /></a>
-                </div>
-            </section>
-            <!-- End Slider Part -->
+
+        {% block containt %}
+        <!-- Start Main -->
+                {% endblock %}
         </div>
     </main>
     <!-- End Main -->
+
     <!-- Start Footer -->
     <footer>
         <div class="footer-mix wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -280,22 +199,22 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select class="select-dropbox">
-                                <option />Hour
-                                <option />1
-                                <option />2
-                                <option />3
-                                <option />4
-                                <option />5
+                                <option>Hour</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select class="select-dropbox">
-                                <option />Number of People
-                                <option />1
-                                <option />2
-                                <option />3
-                                <option />4
-                                <option />5
+                                <option>Number of People</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -322,7 +241,6 @@
 <script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap-datepicker.js') }}"></script>
-<script src="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.plugins.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.revolution.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.min.js') }}"></script>

@@ -8,9 +8,9 @@
         <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('{{ asset('ClientTemplate/images/breadbg1.jpg') }}');">
             <div class="container">
                 <div class="breadcrumb-inner">
-                    <h2>SHOP CART</h2>
-                    <a href="#">Home</a>
-                    <span>Shop</span>
+                    <h2>PANIER</h2>
+                    <a href="{{ path('cup_cakes_Eshop') }}">Acceuil</a>
+                    <span>Achat</span>
                 </div>
             </div>
         </section>
@@ -22,9 +22,12 @@
             <div class="container">
                 <div class="checkout-wrap wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <ul class="checkout-bar">
-                        <li class="done-proceed">Mon Pannier</li>
-                        <li class="active">Livraison</li>
-                        <li>Commande Complete</li>
+                        <ul class="checkout-bar">
+                            <li class="done-proceed">Mon Pannier</li>
+                            <li class="active">Livraison</li>
+                            <li>Commande Complete</li>
+                            <li>Ma Commande</li>
+                        </ul>
                     </ul>
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -32,29 +35,29 @@
                             <h5>Votre Commande</h5>
 
 
-    {% for produit in produits %}
+                                {% for produit in produits %}
                                 <input hidden name="total" value="{{ produit.prixProd * panier[produit.id] }}">
                                 <input hidden name="Qte" value="{{ panier[produit.id] }}">
 
                                 <input hidden name="idProd" value="{{ produit.id }}">
 
-                        {% set totalPrix = totalPrix + (produit.prixProd * panier[produit.id]) %}
+                                 {% set totalPrix = totalPrix + (produit.prixProd * panier[produit.id]) %}
 
-                        {% endfor %}
-
-                        <div class="shop-checkout-title">
-                                        <form method="post" action="{{ path('ValiderPanier' , {'total': totalPrix}) }}">
+                                {% endfor %}
+                    <div class="shop-checkout-title">
+                        <form method="post" action="{{ path('ValiderPanier' , {'total': totalPrix}) }}">
                                         <div class="checkout-total">
-                                            <h6>Date Livraison <small><input type="date" name="Dateliv">
+                                            <h6>Date de Livraison <small><input type="date" name="Dateliv">
                                                 </small></h6>
-                                            <h6>add Livraison <small><input type="text" name="addLiv">
+                                            <br>
+                                            <h6>adresse de Livraison <small><input type="text" name="addLiv" value="{{ app.user.addresse }}">
                                                 </small></h6>
                                         </div>
                                         <div class="checkout-button">
-                                            <input type="submit" value="Valider Date Livraison" class="btn-black pull-right send_message">
-                                           </div>
-                                        </form>
-                                    </div>
+                                            <input type="submit" value="Valider Livraison" class="btn-black pull-right send_message">
+                                        </div>
+                        </form>
+                    </div>
 
 
                     </div>

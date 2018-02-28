@@ -1,0 +1,44 @@
+{% extends "CupCakesBundle:Client:LayoutC.html.twig" %}
+{% block containt %}
+    <!-- Start Main -->
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>TRACK YOUR ORDER</h2>
+                        <a href="#">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+            <section class="home-icon shop-cart bg-skeen">
+                <div class="icon-default icon-skeen">
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
+                </div>
+                <div class="container">
+                    <div class="checkout-wrap checkout-wrap-more wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <ul class="checkout-bar">
+                            <li class="active">passée</li>
+                            <li>en preparation</li>
+                            <li>Livrée</li>
+                            </ul>
+                    </div>
+                    <div class="track-oder wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <div class="track-oder-inner">
+                            <div class="clock-track-icon">
+                                <img src="{{ asset('ClientTemplate/images/img10.png') }}" alt="" />
+                            </div>
+                            <div class="track-status">
+                                <h3><span>Status:</span> <br /> We are now baking your Coffee</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- End Main -->
+{% endblock %}

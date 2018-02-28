@@ -26,6 +26,7 @@ class ProduitController extends Controller
         $produit = new Produit();
         $form=$this->createForm(ProduitType::class,$produit);
         $form->handleRequest($request);
+
         if($form->isValid())
         {
             $em=$this->getDoctrine()->getManager();
