@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new Http\HttplugBundle\HttplugBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
-
+            new Tbbc\MoneyBundle\TbbcMoneyBundle(),
 
         ];
 

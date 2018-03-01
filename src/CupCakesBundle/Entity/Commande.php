@@ -55,7 +55,7 @@ class Commande
      *
      * @ORM\Column(name="etatLivCmd", type="string", length=255, nullable=true)
      */
-    private $etatLivCmd="en cour";
+    private $etatLivCmd="passée";
 
     /**
      * @var string

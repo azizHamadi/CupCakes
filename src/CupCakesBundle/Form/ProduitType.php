@@ -4,8 +4,8 @@ namespace CupCakesBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,18 +19,21 @@ class ProduitType extends AbstractType
         $builder
             ->add('nomProd')
             ->add('qteStockProd')
-            ->add('typeProd')
+            ->add('typeProd',ChoiceType::class,
+                array(
+                    'choices' => array(
+                        'Salé' =>'Salé',
+                        'Sucrée' =>'Sucrée')
+                ))
             ->add('prixProd')
-            ->add('etatProd')
             ->add('idCat',EntityType::class, array(
                 'class' => 'CupCakesBundle\Entity\Categorie',
                 'choice_label' => 'nomCat',
                 'multiple' => false
             ))
-            ->add('imageProd',FileType::class);
+        ->add('imageProd',FileType::class);
 
-    }
-    /**
+    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

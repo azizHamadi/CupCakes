@@ -49,6 +49,8 @@ doctrine:
         user: '%database_user%'
         password: '%database_password%'
         charset: UTF8
+        types:
+            money: Tbbc\MoneyBundle\Type\MoneyType
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
@@ -64,7 +66,6 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
-    encryption: '%mailer_encryption%'
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
@@ -108,12 +109,18 @@ hwi_oauth:
                 auth_type: rerequest # Re-asking for Declined Permissions
                 csrf: true
 # Windows configuration
+
+tbbc_money:
+    currencies: ["USD", "EUR","TND"]
+    reference_currency: "EUR"
+    decimals: 2
+
 knp_snappy:
     pdf:
         enabled:    true
         # If you have wkhtmltopdf as an environment variable you don't need to provide the
         # full path to the executable, use it in the same way as you use in the console
-        binary:   "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        binary:   "\"C:\\ProgramFiles(x86)\\wkhtmltopdf\\binwkhtmltopdf.exe\""
         options: []
     process_timeout: 200 # In seconds
 

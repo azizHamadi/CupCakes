@@ -18,6 +18,47 @@ class produitRepository extends \Doctrine\ORM\EntityRepository
         ->setParameter('array', $array);
         return $qb->getQuery()->getResult();
     }
+    public function findByCat($cat)
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("select produit from CupCakesBundle:Produit produit 
+                              where .idCat = :marque  ()")
+            ->setParameter('marque',$cat);
+        return $q->getResult();
+
+    }
+    public function findNomProduit($nomProd)
+    {
+        $q=$this->createQueryBuilder('m')
+            ->where('m.nomProd LIKE :nomProd')
+            ->andWhere('m.etatProd=\'vrai\'')
+            ->setParameter(':nomProd',"%$nomProd%");
+        return $q->getQuery()->getResult();
+    }
+    public function findByetat(){
+        $query=$this->createQueryBuilder('c')
+            ->where('c.etatProd= \'vrai\'');
+        return $query->getQuery()->getResult();
+    }
+    public function findByetatuser($user){
+        $query=$this->createQueryBuilder('c')
+            ->where('c.etatProd= \'vrai\'')
+            ->andWhere('c.idUser= :user')
+            ->setParameter(':user',$user);
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findByetatuserNom($user,$nomProd){
+        $query=$this->createQueryBuilder('c')
+            ->where('c.etatProd= \'vrai\'')
+            ->andWhere('c.nomProd LIKE :nomProd')
+            ->andWhere('c.idUser= :user')
+            ->setParameter(':user',$user)
+            ->setParameter(':nomProd',"%$nomProd%");
+
+        return $query->getQuery()->getResult();
+    }
 
 
 }

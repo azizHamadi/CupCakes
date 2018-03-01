@@ -2,27 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Laboom - Food & Restaurant Bistro HTML Template</title>
-    <link href="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.css') }}" rel="stylesheet" />
-    <link href=".{{ asset('ClientTemplate/plugin/bootstrap/datepicker.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/font-awesome/font-awesome.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/extralayers.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/settings.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.theme.default.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/slick-slider/slick-theme.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/magnific/magnific-popup.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/plugin/animation/animate.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
-    <link href="{{ asset('ClientTemplate/css/responsive.css') }}" rel="stylesheet" />
-{% block stylesheet %}{% endblock %}
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Laboom - Food & Restaurant Bistro HTML Template</title>
+        <link href="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/bootstrap/datepicker.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/font-awesome/font-awesome.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/extralayers.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/settings.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.theme.default.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/slick-slider/slick-theme.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/magnific/magnific-popup.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/plugin/animation/animate.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
+        <link href="{{ asset('ClientTemplate/css/responsive.css') }}" rel="stylesheet" />
+        <!--[if lt IE 9]>
+        <script href="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script href="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {%  block head %}
+    {% endblock %}
+</head>
 <body>
 <!-- Page pre loader -->
 <div id="pre-loader">
@@ -37,11 +42,15 @@
     <header>
         <div class="header-part header-on header-near">
             <div class="header-bottom">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="header-info">
                         <div class="header-info-inner">
                             <div class="book-table header-collect book-md">
                                 <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                            </div>
+
+                            <div class="book-table header-collect book-md">
+                                <a href="#" data-toggle="modal" data-target="#booktable"><img src="{{ asset('ClientTemplate/images/icon-table.png') }}" alt="" />Book a Table</a>
                             </div>
                             <div class="shop-cart header-collect">
                                 <a href="#"><img src="{{ asset('ClientTemplate/images/icon-basket.png') }}" alt="" /></a>
@@ -49,17 +58,18 @@
                                     <div class="cart-blog">
                                         <div class="cart-item">
 
-                                          </div>
+                                        </div>
                                         <div class="cart-btn">
                                             <a href="{{ path('AfficherPanier') }}" class="btn-black view">Afficher</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="search-part">
                                 <a href="#"></a>
                                 <div class="search-box">
-                                    <input type="text" name="txt" placeholder="Search" />
+                                    <input type="text" id="recherche" name="txt" placeholder="Search" />
                                     <input type="submit" name="submit" value=" " />
                                 </div>
                             </div>
@@ -67,6 +77,10 @@
                     </div>
                     <div class="book-table header-collect book-sm">
                         <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                    </div>
+
+                    <div class="book-table header-collect book-sm">
+                        <a href="#" data-toggle="modal" data-target="#booktable"><img src="{{ asset('ClientTemplate/images/icon-table.png') }}" alt="" />Book a Table</a>
                     </div>
                     <div class="menu-main">
                         <ul>
@@ -134,113 +148,818 @@
                         </ul>
                     </div>
                     <div class="logo">
-                        <a href="./index.html"><img src="./images/logo3.png" alt="" /></a>
+                        <a href="./index.html"><img src="{{ asset('ClientTemplate/images/logo3.png') }}" alt="" /></a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <!-- End Header -->
-
+    {% block containt %}
+    <!-- Start Main -->
     <main>
         <div class="main-part">
-
-        {% block containt %}
-        <!-- Start Main -->
-                {% endblock %}
+            <!-- Start Slider Part -->
+            <section class="home-slider home-ride">
+                <div class="home-slider-target">
+                    <div class="tp-banner-container">
+                        <div class="tp-banner">
+                            <ul>
+                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+                                    <img src="{{ asset('ClientTemplate/images/dummy.png') }}" alt="slidebg1" data-lazyload="images/slider3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">FIVE STAR <i>RESTAURANT</i>
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Traditional Turkish Delicacies
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="#" class="button-white">Explore NOW</a>
+                                    </div>
+                                </li>
+                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+                                    <img src="{{ asset('ClientTemplate/images/dummy.png') }}" alt="slidebg1" data-lazyload="images/slider3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">FIVE STAR <i>RESTAURANT</i>
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Traditional Turkish Delicacies
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="#" class="button-white">Explore NOW</a>
+                                    </div>
+                                </li>
+                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+                                    <img src="{{ asset('ClientTemplate/images/dummy.png') }}" alt="slidebg1" data-lazyload="images/slider3.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">FIVE STAR <i>RESTAURANT</i>
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Traditional Turkish Delicacies
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption" data-x="center" data-hoffset="0" data-y="425" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300"><a href="#" class="button-white">Explore NOW</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="on-scroll">
+                    <a href="#reach-to" class="scroll"><img src="{{ asset('ClientTemplate/images/scroll-down.png') }}" alt="" /></a>
+                </div>
+            </section>
+            <!-- End Slider Part -->
+            <!-- Start Welcome Part -->
+            <section id="reach-to" class="table-part booktable wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="content-middle">
+                        <div class="table-title">
+                            <h2>Reservation</h2>
+                            <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="select-dropbox">
+                                    <option>Hour</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="select-dropbox">
+                                    <option>Number of People</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="txt" placeholder="Pick a Date" class="date-pick" />
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="txt" placeholder="Phone Number" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <input type="email" name="email" placeholder="Email Address" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn-main btn-big">BOOK A TABLE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-main">
+                    <div class="icon-top-left">
+                        <img src="{{ asset('ClientTemplate/images/icon24.png') }}" alt="" />
+                    </div>
+                    <div class="icon-top-right">
+                        <img src="{{ asset('ClientTemplate/images/icon26.png') }}" alt="" />
+                    </div>
+                </div>
+            </section>
+            <!-- End Welcome Part -->
+            <!-- Start Menu Part -->
+            <section class="dishes invert invert-black wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="build-title build-white">
+                        <h2>Our Special Menu</h2>
+                        <h6>The role of a good cook ware in the preparation of a sumptuous meal cannot be over emphasized then one consider white bread</h6>
+                    </div>
+                    <div class="menu-wrapper">
+                        <div class="portfolioFilter">
+                            <div class="portfolioFilter-inner portfolioFilter-sample">
+                                <a href="javascript:" data-filter="*" class="current">All</a>
+                                <a href="javascript:" data-filter=".breakfast">BREAKFAST</a>
+                                <a href="javascript:" data-filter=".dessert">DESSERT</a>
+                                <a href="javascript:" data-filter=".dinner">DINNER</a>
+                                <a href="javascript:" data-filter=".freshfood">FRESHFOOD</a>
+                                <a href="javascript:" data-filter=".lunch">LUNCH</a>
+                            </div>
+                        </div>
+                        <div class="portfolioContainer portfolioContainer-sample row">
+                            <div class="col-md-6 col-sm-6 col-xs-12 isotope-item breakfast">
+                                <div class="menu-list">
+                                        <span class="menu-list-product">
+                                            <img src="{{ asset('ClientTemplate/images/img3.png') }}" alt="" />
+                                        </span>
+                                    <h5>LASAL CHEESE <span>$ 15.00</span></h5>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 isotope-item lunch">
+                                <div class="menu-list">
+                                        <span class="menu-list-product">
+                                            <img src="{{ asset('ClientTemplate/images/img4.png') }}" alt="" />
+                                        </span>
+                                    <h5>JUMBO CARB SHRIMP <span>$ 25.00</span></h5>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 isotope-item dessert">
+                                <div class="menu-list">
+                                        <span class="menu-list-product">
+                                            <img src="{{ asset('ClientTemplate/images/img5.png') }}" alt="" />
+                                        </span>
+                                    <h5>SURMAI CHILLI <span>$ 15.00</span></h5>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 isotope-item dinner">
+                                <div class="menu-list">
+                                        <span class="menu-list-product">
+                                            <img src="{{ asset('ClientTemplate/images/img6.png') }}" alt="" />
+                                        </span>
+                                    <h5>CAPO STEAK <span>$ 45.00</span></h5>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 isotope-item freshfood">
+                                <div class="menu-list">
+                                        <span class="menu-list-product">
+                                            <img src="{{ asset('ClientTemplate/images/img7.png') }}" alt="" />
+                                        </span>
+                                    <h5>ORGANIC FRUIT SALAD <span>$ 15.00</span></h5>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 isotope-item freshfood">
+                                <div class="menu-list">
+                                        <span class="menu-list-product">
+                                            <img src="{{ asset('ClientTemplate/images/img8.png') }}" alt="" />
+                                        </span>
+                                    <h5>PRAWNS BUTTER GARLIC <span>$ 15.00</span></h5>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-outer">
+                            <a href="#" class="btn-main">Explore Full Menu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-main">
+                    <div class="icon-top-left">
+                        <img src="{{ asset('ClientTemplate/images/icon26.png') }}" alt="" />
+                    </div>
+                    <div class="icon-bottom-left">
+                        <img src="{{ asset('ClientTemplate/images/icon27.png') }}" alt="" />
+                    </div>
+                    <div class="icon-top-right">
+                        <img src="{{ asset('ClientTemplate/images/icon28.png') }}" alt="" />
+                    </div>
+                </div>
+            </section>
+            <!-- End Menu Part -->
+            <!-- Start Chef -->
+            <section class="chef-part chef-slote wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="build-title">
+                        <h2>Our Awesome Chef</h2>
+                        <h6>Meet Professional Cook Team</h6>
+                    </div>
+                    <div class="owl-carousel owl-theme chef-slider" data-items="4" data-laptop="3" data-tablet="2" data-mobile="1" data-nav="true" data-dots="false" data-autoplay="true" data-speed="1800" data-autotime="5000">
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef1.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Anna Taylor</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef2.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Alex Wilson</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef3.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Anita Golden</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef4.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Benderd Dimitor</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef1.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Anna Taylor</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef2.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Alex Wilson</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef3.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Anita Golden</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="chef-blog">
+                                <div class="chef-inner">
+                                    <div class="chef-member">
+                                        <img src="{{ asset('ClientTemplate/images/chef5.png') }}" alt="" />
+                                    </div>
+                                    <div class="chef-info">
+                                        <h5>Benderd Dimitor</h5>
+                                        <span>Head Chief</span>
+                                        <div class="social-top">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Chef -->
+            <!-- Start Feature Blog -->
+            <section class="feature-blog-wrap wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="build-title">
+                        <h2>Feature Blog</h2>
+                        <h6>Read Latest Delicious Posts And News</h6>
+                    </div>
+                    <div class="feature-blog feature-label">
+                        <div class="owl-carousel owl-theme" data-items="2" data-laptop="2" data-tablet="2" data-mobile="1" data-nav="false" data-dots="true" data-autoplay="true" data-speed="1800" data-autotime="5000">
+                            <div class="item">
+                                <div class="feature-img">
+                                    <img src="{{ asset('ClientTemplate/images/img15.png') }}" alt="" />
+                                    <div class="date-feature">27
+                                        <br /> <small>may</small></div>
+                                </div>
+                                <div class="feature-info">
+                                    <span><i class="icon-user"></i> By Ali TUFAN</span>
+                                    <span><i class="icon-comment"></i> 5 Comments</span>
+                                    <h5>Easy Sparkling Sangria</h5>
+                                    <p>Aptent taciti sociosqu ad litora euismod atras vulputate iltricies etri elit class.</p>
+                                    <a href="#">Read More <i class="icon-more"></i></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feature-img">
+                                    <img src="{{ asset('ClientTemplate/images/img16.png') }}" alt="" />
+                                    <div class="date-feature">27
+                                        <br /> <small>may</small></div>
+                                </div>
+                                <div class="feature-info">
+                                    <span><i class="icon-user"></i> By Ali TUFAN</span>
+                                    <span><i class="icon-comment"></i> 5 Comments</span>
+                                    <h5>Disclosue - Real food here</h5>
+                                    <p>Aptent taciti sociosqu ad litora euismod atras vulputate iltricies etri elit class.</p>
+                                    <a href="#">Read More <i class="icon-more"></i></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feature-img">
+                                    <img src="{{ asset('ClientTemplate/images/img15.png') }}" alt="" />
+                                    <div class="date-feature">27
+                                        <br /> <small>may</small></div>
+                                </div>
+                                <div class="feature-info">
+                                    <span><i class="icon-user"></i> By Ali TUFAN</span>
+                                    <span><i class="icon-comment"></i> 5 Comments</span>
+                                    <h5>Easy Sparkling Sangria</h5>
+                                    <p>Aptent taciti sociosqu ad litora euismod atras vulputate iltricies etri elit class.</p>
+                                    <a href="#">Read More <i class="icon-more"></i></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feature-img">
+                                    <img src="{{ asset('ClientTemplate/images/img16.png') }}" alt="" />
+                                    <div class="date-feature">27
+                                        <br /> <small>may</small></div>
+                                </div>
+                                <div class="feature-info">
+                                    <span><i class="icon-user"></i> By Ali TUFAN</span>
+                                    <span><i class="icon-comment"></i> 5 Comments</span>
+                                    <h5>Disclosue - Real food here</h5>
+                                    <p>Aptent taciti sociosqu ad litora euismod atras vulputate iltricies etri elit class.</p>
+                                    <a href="#">Read More <i class="icon-more"></i></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feature-img">
+                                    <img src="{{ asset('ClientTemplate/images/img15.png') }}" alt="" />
+                                    <div class="date-feature">27
+                                        <br /> <small>may</small></div>
+                                </div>
+                                <div class="feature-info">
+                                    <span><i class="icon-user"></i> By Ali TUFAN</span>
+                                    <span><i class="icon-comment"></i> 5 Comments</span>
+                                    <h5>Easy Sparkling Sangria</h5>
+                                    <p>Aptent taciti sociosqu ad litora euismod atras vulputate iltricies etri elit class.</p>
+                                    <a href="#">Read More <i class="icon-more"></i></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="feature-img">
+                                    <img src="{{ asset('ClientTemplate/images/img16.png') }}" alt="" />
+                                    <div class="date-feature">27
+                                        <br /> <small>may</small></div>
+                                </div>
+                                <div class="feature-info">
+                                    <span><i class="icon-user"></i> By Ali TUFAN</span>
+                                    <span><i class="icon-comment"></i> 5 Comments</span>
+                                    <h5>Disclosue - Real food here</h5>
+                                    <p>Aptent taciti sociosqu ad litora euismod atras vulputate iltricies etri elit class.</p>
+                                    <a href="#">Read More <i class="icon-more"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Feature Blog -->
+            <!-- Start Feature list -->
+            <section class="feature-list text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="build-title">
+                        <h2>Our Some Feature</h2>
+                        <h6>The role of a good cook ware in the preparation of a sumptuous meal cannot be <br /> over emphasized then one consider white bread</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="feature-list-icon">
+                                <div class="feature-icon-table">
+                                    <img src="{{ asset('ClientTemplate/images/img17.png') }}" alt="" />
+                                </div>
+                            </div>
+                            <h5>Fresh Dishes</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="feature-list-icon">
+                                <div class="feature-icon-table">
+                                    <img src="{{ asset('ClientTemplate/images/img18.png') }}" alt="" />
+                                </div>
+                            </div>
+                            <h5>Various Menu</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="feature-list-icon">
+                                <div class="feature-icon-table">
+                                    <img src="{{ asset('ClientTemplate/images/img19.png') }}" alt="" />
+                                </div>
+                            </div>
+                            <h5>Well Service</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="feature-list-icon">
+                                <div class="feature-icon-table">
+                                    <img src="{{ asset('ClientTemplate/images/img20.png') }}" alt="" />
+                                </div>
+                            </div>
+                            <h5>Fast Delivery</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius-</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Feature list -->
+            <!-- Start Instagram -->
+            <section class="instagram-main top-pad-xsmall wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="build-title">
+                        <h2>#laboom</h2>
+                        <h6>Enjoyed your stay at La Boom? Share your moments with us. Follow us on Instagram and use</h6>
+                    </div>
+                </div>
+                <div class="gallery-slider">
+                    <div class="owl-carousel owl-theme" data-items="6" data-laptop="5" data-tablet="4" data-mobile="1" data-nav="true" data-dots="false" data-autoplay="true" data-speed="2000" data-autotime="3000">
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big1.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery1.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big2.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery2.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big3.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery3.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big4.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery4.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big5.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery5.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big6.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery6.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big1.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery1.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big2.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery2.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big3.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery3.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big4.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery4.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big5.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery5.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ asset('ClientTemplate/images/gallery/gallery-big6.jpeg') }}" class="magnific-popup">
+                                <img src="{{ asset('ClientTemplate/images/gallery/gallery6.png') }}" alt="" class="animated" />
+                                <div class="gallery-overlay">
+                                    <div class="gallery-overlay-inner">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Instagram -->
         </div>
     </main>
     <!-- End Main -->
 
-    <!-- Start Footer -->
-    <footer>
-        <div class="footer-mix wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="container">
-                <div class="footer-inner">
-                    <div class="footer-info">
-                        <h3>La boom Restaurant</h3>
-                        <p>329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
-                        <p><a href="#">123 456 7890</a></p>
-                        <p><a href="#">support@laboom.com</a></p>
-                    </div>
+</div>
+<script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script >
+    $(function () {
+        $("#recherche").keyup(function () {
+            $.ajax({
+                url : "{{ path('Recherche_produit1') }}",
+                data : { 'recherche' : $(this).val() }
+            }).done(function (data) {
+                $('#tableau').empty();
+                $.each(data,function(k,el) {
+                    $("#tableau").append(
+                        "<div class=\"col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown\" data-wow-duration=\"1000ms\" data-wow-delay=\"300ms\"id=\"tableau\">"
+                        + "<div class=\"shop-main-list\">"
+                        + "<div class=\"shop-product\"  >"
+                        + "<img src=\"{{ asset('public/uploads/brochures/Produit/') }}" + el.imageProd + "\"alt=\"\" height=\"220\" width=\"220\" />"
+                        + "<div class=\"cart-overlay-wrap\">"
+                        + "<div class=\"cart-overlay\">"
+                        + "<a href=\"#\" class=\"shop-cart-btn\">ADD TO CART</a>"
+                        + "</div></div></div>"
+                        + "<a href=\"/projet/web/app_dev.php/Produit/Proddet"+ el.id +"\"><h5>"+ el.nomProd +"</h5></a>"
+                        + "<h5><strong>"+ (el.prixProd * 3).toString().substr(0,5) +" TND</strong></h5>"
+                        + "<h5><strong>"+ el.prixProd +" €</strong></h5>"
+                        + "<h5><strong>"+ (el.prixProd * 1.2399).toString().substr(0,5)    +" $</strong></h5>"
+                        + "</div>"
+                    );
+                });
+            });
+
+        })});
+</script>
+
+
+{% endblock %}
+<!-- Start Footer -->
+<footer>
+    <div class="footer-mix wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-info">
+                    <h3>La boom Restaurant</h3>
+                    <p>329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
+                    <p><a href="#">123 456 7890</a></p>
+                    <p><a href="#">support@laboom.com</a></p>
                 </div>
-                <div class="footer-round-left">
-                    <span>Copyright © 2017 Polygon Theme. All rights reserved.</span>
-                </div>
-                <div class="footer-round-middle">
-                    <a href="#"><img src="./images/logo4.png" alt="" /></a>
-                </div>
-                <div class="footer-round-right">
-                    <div class="social-top">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="footer-round-left">
+                <span>Copyright © 2017 Polygon Theme. All rights reserved.</span>
+            </div>
+            <div class="footer-round-middle">
+                <a href="#"><img src="{{ asset('ClientTemplate/images/logo4.png') }}" alt="" /></a>
+            </div>
+            <div class="footer-round-right">
+                <div class="social-top">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- End Footer -->
-    <!-- Start Book Table -->
-    <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="table-title">
-                        <h2>Reservation</h2>
-                        <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+    </div>
+</footer>
+<!-- End Footer -->
+<!-- Start Book Table -->
+<div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="table-title">
+                    <h2>Reservation</h2>
+                    <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="select-dropbox">
+                            <option>Hour</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="select-dropbox">
-                                <option>Hour</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="select-dropbox">
-                                <option>Number of People</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="txt" placeholder="Pick a Date" class="date-pick" />
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="txt" placeholder="Phone Number" />
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="email" name="email" placeholder="Email Address" />
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <button class="btn-main btn-big">BOOK A TABLE</button>
-                        </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="select-dropbox">
+                            <option>Number of People</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="txt" placeholder="Pick a Date" class="date-pick" />
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="txt" placeholder="Phone Number" />
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input type="email" name="email" placeholder="Email Address" />
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <button class="btn-main btn-big">BOOK A TABLE</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Book Table -->
 </div>
-<!-- Back To Top Arrow -->
+    <a href="#" class="top-arrow"></a>
+</body>
 <a href="#" class="top-arrow"></a>
 <script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.plugins.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.revolution.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.min.js') }}"></script>
@@ -251,8 +970,10 @@
 <script src="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/animation/wow.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/parallax/jquery.stellar.js') }}"></script>
-<script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
 <script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
-</body>
+<script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
 
+    {% block javascript %}
+
+    {% endblock %}
 </html>

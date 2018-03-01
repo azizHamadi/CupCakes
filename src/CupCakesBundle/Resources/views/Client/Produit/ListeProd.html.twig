@@ -1,4 +1,4 @@
-{% extends "CupCakesBundle:Client:LayoutC.html.twig" %}
+{% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
 {% block containt %}
     <!-- Start Main -->
     <main>
@@ -13,40 +13,51 @@
                     </div>
                 </div>
             </section>
+
             <!-- End Breadcrumb Part -->
+
 
             <section class="home-icon blog-main-section shop-page">
                 <div class="icon-default">
-                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png')}}" alt="" />
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png')}}" alt="" style="border-radius: 100px"/>
                 </div>
                 <div class="container">
                     <div class="portfolioFilter">
                         <div class="portfolioFilter-inner bg-skeen">
-                            <a href="javascript:;" data-filter=".breakfast" class="current">BREAKFAST</a>
-                            <a href="javascript:;" data-filter=".dessert">DESSERT</a>
-                            <a href="javascript:;" data-filter=".dinner">DINNER</a>
-                            <a href="javascript:;" data-filter=".freshfood">FRESHFOOD</a>
-                            <a href="javascript:;" data-filter=".lunch">LUNCH</a>
-                        </div>
-                    </div>
-                    <div class="portfolioContainer row" data-defaultfilter=".breakfast">
-    {% for produit in produits  %}
-        <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="shop-main-list">
-                <div class="shop-product">
-                    <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" height="220" width="220" />
-                    <div class="cart-overlay-wrap">
-                        <div class="cart-overlay">
-                            <a href="#" class="shop-cart-btn">ADD TO CART</a>
+                            {% for categorie in categories %}
+                                <a href="{{ path('Detail_Categorie',{'id': categorie.id } ) }}">{{ categorie.nomCat }} </a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-                <a href="{{ path('Detail_Produit',{'id':produit.id }) }}"><h5>{{ produit.nomProd }}</h5></a>
-                <h5><strong> {{  produit.prixProd }}</strong></h5>
-            </div>
-        </div>
-    {% endfor %}
 
+                <div class="portfolioContainer row" data-defaultfilter=".breakfast">
+                    <div id="tableau">
+                        {% for produit in produits  %}
+                            <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms"id="tableau">
+                                <div class="shop-main-list">
+                                    <div class="shop-product"  >
+                                        <img src="{{ asset('public/uploads/brochures/Produit/' ~  produit.imageProd) }}" alt="" style="border-radius: 20px;" height="220" width="220" />
+                                        <div class="cart-overlay-wrap">
+                                            <div class="cart-overlay">
+                                                {% if  produit.qteStockProd==0 %}
+                                                    <a class="shop-cart-btn">OUT OF STOCK </a>
+                                                {% else %}
+                                                    <a href="{{ path('PasserCommande',{'id':produit.id}) }}" class="shop-cart-btn">Ajouter au panier</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ path('Detail_Produit',{'id':produit.id }) }}"><h5><strong>{{ produit.nomProd }}</strong></h5></a>
+                                    <h5><strong>{{ produit.tnd | money_format }}</strong></h5>
+                                    <h5><strong>{{ produit.euro | money_format }}</strong></h5>
+                                    <h5><strong>{{ produit.usd | money_format }}</strong></h5>
+
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    </div>
                     <div class="gallery-pagination">
                         <div class="gallery-pagination-inner">
                             <ul>
@@ -63,5 +74,57 @@
         </div>
     </main>
     <!-- End Main -->
+    <script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script >
+    $(function () {
+        $("#recherche").keyup(function () {
+            $.ajax({
+                url : "{{ path('Recherche_produit1') }}",
+                data : { 'recherche' : $(this).val() }
+            }).done(function (data) {
+                $('#tableau').empty();
+                $.each(data,function(k,el) {
+                    $("#tableau").append(
+                        "<div class=\"col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown\" data-wow-duration=\"1000ms\" data-wow-delay=\"300ms\"id=\"tableau\">"
+                        + "<div class=\"shop-main-list\">"
+                        + "<div class=\"shop-product\"  >"
+                        + "<img src=\"{{ asset('public/uploads/brochures/Produit/') }}" + el.imageProd + "\"alt=\"\" height=\"220\" width=\"220\" />"
+                        + "<div class=\"cart-overlay-wrap\">"
+                        + "<div class=\"cart-overlay\">"
+                        + "<a href=\"#\" class=\"shop-cart-btn\">ADD TO CART</a>"
+                        + "</div></div></div>"
+                        + "<a href=\"/projet/web/app_dev.php/Produit/Proddet"+ el.id +"\"><h5><strong>"+ el.nomProd +"</strong></h5></a>"
+                        + "<h5><strong>"+ (el.prixProd * 3).toString().substr(0,5) +" TND</strong></h5>"
+                        + "<h5><strong>"+ el.prixProd +" €</strong></h5>"
+                        + "<h5><strong>"+ (el.prixProd * 1.2399).toString().substr(0,5)    +" $</strong></h5>"
+                        + "</div>"
+                    );
+                });
+            });
+
+        })});
+</script>
+
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.plugins.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.revolution.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/slick-slider/slick.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/isotop/isotop.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/isotop/packery-mode.pkgd.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/magnific/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/animation/wow.min.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/plugin/parallax/jquery.stellar.js') }}"></script>
+    <script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
+
+
+{% endblock javascript %}
+{% block Ajax %}
 {% endblock %}

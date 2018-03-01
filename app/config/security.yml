@@ -45,3 +45,5 @@ security:
         - { path: ^/Client/, role: ROLE_CLIENT }
         - { path: ^/Client, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/Formateur/, role: ROLE_FORMATEUR }
+        - { path: ^/registerr, role: IS_AUTHENTICATED_ANONYMOUSLY }
+

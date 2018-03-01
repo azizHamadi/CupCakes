@@ -43,3 +43,12 @@ read_produit:
 Stat_vente:
     path:     /stat
     defaults: { _controller: CupCakesBundle:Commande:Stat }
+index:
+    path:     /index
+    defaults: { _controller: CupCakesBundle:Produit:index }
+recherche_produit:
+    path:     /Recherche_Produit
+    defaults: { _controller: CupCakesBundle:Produit:Recherche_Produit}
+Supprimer_Produit:
+    path:     /Supprimer_Produit/{id}
+    defaults: { _controller: CupCakesBundle:Produit:SupprimerProduit}

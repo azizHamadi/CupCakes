@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laboom - Food & Restaurant Bistro HTML Template</title>
+    <link href="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.css') }}" rel="stylesheet" />
+    <link href=".{{ asset('ClientTemplate/plugin/bootstrap/datepicker.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/font-awesome/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/extralayers.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/revolution-plugin/settings.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/owl-carousel/owl.theme.default.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/slick-slider/slick-theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/magnific/magnific-popup.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/plugin/animation/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
+    <link href="{{ asset('ClientTemplate/css/responsive.css') }}" rel="stylesheet" />
+{% block stylesheet %}{% endblock %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+<!-- Page pre loader -->
+<div id="pre-loader">
+    <div class="loader-holder">
+        <div class="frame">
+            <img src="{{ asset('ClientTemplate/images/Preloader.gif') }}" alt="Laboom" />
+        </div>
+    </div>
+</div>
+<div class="wrapper-spacer wrapper-spacer-bg">
+    <!-- Start Header -->
+    <header>
+        <div class="header-part header-on header-near">
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="header-info">
+                        <div class="header-info-inner">
+                            <div class="book-table header-collect book-md">
+                                <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                            </div>
+                            <div class="shop-cart header-collect">
+                                <a href="#"><img src="{{ asset('ClientTemplate/images/icon-basket.png') }}" alt="" /></a>
+                                <div class="cart-wrap">
+                                    <div class="cart-blog">
+                                        <div class="cart-item">
+
+                                          </div>
+                                        <div class="cart-btn">
+                                            <a href="{{ path('AfficherPanier') }}" class="btn-black view">Afficher</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-part">
+                                <a href="#"></a>
+                                <div class="search-box">
+                                    <input type="text" id="recherche" name="txt" placeholder="Search" />
+                                    <input type="submit" name="submit" value=" " />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-table header-collect book-sm">
+                        <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                    </div>
+                    <div class="menu-main">
+                        <ul>
+                            <li class="">
+                                <a href="{{ path('cup_cakes_Eshop') }}">Home</a>
+
+                            </li>
+                            <li class="mega-menu">
+                                <a href="{{ path('ProduitListe') }}">Produits</a>
+                                <ul class="drop-nav">
+                                    <li>
+                                        <div class="drop-mega-part">
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                                    <span class="mega-title">Patisserie</span>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <ul>
+                                                                <li><a href="#"></a></li>
+                                                                <li><a href="#">Succrés</a></li>
+                                                                <li><a href="#">Salés</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                    <span class="mega-title">Matériels patisseries</span>
+                                                    <img src="{{ asset('ClientTemplate/images/img13.png') }}" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="#">Commandes</a>
+                                <ul class="drop-nav">
+                                    <li><a href="{{ path('CommandeSuivie') }}">Ma derniere Commande</a></li>
+                                    <li><a href="{{ path('ListeCommandeClient') }}">Mes Commandes</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="#">Formations</a>
+                                <ul class="drop-nav">
+                                    <li><a href="./about.html">Succrés</a></li>
+                                    <li>
+                                        <a href="./service1.html">Salés</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="./blog_2col.html">Promotions</a>
+                                <ul class="drop-nav">
+                                    <li><a href="./blog_list.html">Formations</a></li>
+                                    <li><a href="./blog_2col.html">Produits</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="{{ path('ListeCRecette',{'id': 0} ) }}">Recettes</a>
+                                <ul class="drop-nav">
+                                    <li><a href="./contact1.html">Succrés</a></li>
+                                    <li><a href="./contact2.html">Salés</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo">
+                        <a href="./index.html"><img src="./images/logo3.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main>
+        <div class="main-part">
+
+        {% block containt %}
+        <!-- Start Main -->
+                {% endblock %}
+        </div>
+    </main>
+    <!-- End Main -->
+
+    <!-- Start Footer -->
+    <footer>
+        <div class="footer-mix wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-info">
+                        <h3>La boom Restaurant</h3>
+                        <p>329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
+                        <p><a href="#">123 456 7890</a></p>
+                        <p><a href="#">support@laboom.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-round-left">
+                    <span>Copyright © 2017 Polygon Theme. All rights reserved.</span>
+                </div>
+                <div class="footer-round-middle">
+                    <a href="#"><img src="./images/logo4.png" alt="" /></a>
+                </div>
+                <div class="footer-round-right">
+                    <div class="social-top">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- Start Book Table -->
+    <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="table-title">
+                        <h2>Reservation</h2>
+                        <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="select-dropbox">
+                                <option>Hour</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="select-dropbox">
+                                <option>Number of People</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="txt" placeholder="Pick a Date" class="date-pick" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="txt" placeholder="Phone Number" />
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <input type="email" name="email" placeholder="Email Address" />
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn-main btn-big">BOOK A TABLE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Book Table -->
+</div>
+<!-- Back To Top Arrow -->
+<a href="#" class="top-arrow"></a>
+<script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.plugins.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.revolution.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/slick-slider/slick.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/isotop/isotop.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/isotop/packery-mode.pkgd.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/magnific/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/animation/wow.min.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/parallax/jquery.stellar.js') }}"></script>
+<script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
+<script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
+</body>
+
+</html>

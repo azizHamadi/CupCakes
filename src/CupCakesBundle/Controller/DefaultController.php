@@ -27,12 +27,8 @@ class DefaultController extends Controller
 
     public function clientAction(SessionInterface $session)
     {
-        if (!$session->has('panier')) $session->set('panier', array());
 
-        $em = $this->getDoctrine()->getManager();
-        $may = $em->getRepository('CupCakesBundle:Produit')->findArray(array_keys($session->get('panier')));
-        return $this->render('CupCakesBundle:Client:LayoutC.html.twig', ['May' => $may,
-            'panier' => $session->get('panier')]);
+        return $this->render('CupCakesBundle:Client:LayoutC2.html.twig');
     }
 
 

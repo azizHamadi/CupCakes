@@ -16,3 +16,6 @@ cup_cakes_Patisseurie:
 cup_cakes_Formateur:
     resource: "@CupCakesBundle/Resources/config/Routing1/Formateur.yml"
     prefix:   /Formateur
+cup_cakes_register:
+    path:   /registerr
+    defaults: { _controller: CupCakesBundle:Registration:register }

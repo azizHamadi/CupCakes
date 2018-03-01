@@ -43,3 +43,15 @@ ListeCommandeClient:
 TraceCommande:
     path:     /TrackOrder/{id}
     defaults: { _controller: CupCakesBundle:Commande:TrackOrder }
+Recherche_produit1:
+    path:     /Recherche_Produit1
+    defaults: { _controller: CupCakesBundle:Produit:Recherche_Produit1 }
+Detail_Produit:
+    path:     /Proddet{id}
+    defaults: { _controller: CupCakesBundle:Produit:Proddet }
+Detail_Categorie:
+    path:     /ListeCategorie/{id}
+    defaults: { _controller: CupCakesBundle:Produit:ListeCategorie }
+testMony:
+    path:     /Mony
+    defaults: { _controller: CupCakesBundle:Produit:aa }
