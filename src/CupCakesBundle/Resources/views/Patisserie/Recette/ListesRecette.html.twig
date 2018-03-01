@@ -1,0 +1,30 @@
+{% extends "::layout.html.twig" %}
+{% block containt %}
+
+    <div class="content table-responsive table-full-width">
+        <table class="table table-striped">
+            <thead>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Categorie</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+            </thead>
+            <tbody>
+            {% for recette in recettes  %}
+                <tr>
+                    <td><img src="{{ asset('public/uploads/brochures/Recettes/' ~  recette.imageRec)}}" style="height: 70px;width: 100px"></td>
+                    <td>{{  recette.nomRec }}</td>
+                    <td>{{ recette.idCatRec.nomCatRec }}</td>
+                    <td>{{  recette.dateRec |date }}</td>
+                    <td><a href="{{ path('SingleRecettePatisserie',{'id': recette.id }) }}">Afficher la suite...</a></td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

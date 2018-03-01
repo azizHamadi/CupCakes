@@ -1,7 +1,33 @@
 formateur_accueil:
     path:   /
     defaults: { _controller: CupCakesBundle:Default:Formateur }
-ListeFRecette:
-    path:     /listeRecetteF
-    defaults: { _controller: CupCakesBundle:Recette:CreateRecetteFormateur }
+ModifierRecetteFormateur:
+    path:     /Modifier_Formateur_Recette/{id}
+    defaults: { _controller: CupCakesBundle:Recette:ModifierClientRecette}
+SupprimerRecetteFormateur:
+    path:     /SupprimerRecetteFormateur/{id}
+    defaults: { _controller: CupCakesBundle:Recette:SupprimerFormateurRecette}
+ListCategorieRecetteFormateur:
+    path:     /listeCategorieFormateur
+    defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecetteFormateur }
+AjouterRecetteFormateur:
+    path:     /Ajouter_Formateur_Recette
+    defaults: { _controller: CupCakesBundle:Recette:AjouterFormateurRecette}
+ListeMesRecetteFormateur:
+    path:     /liste_Mes_RecetteFormateur
+    defaults: { _controller: CupCakesBundle:Recette:ListeMesRecetteFormateur}
+ReadAllRecetteFormateur:
+    path:     /listeRecetteFormateur
+    defaults: { _controller: CupCakesBundle:Recette:ReadAllRecetteFormateur}
+updateFRecette:
+    path:     /updateRecetteFormateur/{id}
+    defaults: { _controller: CupCakesBundle:Recette:UpdateRecetteFormateur}
+SingleRecetteFormateur:
+    path:     /SingleRecetteFormateur/{id}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingleFormateur}
+AjouterCategorieFRecette:
+    path:     /ajouterCategorieFRecette
+    defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterFCategorieRecette }
+
+
 

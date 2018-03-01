@@ -94,6 +94,30 @@
                             <p>Liste Feedback</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ path('ListCategorieRecettePatisserie') }}">
+                            <i class="ti-user"></i>
+                            <p>Liste des Categories Recette</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('AjouterRecettePatisserie') }}">
+                            <i class="ti-user"></i>
+                            <p>Ajouter une Recette</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ListeRecette',{'id':0 , 'type' : "patisserie"}) }}">
+                            <i class="ti-user"></i>
+                            <p>Tous les recettes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ListeMesRecette',{'type': "patisserie"}) }}">
+                            <i class="ti-user"></i>
+                            <p>Mes recettes</p>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

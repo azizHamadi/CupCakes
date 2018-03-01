@@ -45,3 +45,8 @@ google_login:
 
 facebook_login:
     path: /login/check-facebook
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }

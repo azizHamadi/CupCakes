@@ -28,7 +28,6 @@ class CategorieRec
      */
     private $nomCatRec;
 
-
     /**
      * Get idCatRec
      *

@@ -1,0 +1,3 @@
+CreateRating:
+    path:     /CreateRating/{note}/{idRec}
+    defaults: { _controller: CupCakesBundle:Notes:CreateRating }

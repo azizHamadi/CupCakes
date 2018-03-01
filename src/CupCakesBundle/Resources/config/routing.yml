@@ -19,3 +19,6 @@ cup_cakes_Formateur:
 cup_cakes_register:
     path:   /registerr
     defaults: { _controller: CupCakesBundle:Registration:register }
+cup_cakes_note:
+    resource: "@CupCakesBundle/Resources/config/routing1/Note.yml"
+    prefix:   /Note

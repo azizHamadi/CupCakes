@@ -23,18 +23,15 @@
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="blog-left-section" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div class="blog-left-search blog-common-wide">
-                                    <input type="text" name="txt" placeholder="Search" />
+                                    <input type="text" name="txt" placeholder="Search" id="recherche"/>
                                     <input type="submit" name="submit" value="&#xf002;" />
                                 </div>
                                 <div class="blog-left-categories blog-common-wide">
                                     <h5>Categories</h5>
                                     <ul class="list">
-                                        <li><a href="#">Catering</a></li>
-                                        <li><a href="#">Community</a></li>
-                                        <li><a href="#">Employment</a></li>
-                                        <li><a href="#">Franchise</a></li>
-                                        <li><a href="#">Kids Corner</a></li>
-                                        <li><a href="#">Our Recipes</a></li>
+                                        {% for categorie in categorieRec %}
+                                        <li><a href="{{ path('ListeRecette',{'id': categorie.idCatRec, 'type' : "client"} ) }}">{{ categorie.nomCatRec }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="blog-recent-post blog-common-wide">
@@ -87,62 +84,24 @@
                             </div>
                         </div>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="blog-right-section">
-                                <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                    <div class="feature-img">
-                                        <img src="{{ asset('ClientTemplate/images/img53.png') }}" alt="" />
-                                        <div class="date-feature">27
-                                            <br /> <small>may</small></div>
+                            <div class="blog-right-section" >
+                                <div id="tableau">
+                                {% for recette in recettes %}
+                                    <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                        <div class="feature-img">
+                                            <img src="{{ asset('public/uploads/brochures/Recettes/' ~  recette.imageRec )}}" alt="" style="height: 280px ;width: 360px;border-radius: 10%" />
+                                            <div class="date-feature"><small> {{ recette.dateRec |date('d/m') }} </small>
+                                                <small> {{ recette.dateRec |date('y') }} </small></div>
+                                        </div>
+                                        <div class="feature-info">
+                                            <span><i class="icon-user"></i> {{  recette.idUser.username }}</span>
+                                            <span><i class="icon-comment"></i> 5 Comments</span>
+                                            <h5>{{ recette.nomRec }}</h5>
+                                            <p>{{ recette.descriptionRec |truncate(175, true, '...')|raw }}</p>
+                                            <a href=" {{ path('SingleRecette' , { 'id' : recette.id } ) }}" class="read-arrow">Read More</a>
+                                        </div>
                                     </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> By Ali TUFAN</span>
-                                        <span><i class="icon-comment"></i> 5 Comments</span>
-                                        <h5>How Do You Like Your Sausage?</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                        <a href="{{ path('SingleRecette') }}" class="read-arrow">Read More</a>
-                                    </div>
-                                </div>
-                                <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                    <div class="feature-img">
-                                        <img src="{{ asset('ClientTemplate/images/img73.png') }}" alt="" />
-                                        <div class="date-feature">27
-                                            <br /> <small>may</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> By Ali TUFAN</span>
-                                        <span><i class="icon-comment"></i> 5 Comments</span>
-                                        <h5>There are many variations of passages</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                        <a href="{{ path('SingleRecette') }}" class="read-arrow">Read More</a>
-                                    </div>
-                                </div>
-                                <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                    <div class="feature-img">
-                                        <img src="{{ asset('ClientTemplate/images/img74.png') }}" alt="" />
-                                        <div class="date-feature">27
-                                            <br /> <small>may</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> By Ali TUFAN</span>
-                                        <span><i class="icon-comment"></i> 5 Comments</span>
-                                        <h5>There are many variations of passages</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                        <a href="{{ path('SingleRecette') }}" class="read-arrow">Read More</a>
-                                    </div>
-                                </div>
-                                <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                    <div class="feature-img">
-                                        <img src="{{ asset('ClientTemplate/images/img75.png') }}" alt="" />
-                                        <div class="date-feature">27
-                                            <br /> <small>may</small></div>
-                                    </div>
-                                    <div class="feature-info">
-                                        <span><i class="icon-user"></i> By Ali TUFAN</span>
-                                        <span><i class="icon-comment"></i> 5 Comments</span>
-                                        <h5>How Do You Like Your Sausage?</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                        <a href="{{ path('SingleRecette') }}" class="read-arrow">Read More</a>
-                                    </div>
+                                {% endfor %}
                                 </div>
                                 <div class="gallery-pagination">
                                     <div class="gallery-pagination-inner">
@@ -151,7 +110,7 @@
                                             <li class="active"><a href="#"><span>1</span></a></li>
                                             <li><a href="#"><span>2</span></a></li>
                                             <li><a href="#"><span>3</span></a></li>
-                                            <li><a href="#" class="pagination-next"><span>next page</span> <i class="icon-right-4"></i></a></li>
+                                            <li><a href="#" class="pagination-next"><span>next page</span><i class="icon-right-4"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -163,5 +122,39 @@
         </div>
     </main>
     <!-- End Main -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script >
+    $(function () {
+        $("#recherche").keyup(function () {
+            $.ajax({
+                url : "{{ path('rechercheRecetteClient') }}",
+                data : { 'recherche' : $(this).val() }
+            }).done(function (data) {
+                $('#tableau').empty();
+                $.each(data,function(k,el){
+                    var a = new Date(el.dateRec.timestamp * 1000);
+                    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                    var year = a.getFullYear();
+                    var month = months[a.getMonth()];
+                    var jour = a.getDate();
+                    $("#tableau").append(
+                        "<div class='blog-right-listing wow fadeInDown' data-wow-duration='1000ms' data-wow-delay='300ms'>"
+                            +"<div class=\"feature-img\">"
+                            +"<img src=\"{{ asset('public/uploads/brochures/Recettes/')}}"+ el.imageRec +"\" alt=\"\" style=\"height: 280px ;width: 360px;border-radius: 10%\" />"
+                            +"<div class=\"date-feature\"><small> "+ jour +"/"+ month +"</small>"
+                            +"<small>  "+ year +" </small></div></div>"
+                            +"<div class=\"feature-info\">"
+                            +"<span><i class=\"icon-user\"></i> "+ el.idUser.username +" </span>"
+                            +"<span><i class=\"icon-comment\"></i> 5 Comments</span>"
+                            +"<h5> "+ el.nomRec +" </h5>"
+                            +"<p>"+ el.descriptionRec.substr(0,190) +"... </p>"
+                            +"<di><a href=\"/Recette/SingleRecette/"+ el.id +"\" class=\"read-arrow\">Read More</a></div>"
+                            +"</div>"
+                        +"</div>"
+                );
+                });
+            });
+        });
+    })
+    </script>
 {% endblock %}
+

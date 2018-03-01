@@ -52,3 +52,33 @@ recherche_produit:
 Supprimer_Produit:
     path:     /Supprimer_Produit/{id}
     defaults: { _controller: CupCakesBundle:Produit:SupprimerProduit}
+
+ModifierRecettePatisserie:
+    path:     /Modifier_Formateur_Patisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:ModifierPatisserieRecette}
+SupprimerRecettePatisserie:
+    path:     /SupprimerRecettePatisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:SupprimerPatisserieRecette}
+ListCategorieRecettePatisserie:
+    path:     /listeCategoriePatisserie
+    defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecettePatisserie }
+AjouterRecettePatisserie:
+    path:     /Ajouter_Patisserie_Recette
+    defaults: { _controller: CupCakesBundle:Recette:AjouterPatisserieRecette}
+ListeMesRecettePatisserie:
+    path:     /liste_Mes_RecettePatisserie
+    defaults: { _controller: CupCakesBundle:Recette:ListeMesRecettePatisserie}
+ReadAllRecettePatisserie:
+    path:     /listeRecettePatisserie
+    defaults: { _controller: CupCakesBundle:Recette:ReadAllRecettePatisserie}
+updatePRecette:
+    path:     /updateRecettePatisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:UpdateRecettePatisserie}
+SingleRecettePatisserie:
+    path:     /SingleRecettePatisserie/{id}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSinglePatisserie}
+AjouterCategoriePRecette:
+    path:     /ajouterCategoriePRecette
+    defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterPCategorieRecette }
+
+

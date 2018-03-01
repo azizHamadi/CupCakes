@@ -2,8 +2,11 @@
 
 namespace CupCakesBundle\Form;
 
+use CupCakesBundle\Entity\Recette;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,12 +22,14 @@ class RecetteType extends AbstractType
                 'choice_label' => 'nomCatRec',
                 'multiple' => false
             ))
-            ->add('descriptionRec', TextareaType::class, array('attr' => array('style' => 'width: 500px ; height : 500px')));
+            ->add('imageRec',FileType::class,array('data_class' => null))
+            ->add('descriptionRec', CKEditorType::class, array('attr' => array('style' => 'width: 992px ; height : 300px')));
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
-
+        $resolver->setDefaults(array(
+            'data_class' => Recette::class,
+        ));
     }
 
     public function getBlockPrefix()

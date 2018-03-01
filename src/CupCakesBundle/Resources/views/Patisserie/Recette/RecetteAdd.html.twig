@@ -1,0 +1,66 @@
+{% extends "::layout.html.twig" %}
+{% block containt %}
+
+    {{ form_start(form) }}
+    <div class="col-lg-12 col-md-9">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter une recette</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.nomRec, {'label':"Nom" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            {{ form_row(form.idCatRec, {'label':"Categorie" ,'attr': {'class': 'form-control border-input'}}) }}
+                            <a href="{{ path('AjouterCategoriePRecette') }}" id="Ajoutercategorie" >Ajouter une categorie</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {{ form_row(form.descriptionRec, {'label':"Description" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_row(form.imageRec, {'label':"Image" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <img src="#" id="img" style="width: 180px;height: 80px" hidden>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-info btn-fill btn-wd" value="Enregistrer" />
+                    {{ form_row(form._token) }}
+                </div>
+            </div>
+        </div>
+        <div id="a"></div>
+    </div>
+    {{ form_end(form) }}
+    <script >
+        document.getElementById('cup_cakes_bundle_recette_type_imageRec').onchange = function(e) {
+            // Get the first file in the FileList object
+            var imageFile = this.files[0];
+            // get a local URL representation of the image blob
+            var url = window.URL.createObjectURL(imageFile);
+            // Now use your newly created URL!
+            $("#a").append($("#cup_cakes_bundle_recette_type_nomRec").val());
+            document.getElementById('img').src = url;
+            document.getElementById('img').hidden=false;
+        }
+    </script>
+
+{% endblock %}

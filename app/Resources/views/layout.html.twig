@@ -49,55 +49,35 @@
                         Creative Tim
                     </a>
                 </div>
-
                 <ul class="nav">
-                    <li class="active">
-                        <a href="{{ path('cup_cakes_homepage') }}">
-                            <i class="ti-panel"></i>
-                            <p>Acceuil</p>
-                        </a>
-                    </li>
                     <li>
-                        <a href="{{ path('Ajouter_Categorie') }}">
+                        <a href="{{ path('ListCategorieRecettePatisserie') }}">
                             <i class="ti-user"></i>
-                            <p>ajout produit</p>
+                            <p>Liste des Categories Recette</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('read') }}">
+                        <a href="{{ path('AjouterRecettePatisserie') }}">
                             <i class="ti-user"></i>
-                            <p>Liste categories</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ path('CommandeListePatisserie') }}">
-                            <i class="ti-text"></i>
-                            <p>Liste Commandes</p>
+                            <p>Ajouter une Recette</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('ListeFeedback') }}">
-                            <i class="ti-pencil-alt2"></i>
-                            <p>Liste Feedback</p>
+                        <a href="{{ path('ListeRecette',{'id':0 , 'type' : "patisserie"}) }}">
+                            <i class="ti-user"></i>
+                            <p>Tous les recettes</p>
                         </a>
                     </li>
                     <li>
-                        <a href="maps.html">
-                            <i class="ti-map"></i>
-                            <p>Maps</p>
+                        <a href="{{ path('ListeMesRecette',{'type': "patisserie"}) }}">
+                            <i class="ti-user"></i>
+                            <p>Mes recettes</p>
                         </a>
                     </li>
                     <li>
-                        <a href="notifications.html">
-                            <i class="ti-bell"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="upgrade.html">
-                            <i class="ti-export"></i>
-                            <p>Upgrade to PRO</p>
+                        <a href="{{ path('RecupererMesRecette',{'type': "patisserie"}) }}">
+                            <i class="ti-user"></i>
+                            <p>Recuperer mes recettes</p>
                         </a>
                     </li>
                 </ul>

@@ -31,12 +31,6 @@ ProduitSeul:
 Detail_Produit:
     path:     /Proddet{id}
     defaults: { _controller: CupCakesBundle:Produit:Proddet }
-ListeCRecette:
-    path:     /listeRecette
-    defaults: { _controller: CupCakesBundle:Recette:ListeC }
-SingleRecette:
-    path:     /SingleRecette
-    defaults: { _controller: CupCakesBundle:Recette:RecetteSingle }
 ListeCommandeClient:
     path:     /MesCommandes
     defaults: { _controller: CupCakesBundle:Commande:ListeC }
@@ -55,3 +49,38 @@ Detail_Categorie:
 testMony:
     path:     /Mony
     defaults: { _controller: CupCakesBundle:Produit:aa }
+ListeRecette:
+    path:     /listeRecette
+    defaults: { _controller: CupCakesBundle:Recette:ReadAllRecetteClient}
+ListeMesRecette:
+    path:     /liste_Mes_Recette
+    defaults: { _controller: CupCakesBundle:Recette:ListeMesRecetteClient}
+SingleRecette:
+    path:     /SingleRecette/{id}
+    defaults: { _controller: CupCakesBundle:Recette:RecetteSingleClient}
+rechercheRecetteClient:
+    path:     /rechercheClient
+    defaults: { _controller: CupCakesBundle:Recette:RechercheRecette}
+AjouterRecetteClient:
+    path:     /Ajouter_Client_Recette
+    defaults: { _controller: CupCakesBundle:Recette:AjouterClientRecette}
+RecupererMesRecetteClient:
+    path:     /RecupererRecetteClient
+    defaults: { _controller: CupCakesBundle:Recette:RecupererClientRecette}
+ModifierRecetteClient:
+    path:     /Modifier_Client_Recette/{id}
+    defaults: { _controller: CupCakesBundle:Recette:ModifierClientRecette}
+SupprimerRecetteClient:
+    path:     /SupprimerRecetteClient/{id}
+    defaults: { _controller: CupCakesBundle:Recette:SupprimerClientRecette}
+AjouterCategorieCRecette:
+    path:     /ajouterCategorieCRecette
+    defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterCCategorieRecette }
+ListCategorieRecetteClient:
+    path:     /listeCategorieClient
+    defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecette }
+
+
+
+
+

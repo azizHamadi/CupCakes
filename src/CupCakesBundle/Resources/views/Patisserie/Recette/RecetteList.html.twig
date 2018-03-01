@@ -1,42 +1,33 @@
 {% extends "::layout.html.twig" %}
 {% block containt %}
 
-    {{ form_start(form) }}
-        <div class="col-lg-8 col-md-7">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Ajouter une recette</h4>
-                </div>
-                <div class="content">
-                    <form method="post">
-                        <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                {{ form_row(form.nomRec, {'label':"Nom" ,'attr': {'class': 'form-control border-input'}}) }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                {{ form_row(form.idCatRec, {'label':"Categorie" ,'attr': {'class': 'form-control border-input'}}) }}
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <div class="form-group">
-                                {{ form_row(form.descriptionRec, {'label':"Description" ,'attr': {'class': 'form-control border-input'}}) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" class="btn btn-info btn-fill btn-wd" value="Enregistrer" />
-                        {{ form_row(form._token) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{ form_end(form) }}
+    <div class="content table-responsive table-full-width">
+        <table class="table table-striped">
+            <thead>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Categorie</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+            </thead>
+            <tbody>
+                {% for recette in recettes  %}
+                    {% if recette.etatRec == 'oui' %}
+                        <tr>
+                            <td><img src="{{ asset('public/uploads/brochures/Recettes/' ~ recette.imageRec )}}" style="height: 70px;width: 100px"></td>
+                            <td>{{  recette.nomRec }}</td>
+                            <td>{{ recette.idCatRec.nomCatRec }}</td>
+                            <td>{{  recette.dateRec |date }}</td>
+                            <td><a href="{{ path('updatePRecette',{'id':recette.id}) }}">Modifier</a></td>
+                            <td><a href="{{ path('SupprimerRecettePatisserie',{'id':recette.id}) }}">Supprimer</a></td>
+                            <td></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 
 {% endblock %}

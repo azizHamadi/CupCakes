@@ -1,0 +1,119 @@
+{% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
+{% block containt %}
+<main>
+    <div class="main-part">
+        <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('{{ asset('ClientTemplate/images/breadbg1.jpg') }}');">
+            <div class="container">
+                <div class="breadcrumb-inner">
+                    <h2>BLOG</h2>
+                    <a href="#">Home</a>
+                    <span>Blog</span>
+                </div>
+            </div>
+        </section>
+        <!-- End Breadcrumb Part -->
+        <section class="home-icon blog-main-section blog-list-outer">
+            <div class="icon-default">
+                <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="blog-left-section" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="blog-left-search blog-common-wide">
+                                <input type="text" name="txt" placeholder="Search" />
+                                <input type="submit" name="submit" value="&#xf002;" />
+                            </div>
+                            <div class="blog-left-categories blog-common-wide">
+                                <h5>Gérer mes recettes</h5>
+                                <ul class="list">
+                                    <li><a href="{{ path('AjouterRecetteClient' ) }}">Ajouter une recette</a></li>
+                                    <li><a href="{{ path('ListeMesRecette',{'type':"client"}) }}">Mes recettes</a></li>
+                                </ul>
+                            </div>
+                            <div class="blog-recent-post blog-common-wide">
+                                <h5>Recent Posts</h5>
+                                <div class="recent-blog-list">
+                                    <p><img src="{{ asset('ClientTemplate/images/img44.png') }}" alt="" /></p>
+                                    <p><small>October 13, 2017</small></p>
+                                    <h6>Disclosue - Real food here</h6>
+                                </div>
+                                <div class="recent-blog-list">
+                                    <p><img src="{{ asset('ClientTemplate/images/img42.png') }}" alt="" /></p>
+                                    <p><small>October 13, 2017</small></p>
+                                    <h6>Disclosue - Real food here</h6>
+                                </div>
+                            </div>
+                            <div class="popular-tag blog-common-wide">
+                                <h5>Popular Tags</h5>
+                                <a href="#">Audio</a> <a href="#">Service</a> <a href="#">Cupcake</a> <a href="#">Online Order</a> <a href="#">Contact</a>
+                            </div>
+                            <div class="blog-left-deal blog-common-wide">
+                                <h5>Best Deals</h5>
+                                <div class="best-deal-blog">
+                                    <div class="best-deal-left">
+                                        <img src="{{ asset('ClientTemplate/images/img43.png') }}" alt="" />
+                                    </div>
+                                    <div class="best-deal-right">
+                                        <p>Lasal Cheese</p>
+                                        <p><strong>$ 15</strong></p>
+                                    </div>
+                                </div>
+                                <div class="best-deal-blog">
+                                    <div class="best-deal-left">
+                                        <img src="{{ asset('ClientTemplate/images/img44.png') }}" alt="" />
+                                    </div>
+                                    <div class="best-deal-right">
+                                        <p>Lasal Cheese</p>
+                                        <p><strong>$ 15</strong></p>
+                                    </div>
+                                </div>
+                                <div class="best-deal-blog">
+                                    <div class="best-deal-left">
+                                        <img src="{{ asset('ClientTemplate/images/img45.png') }}" alt="" />
+                                    </div>
+                                    <div class="best-deal-right">
+                                        <p>Lasal Cheese</p>
+                                        <p><strong>$ 15</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+
+                        <div class="col-lg-12 col-md-9">
+
+                        {{ form_start(form) }}
+                <div class="col-lg-12 col-md-9">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">{{ titre }}</h4>
+                        </div>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.nomCatRec, {'label':"Nom Categorie Recette" ,'attr': {'class': 'form-control border-input'}}) }}
+                                        <p style="color: red">{{ message}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="submit" class="btn-black" value="Enregistrer" />
+                                {{ form_row(form._token) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
-{% block containt %}
 
+{% block containt %}
     <main>
         <div class="main-part">
             <!-- Start Breadcrumb Part -->
@@ -29,12 +29,9 @@
                                 <div class="blog-left-categories blog-common-wide">
                                     <h5>Categories</h5>
                                     <ul class="list">
-                                        <li><a href="#">Catering</a></li>
-                                        <li><a href="#">Community</a></li>
-                                        <li><a href="#">Employment</a></li>
-                                        <li><a href="#">Franchise</a></li>
-                                        <li><a href="#">Kids Corner</a></li>
-                                        <li><a href="#">Our Recipes</a></li>
+                                        {% for categorie in categorieRec %}
+                                            <li><a href="#">{{ categorie.nomCatRec }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="blog-recent-post blog-common-wide">
@@ -90,26 +87,45 @@
                             <div class="blog-right-section">
                                 <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                     <div class="feature-img">
-                                        <img src="{{ asset('ClientTemplate/images/img54.png')}}" alt="" />
-                                        <div class="date-feature">27
-                                            <br /> <small>may</small></div>
+                                        <img src="{{ asset('public/uploads/brochures/Recettes/' ~ recette.imageRec )}}" alt="" alt="" style="height: 370px ;width: 750px;border-radius: 3%" />
+                                        <div class="date-feature"><small>{{ recette.dateRec |date('d/m') }}</small>
+                                            <small>{{ recette.dateRec |date('y') }}</small></div>
                                     </div>
                                     <div class="feature-info">
-                                        <span><i class="icon-user-1"></i> By Ali TUFAN</span>
+                                        <span><i class="icon-user-1"></i> {{ recette.idUser.username }}</span>
                                         <span><i class="icon-comment-5"></i> 5 Comments</span>
-                                        <h5>How Do You Like Your Sausage?</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis diam erat. Duis velit lectus, posuere a blandit sit amet, tempor at lorem. Donec ultricies, lorem sed ultrices interdum, leo metus luctus sem, vel vulputate diam ipsum sed lorem. Donec tempor arcu nisl, et molestie massa scelerisque ut. Nunc at rutrum leo. Mauris metus mauris, tristique quis sapien eu, rutrum vulputate enim.</p>
-                                        <p>Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat.</p>
+                                        <span id="avgNote">Note :
+                                            {% if avgNote[1] != null %}
+                                            {{ avgNote[1] }}
+                                        {% else %}0
+                                            {% endif %}/5
+                                        </span>
+                                        <h5>{{ recette.nomRec }}  </h5>
+                                        <p>{{ recette.idCatRec.nomCatRec }}</p>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="star-review">
+                                                <p>
+                                                    <span>Your Rating</span>
+                                                    <span class="star-review-customer">
+                                                    <a id="a1" href="{{ path('CreateRating',{"note":1,"idRec": recette.id}) }}" class="star-1"></a>
+                                                    <a id="a2" href="{{ path('CreateRating',{"note":2,"idRec": recette.id}) }}" class="star-2"></a>
+                                                    <a id="a3" href="{{ path('CreateRating',{"note":3,"idRec": recette.id}) }}" class="star-3"></a>
+                                                    <a id="a4" href="{{ path('CreateRating',{"note":4,"idRec": recette.id}) }}" class="star-4"></a>
+                                                    <a id="a5" href="{{ path('CreateRating',{"note":5,"idRec": recette.id}) }}" class="star-5"></a>
+                                                </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <span>
+                                            <div id="vote">
+                                                {% if note != null %}
+                                                    Votre note est : {{ note.note }}/5
+                                                {% endif %}
+                                            </div>
+                                        </span>
                                         <blockquote>
-                                            <span class="quote">“</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
+                                            <span class="quote"></span>{{ recette.descriptionRec |raw}}
                                         </blockquote>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iure dolor in reprehenderit sed do eiusmod tempor incididunt minim veniam, quis nostrud.</p>
-                                        <ul class="ul-list">
-                                            <li>Onsum dolor sit amet, consectetur adipisicing elit.</li>
-                                            <li>Quis nostrud exercitation ullamco nisi ut aliquip.</li>
-                                            <li>Reprehenderit sed do eiusmod tempor inci.</li>
-                                        </ul>
                                         <div class="share-tag">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -137,47 +153,14 @@
                                         <p><a href="#" class="plain-btn"><i class="icon-left-4"></i>Music for Dinner – Audio Player</a></p>
                                     </div>
                                     <div class="comment-blog">
-                                        <h3>2 Comment</h3>
-                                        <div class="comment-inner-list">
-                                            <div class="comment-img">
-                                                <img src="{{ asset('ClientTemplate/images/img55.png')}}" alt="" />
-                                            </div>
-                                            <div class="comment-info">
-                                                <h5>Anna Taylor</h5>
-                                                <span class="comment-date">AUGUST 9, 2016 10:57 AM</span>
-                                                <p>Aqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                            </div>
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+                                        <div id="fos_comment_thread" data-thread="{{ thread.id }}">
+
+                                            {% include 'CupCakesBundle:Client/Commentaire:comments.html.twig' with {
+                                                'comments': comments,
+                                                'thread': thread
+                                            } %}
                                         </div>
-                                        <div class="comment-inner-list">
-                                            <div class="comment-img">
-                                                <img src="{{ asset('ClientTemplate/images/img55.png')}}" alt="" />
-                                            </div>
-                                            <div class="comment-info">
-                                                <h5>Anna Taylor</h5>
-                                                <span class="comment-date">AUGUST 9, 2016 10:57 AM</span>
-                                                <p>Aqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                            </div>
-                                        </div>
-                                        <h3>Leave a Reply</h3>
-                                        <form class="form" method="post" name="form">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <textarea placeholder="Comment"></textarea>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" name="txt" placeholder="Name" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="email" name="email" placeholder="Email" />
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="text" name="txt" placeholder="Web site" />
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <input type="submit" name="submit" value="POST COMMENT" class="btn-black" />
-                                            </div>
-                                        </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -187,6 +170,66 @@
             </section>
         </div>
     </main>
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('bundles/foscomment/js/comments.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/foscomment/css/commentsF.css') }}" type="text/css" />
+    <script>
+        $('#a1').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a2').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a3').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a4').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a5').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
 
-
+    </script>
 {% endblock %}

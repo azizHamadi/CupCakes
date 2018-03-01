@@ -10,4 +10,13 @@ namespace CupCakesBundle\Repository;
  */
 class recetteRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findNom($nom)
+    {
+        $q=$this->createQueryBuilder('r')
+            ->where('r.nomRec LIKE :nom')
+            ->setParameter(':nom','%'.$nom.'%')
+        ;
+        return $q->getQuery()->getResult();
+    }
+
 }

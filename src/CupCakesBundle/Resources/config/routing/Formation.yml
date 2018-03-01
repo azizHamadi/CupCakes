@@ -1,3 +1,0 @@
-formateur_accueil:
-    path:   /
-    defaults: { _controller: CupCakesBundle:Default:Formateur }

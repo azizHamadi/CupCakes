@@ -1,0 +1,132 @@
+{% extends "::layout.html.twig" %}
+{% block containt %}
+
+<link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bundles/foscomment/css/commentsF1.css') }}" type="text/css" />
+
+    <div class="content table-responsive table-full-width">
+    <div class="row">
+        <div class="col-md-11 col-sm-11 col-xs-11 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" >
+            <div class="blog-right-section">
+                <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="feature-img">
+                        <center><img src="{{ asset('public/uploads/brochures/Recettes/' ~ recette.imageRec)}}" alt="" alt="" style="height: 370px ;width: 1000px;border-radius: 3%" /></center>
+                        <div class="date-feature" style="right: 15%"><small>{{ recette.dateRec |date('d/m') }}</small>
+                            <small>{{ recette.dateRec |date('y') }}</small></div>
+                    </div>
+                </div>
+                    <div class="feature-info" style="padding-left: 10px">
+                        <span><i class="icon-user-1"></i> {{ recette.idUser.username }}</span>
+                        <span><i class="icon-comment-5"></i> 5 Comments</span>
+                        <span id="avgNote">Note :
+                            {% if avgNote[1] != null %}
+                            {{ avgNote[1] }}
+                        {% else %}0
+                            {% endif %}/5
+                                        </span>
+                        <h5>{{ recette.nomRec }}  </h5>
+                        <p>Categorie : {{ recette.idCatRec.nomCatRec }}</p>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="star-review">
+                                <p>
+                                    <span>Your Rating</span>
+                                    <span class="star-review-customer">
+                                                    <a id="a1" href="{{ path('CreateRating',{"note":1,"idRec": recette.id}) }}" class="star-1"></a>
+                                                    <a id="a2" href="{{ path('CreateRating',{"note":2,"idRec": recette.id}) }}" class="star-2"></a>
+                                                    <a id="a3" href="{{ path('CreateRating',{"note":3,"idRec": recette.id}) }}" class="star-3"></a>
+                                                    <a id="a4" href="{{ path('CreateRating',{"note":4,"idRec": recette.id}) }}" class="star-4"></a>
+                                                    <a id="a5" href="{{ path('CreateRating',{"note":5,"idRec": recette.id}) }}" class="star-5"></a>
+                                                    <div id="vote">
+                                                        {% if note != null %}
+                                                            Votre note est : {{ note.note }}/5
+                                                        {% endif %}
+                                                    </div>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <span class="quote"></span>{{ recette.descriptionRec |raw}}
+                        </blockquote>
+                    </div>
+                    <div class="comment-blog" style="color: #0E2231;">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+                        <div id="fos_comment_thread" data-thread="{{ thread.id }}">
+
+                            {% include 'CupCakesBundle:Client/Commentaire:comments.html.twig' with {
+                                'comments': comments,
+                                'thread': thread
+                            } %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('bundles/foscomment/js/comments.js') }}"></script>
+    <script>
+        $('#a1').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a2').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a3').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a4').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+        $('#a5').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('href'),
+                success: function(data) {
+                    $("#avgNote").html("Note : "+data.notes+"/5");
+                    $("#vote").html("Votre note est : "+data.data.note+"/5");
+                }
+            });
+            return false; // for good measure
+        });
+
+    </script>
+{% endblock %}
+
+
+

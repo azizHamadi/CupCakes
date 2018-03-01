@@ -10,4 +10,24 @@ namespace CupCakesBundle\Repository;
  */
 class NoteRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findNote($idUser,$idRec)
+    {
+        $q=$this->createQueryBuilder('n')
+            ->where('n.idRec=:idRec')
+            ->andWhere('n.idUser=:idUser')
+            ->setParameter(':idRec',$idRec)
+            ->setParameter('idUser',$idUser)
+        ;
+        return $q->getQuery()->getOneOrNullResult();
+    }
+
+    public function avgNote($idRec)
+    {
+        $q=$this->createQueryBuilder('n')
+            ->select('avg(n.note)')
+            ->where('n.idRec=:idRec')
+            ->setParameter(':idRec',$idRec);
+        return $q->getQuery()->getOneOrNullResult();
+    }
+
 }

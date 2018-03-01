@@ -23,6 +23,10 @@ class AppKernel extends Kernel
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new Tbbc\MoneyBundle\TbbcMoneyBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
         ];
 
