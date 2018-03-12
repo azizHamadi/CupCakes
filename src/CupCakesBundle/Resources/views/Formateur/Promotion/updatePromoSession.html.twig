@@ -1,0 +1,60 @@
+{% extends "CupCakesBundle:Formateur:layoutF.html.twig" %}
+{% block containt %}
+
+    {{ form_start(form) }}
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Modifier une session a une promotion</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.idSes, {'label':"nom de la formation" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.dateDeb, {'label':"date debut de la session" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.dateFin, {'label':"date fin de la session" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.idPromo, {'label':"pourcentage" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-info btn-fill btn-wd" value="Enregistrer" />
+                {{ form_row(form._token) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

@@ -80,5 +80,27 @@ SingleRecettePatisserie:
 AjouterCategoriePRecette:
     path:     /ajouterCategoriePRecette
     defaults: { _controller: CupCakesBundle:CategorieRecette:ajouterPCategorieRecette }
+#promo produit
+create_Promotion:
+    path:     /create_Promotion_produit
+    defaults: { _controller: CupCakesBundle:Promotion:create_Promotion }
+liste_promo_produit:
+    path:     /read_Promotion_produit
+    defaults: { _controller: CupCakesBundle:Promotion:read_Promotion }
+
+
+create_Line_Promotion:
+    path:     /create_Line_Promotion
+    defaults: { _controller: CupCakesBundle:LinePromo:create_LinePromotionProduit }
+liste_Linepromo_produit:
+    path:     /read_Line_Promotion
+    defaults: { _controller: CupCakesBundle:LinePromo:read_LinePromotion }
+update_Line_Promotion:
+    path:     /update_Line_Promotion/{id}
+    defaults: { _controller: CupCakesBundle:LinePromo:update_line }
+delete_Line_Promotion:
+    path:     /delete_Line_Promotion/{id}
+    defaults: { _controller: CupCakesBundle:LinePromo:delete }
+
 
 

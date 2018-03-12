@@ -1,0 +1,41 @@
+{% extends "::layoutf.html.twig" %}
+
+{% block containt %}
+
+    {{ form_start(form) }}
+
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter un educate</h4>
+            </div>
+            <div class="content">
+                <form method="post">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.etatEduc, {'label':"etat" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div>
+                    <input type="submit" class="btn btn-info btn-fill btn-wd" value="Confirmation" />
+                    {{ form_row(form._token) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
+
+
+
+

@@ -22,3 +22,6 @@ cup_cakes_register:
 cup_cakes_note:
     resource: "@CupCakesBundle/Resources/config/routing1/Note.yml"
     prefix:   /Note
+cup_cakes_admin:
+    resource: "@CupCakesBundle/Resources/config/routing1/Admin.yml"
+    prefix:   /Note

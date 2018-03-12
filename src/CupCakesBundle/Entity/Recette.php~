@@ -3,6 +3,7 @@
 namespace CupCakesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * recette
@@ -19,7 +20,7 @@ class Recette
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -65,6 +66,14 @@ class Recette
     private $idUser;
 
     /**
+     * @ORM\Column(name="imageRec",type="string", length=10000, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $imageRec;
+
+    /**
      * Get id
      *
      * @return integer
@@ -84,7 +93,7 @@ class Recette
     public function setNomRec($nomRec)
     {
         $this->nomRec = $nomRec;
-    
+
         return $this;
     }
 
@@ -108,7 +117,7 @@ class Recette
     public function setDateRec($dateRec)
     {
         $this->dateRec = $dateRec;
-    
+
         return $this;
     }
 
@@ -132,7 +141,7 @@ class Recette
     public function setEtatRec($etatRec)
     {
         $this->etatRec = $etatRec;
-    
+
         return $this;
     }
 
@@ -156,7 +165,7 @@ class Recette
     public function setIdUser(\CupCakesBundle\Entity\User $idUser = null)
     {
         $this->idUser = $idUser;
-    
+
         return $this;
     }
 
@@ -217,4 +226,29 @@ class Recette
     {
         return $this->descriptionRec;
     }
+
+    /**
+     * Set imageRec
+     *
+     * @param string $imageRec
+     *
+     * @return Recette
+     */
+    public function setImageRec($imageRec)
+    {
+        $this->imageRec = $imageRec;
+
+        return $this;
+    }
+
+    /**
+     * Get imageRec
+     *
+     * @return string
+     */
+    public function getImageRec()
+    {
+        return $this->imageRec;
+    }
+
 }

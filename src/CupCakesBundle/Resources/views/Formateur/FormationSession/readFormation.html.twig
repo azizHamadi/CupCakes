@@ -1,0 +1,79 @@
+{% extends "::layoutf.html.twig" %}
+{% block containt %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste des formations</h4>
+
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Image</th>
+                            <th>Name </th>
+                            <th>Type </th>
+                            <th>Nom user</th>
+                            <th>Description </th>
+                            <th>Date </th>
+                            <th>Supprimer</th>
+                            <th>Modifier</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    {% if pagination|length==0 %}
+                                        <h4>aucune formation disponible</h4>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% for formation in pagination  %}
+                                <tr {% if loop.index is odd %}class="color"{% endif %}>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('public/uploads/brochures/Formateur/' ~  formation.imageForm) }}" style="height: 70px; width: 100px" >
+                                </td>
+
+                                <td>
+                                    {{  formation.nomFor }}
+                                </td>
+                                <td>
+                                    {{  formation.idTypeFor.nomTypeFor }}
+                                </td>
+                                <td>
+                                    {{ formation.idUser }}
+                                </td>
+                                <td>
+                                    {{ formation.descriptionFor |raw }}
+                                </td>
+                                <td>
+                                    {{ formation.dateFor |date('d-M-Y')}}
+
+                                </td>
+                                <td>
+                                    <a href="{{ path('delete_Formateur',{'id':formation.id }) }}" >Supprimer</a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('update_Formateur',{'id':formation.id }) }}">Modifier</a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('ListSessionBackend',{'id':formation.id }) }}">Sessions</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {# display navigation #}
+                        <div class="navigation">
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+{% endblock %}

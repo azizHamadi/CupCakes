@@ -1,0 +1,54 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des formations</h4>
+
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+
+                    <th> num de la promotion </th>
+                    <th> pourcentage</th>
+                    <th> etat de la promotion</th>
+
+                    </thead>
+                    <tbody>
+                    {% for promotion in promotion  %}
+                        <tr>
+                            <td>
+                                {{  promotion.id }}
+                            </td>
+                            <td>
+                                {{  promotion.tauxPromo }}
+                            </td>
+                            <td>
+                                {{  promotion.etatPromo }}
+                            </td>
+
+
+
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ asset('DataTables-1.10.16/css/jquery.dataTables.min.css') }}">
+
+
+{% endblock %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des Produits sous promotion</h4>
+
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table id="table" class="table table-striped">
+                    <thead>
+
+                    <th> nom de produit </th>
+                    <th> date debut</th>
+                    <th> date fin</th>
+                    <th> pourcentage </th>
+                    <th> nouv.prix</th>
+                    <th> modifier </th>
+                    <th> Supprimer </th>
+
+                    </thead>
+                    <tbody>
+                    {% for promotion in promotion  %}
+                        <tr>
+
+                            <td>
+                                {{  promotion.idProd.nomProd  }}
+                            </td>
+                            <td>
+                                {{  promotion.dateDeb |date ('d-M-Y')}}
+                            </td>
+                            <td>
+                                {{  promotion.dateFin|date('d-M-Y') }}
+                            </td>
+
+                            <td>
+                                {{  promotion.idPromo.tauxPromo  }}
+                            </td>
+                            <td>
+                                {{ promotion.idProd.nvPrix }}
+                            </td>
+
+                            <td><a href="{{ path("update_Line_Promotion",{'id':promotion.id}) }}">modifier</a></td>
+
+                            <td><a href="{{ path("delete_Line_Promotion",{'id':promotion.id}) }}"><p style="color:red">Supprimer</p></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+</tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+        {% block javascript %}
+        <script src="{{ asset('DataTables-1.10.16/js/jquery.dataTables.js') }}" ></script>
+
+        <script>
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#table  tfoot  th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input style="width: 110px" type="text" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#table').DataTable();
+
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+</script>
+
+        {% endblock %}

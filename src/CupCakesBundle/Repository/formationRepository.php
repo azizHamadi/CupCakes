@@ -10,4 +10,52 @@ namespace CupCakesBundle\Repository;
  */
 class formationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findNom($nomfor)
+    {
+        $query = $this->createQueryBuilder('f')
+            ->Where('f.nomFor LIKE :nomfor')
+            ->setParameter(':nomfor',"%$nomfor%");
+        return $query->getQuery()->getResult();
+    }
+
+    public function FindByIdType($type)
+    {
+        $q=$this->createQueryBuilder('f')
+            ->where('f.idTypeFor=:idtype')
+            ->setParameter(':idtype',"%$type%");
+        return $q->getQuery()->getResult();
+    }
+
+    //requete  les clients affectes a la formation
+    public function ClientsAffectés($iduser)
+    {
+        $etat="vrai";//veut dire que la session nest pas supprimée
+        $query = $this->createQueryBuilder('f')
+            ->from('CupCakesBundle:Educate','e')
+            ->from('CupCakesBundle:Session','s')
+            ->Where('f.id=s.idFor')
+            ->andWhere('s.etatSes=:etat')
+            ->andWhere('s.id=e.idSes' )
+            ->andWhere('e.idUser=:iduser')
+            ->setParameter(':iduser',$iduser)
+            ->setParameter(':etat',$etat);
+
+        return $query->getQuery()->getResult();
+    }
+
+
+    //requete select des formations par id user
+    public function SelectFormationByidUSer($iduser)
+    {
+        $etatformation="vrai";
+
+        $query = $this->createQueryBuilder('f')
+            // ->Where('f.idUser=:iduser')
+            ->Where('f.etatFor=:etatformation')
+            ->andWhere('f.idUser=:iduser')
+            //->setParameter(':iduser',$iduser)
+            ->setParameter(':etatformation',$etatformation)
+            ->setParameter(':iduser',$iduser);
+        return $query->getQuery()->getResult();
+    }
 }

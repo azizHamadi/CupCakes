@@ -1,0 +1,99 @@
+{% extends 'CupCakesBundle:Client:LayoutC2.html.twig' %}
+
+{% block containt %}
+
+    <head>
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+
+    </head>
+    <body>
+    <!-- Start Main -->
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>Mes sessions</h2>
+                        <a href="#">Home</a>
+                        <a href="{{ path('ListFormateur') }}">Retour</a>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+            <section class="home-icon service-record pad-bottom-remove wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+                    <div class="title">
+                        <h2>Mes sessions finies</h2>
+                    </div>
+                    <div class="service-port-outer">
+                        {% if sessionfinies|length == 0 %}
+                            <div class="breadcrumb-bg-black">
+                                <h4>Aucune sessions finies existantes</h4>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="service-port odd wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        {% for session in sessionfinies %}
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 service-port-left">
+                                    <div class="service-port-prev">
+                                        <img src="{{ asset('public/uploads/brochures/Formateur/' ~  session.imagesess) }}"  >
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 service-port-right">
+                                    <div class="service-port-next">
+                                        <h6>Date debut: {{ session.dateDebSes |date('d-M-Y')  }}</h6>
+                                        <h6>Date fin : {{ session.dateFinSes |date('d-M-Y') }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="title">
+                        <h2>Mes sessions en cours</h2>
+                    </div>
+                    <div class="service-port-outer">
+                        <div class="service-port-outer">
+                            {% if sessionencours|length == 0 %}
+                                <div class="breadcrumb-bg-black">
+                                    <h4>Aucune sessions finies existantes</h4>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="service-port odd wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            {% for session in sessionencours %}
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 service-port-left">
+                                        <div class="service-port-prev">
+                                            <img src="{{ asset('public/uploads/brochures/Formateur/' ~  session.imagesess) }}"  >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 service-port-right">
+                                        <div class="service-port-next">
+                                            <h6>Date debut: {{ session.dateDebSes |date('d-M-Y')  }}</h6>
+                                            <h6>Date fin : {{ session.dateFinSes |date('d-M-Y') }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+
+    </body>
+
+
+{% endblock %}
+

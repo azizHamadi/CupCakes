@@ -45,18 +45,8 @@ class Note
      *
      * @ORM\Column(name="etatNote", type="string", length=255, nullable=true)
      */
-    private $etatNote;
+    private $etatNote = "oui";
 
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set note
@@ -68,7 +58,7 @@ class Note
     public function setNote($note)
     {
         $this->note = $note;
-    
+
         return $this;
     }
 
@@ -92,7 +82,7 @@ class Note
     public function setDateNote($dateNote)
     {
         $this->dateNote = $dateNote;
-    
+
         return $this;
     }
 
@@ -116,7 +106,7 @@ class Note
     public function setEtatNote($etatNote)
     {
         $this->etatNote = $etatNote;
-    
+
         return $this;
     }
 
@@ -140,7 +130,7 @@ class Note
     public function setIdUser(\CupCakesBundle\Entity\User $idUser)
     {
         $this->idUser = $idUser;
-    
+
         return $this;
     }
 
@@ -164,7 +154,7 @@ class Note
     public function setIdRec(\CupCakesBundle\Entity\Recette $idRec)
     {
         $this->idRec = $idRec;
-    
+
         return $this;
     }
 

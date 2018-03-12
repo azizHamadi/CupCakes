@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <!--importation de l'API google MAP Version 3-->
+    <meta name="referrer" content="no-referrer"> <!-- don't send HTTP referer for privacy purpose and to use Google Maps Geocoding API without key -->
+    <frame src="my-account.html"></frame>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDFsu85aexLXoJ8jWVQTQ-gIs9OjKO4JMc&callback"></script>
+    <script type="text/javascript">
+
+        var config = { attributes: true, childList: true, characterData: true };
+        observer.observe(target, config);
+        var directionsService = new google.maps.DirectionsService();
+        var map,geocoder, marker;
+
+        var ptCheck;
+
+        /*initialise google MAP V3*/
+        function init() {
+            arrivee = document.getElementById('adrDep').value;
+
+            /*gestion des routes*/
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            /*emplacement par d�faut de la carte (j'ai mis Paris)*/
+            var maison = new google.maps.LatLng(36.8556748, 10.187877999999955);
+            /*option par d�faut de la carte*/
+            var myOptions = {
+                zoom:6,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: maison
+            }
+            /*creation de la map*/
+            map = new google.maps.Map(document.getElementById("divMap"), myOptions);
+            /*connexion de la map + le panneau de l'itin�raire*/
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById("divRoute"));
+            /*intialise le geocoder pour localiser les adresses */
+            geocoder = new google.maps.Geocoder();
+        }
+
+
+
+        function rechercher(src,address,code)
+        {
+            ptCheck = code; /*adresse de d�part ou arriv�e ? */
+            if (geocoder) {
+                geocoder.geocode( { 'address': document.getElementById(src).value}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                        /*ajoute un marqueur � l'adresse choisie*/
+                        map.setCenter(results[0].geometry.location);
+                        if (marker) { marker.setMap(null);}
+                        marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                        /*on remplace l'adresse par celle fournie du geocoder*/
+                        document.getElementById(src).value = results[0].formatted_address;
+
+                        if (ptCheck)
+                        {
+                            depart = results[0].formatted_address;
+                        }
+                        /*trace la route*/
+                        trouveRoute();
+                    } else {
+                        alert("Geocode n'a rien trouv� !\n raison : " + status);
+                    }
+                });
+            }
+
+        }
+
+
+    </script>
+</head>
+<body onload="init();">
+<div>
+    <table>
+        <tr><td><b>d&eacute;part: </b></td>
+            <td><input type="text" id="adrDep" value="{{ place }}" style="width:300px;"></td>
+            <td><input type="button" value="recherche" onclick="rechercher('adrDep','address',true)"></td>
+        </tr>
+    </table>
+</div>
+<div id="divMap" style="float:left;width:70%; height:80%"></div>
+<br/>
+
+</html>

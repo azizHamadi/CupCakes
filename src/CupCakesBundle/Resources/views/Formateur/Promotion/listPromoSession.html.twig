@@ -1,0 +1,80 @@
+{% extends "CupCakesBundle:Formateur:layoutF.html.twig" %}
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ asset('DataTables-1.10.16/css/dataTables.bootstrap.min.css') }}">
+{% endblock %}
+{% block containt %}
+
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des session sous promotion</h4>
+
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+
+                    <th> num formation sous promotion </th>
+                    <th> nom de formation </th>
+                    <th> date debut</th>
+                    <th> date fin</th>
+                    <th> pourcentage </th>
+                    <th> nv.prix </th>
+                    <th> modifier </th>
+                    <th> Supprimer </th>
+
+                    </thead>
+                    <tbody>
+                    {% for promotion in promotion  %}
+                        <tr>
+                            <td>
+                                {{  promotion.idLine }}
+                            </td>
+                            <td>
+                                {{  promotion.idSes.nomSes }}
+                            </td>
+                            <td>
+                                {{  promotion.idSes.dateDebSes |date ('d-M-Y')}}
+                            </td>
+                            <td>
+                                {{  promotion.idSes.dateFinSes|date('d-M-Y') }}
+                            </td>
+
+                            <td>
+                                {{  promotion.idPromo.tauxPromo |default('undefined')  }}
+                            </td>
+                            <td>
+                                {{  promotion.idSes.nvPrix   }}
+                            </td>
+
+                            <td><a href="{{ path("update_Promo_Session",{'id':promotion.idLine}) }}">modifier</a></td>
+
+                            <td><a href="{{ path("delete_promo_session",{'id':promotion.idLine}) }}"><p style="color:red">Supprimer</p></a></td>
+
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+          {% block javascript %}
+              <script src="{{ asset('DataTables-1.10.16/js/jquery.dataTables.js') }}" ></script>
+
+              <script>
+                  $(document).ready(function() {
+                      $("#table").DataTable();
+                  });
+              </script>
+          {% endblock %}

@@ -1,0 +1,158 @@
+{% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
+{% block containt %}
+
+    <body>
+
+
+    <div class="wrapper">
+
+        <!-- Start Main -->
+        <main>
+            <div class="main-part">
+                <!-- Start Breadcrumb Part -->
+                <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
+
+                </section>
+                <!-- End Breadcrumb Part -->
+                <section class="dishes invert invert-black wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                    <div class="container">
+                        <!--
+                        <div class="build-title">
+                             <h2>List formateur</h2>
+                             <h6>This is the list</h6>
+                         </div>
+                         -->
+                        <div class="service-track">
+                            <div class="row">
+                                <div class="title">
+                                    <center>
+                                        <h2>Aucune session disponible  </h2>
+                                    </center>
+                                </div>
+                                <br>
+                                <div class="breadcrumb-inner">
+                                    <a href="#">Acceuil</a>
+                                    <a href="{{ path('ListFormateur') }}">Liste formation</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- End Main -->
+        <!-- Start Footer -->
+        <footer>
+            <div class="footer-part wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="icon-default icon-dark">
+                    <img src="./images/footer-logo.png" alt="" />
+                </div>
+                <div class="container">
+                    <div class="footer-inner">
+                        <div class="footer-info">
+                            <h3>La boom Restaurant</h3>
+                            <p>329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
+                            <p><a href="#">123 456 7890</a></p>
+                            <p><a href="#">support@laboom.com</a></p>
+                        </div>
+                    </div>
+                    <div class="copy-right">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12 copyright-before">
+                                <span>Copyright © 2017 Polygon Theme. All rights reserved.</span>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 copyright-after">
+                                <div class="social-round">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-find">
+                    <a href="#">
+                        <img src="./images/location.png" alt="" />
+                        <span>Find us on Map</span>
+                    </a>
+                </div>
+                <div class="location-footer-map">
+                    <div class="icon-find-location">
+                        <a href="#">
+                            <img src="./images/location.png" alt="" />
+                            <span>Find us on Map</span>
+                        </a>
+                    </div>
+                    <div class="footer-map-outer">
+                        <div id="footer-map"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- Start Book Table -->
+        <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="table-title">
+                            <h2>Reservation</h2>
+                            <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="select-dropbox">
+                                    <option />Hour
+                                    <option />1
+                                    <option />2
+                                    <option />3
+                                    <option />4
+                                    <option />5
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="select-dropbox">
+                                    <option />Number of People
+                                    <option />1
+                                    <option />2
+                                    <option />3
+                                    <option />4
+                                    <option />5
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="txt" placeholder="Pick a Date" class="date-pick" />
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="txt" placeholder="Phone Number" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <input type="email" name="email" placeholder="Email Address" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn-main btn-big">BOOK A TABLE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Book Table -->
+    </div>
+
+
+    </body>
+
+    </html>
+{% endblock %}

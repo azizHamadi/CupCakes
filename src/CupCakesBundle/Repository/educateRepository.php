@@ -10,4 +10,23 @@ namespace CupCakesBundle\Repository;
  */
 class educateRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function CountNbrClient($id)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('count(:idSes)')
+            ->where('m.idSes=:idSes')
+            ->setParameter(':idSes',$id);
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function chercherIdForandSes($idUser,$idSes)
+    {
+
+        $qb = $this->createQueryBuilder('m');
+        $qb -> where('m.idUser=:idUser')
+            ->andWhere('m.idSes=:idSes')
+            ->setParameter(':idUser',$idUser)
+            ->setParameter(':idSes',$idSes);
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

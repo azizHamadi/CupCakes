@@ -3,6 +3,7 @@
 parameters:
     #parameter_name: value
     brochures_directoryRecette: '%kernel.project_dir%/web/public/uploads/brochures/Recettes'
+    brochures_directory_formateur: '%kernel.project_dir%/web/public/uploads/brochures/Formateur'
     brochures_directory: '%kernel.project_dir%/web/public/uploads/brochures/Produit'
 services:
     twig.extension.text:

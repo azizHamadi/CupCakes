@@ -2,6 +2,7 @@
 
 namespace CupCakesBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -13,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Produit
 {
+
+
     /**
      * @var int
      *
@@ -46,16 +49,25 @@ class Produit
     /**
      * @var float
      *
-     * @ORM\Column(name="prixProd", type="float", nullable=true)
+     * @ORM\Column(name="prixProd", type="integer", nullable=true)
+     * @Assert\GreaterThan(value="0", message="le prix superieur à zero")
      */
     private $prixProd;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="nv_prix", type="integer", nullable=true)
+     * @Assert\GreaterThan(value="0", message="le prix superieur à zero")
+     */
+    private $nv_prix;
 
     /**
      * @var string
      *
      * @ORM\Column(name="etatProd", type="string", length=255, nullable=true)
      */
-    private $etatProd;
+    private $etatProd = "vrai";
 
     /**
      * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\User")
@@ -75,10 +87,94 @@ class Produit
      * @ORM\Column(name="imageprod",type="string", length=10000, nullable=true)
      *
      * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @Assert\File(mimeTypes={ "image/jpeg","image/jpg","image/png","image/GIF" })
      */
     private $imageProd;
 
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="QteAcheter", type="integer", nullable=true)
+     */
+    private $QteAcheter = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="valeur", type="integer")
+     */
+    private $valeur =0;
+    private $tnd;
+    private $euro;
+    private $usd;
+
+    /**
+     * @return mixed
+     */
+    public function getUsd()
+    {
+        return $this->usd;
+    }
+
+    /**
+     * @param mixed $usd
+     */
+    public function setUsd($usd)
+    {
+        $this->usd = $usd;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getEuro()
+    {
+        return $this->euro;
+    }
+
+    /**
+     * @param mixed $euro
+     */
+    public function setEuro($euro)
+    {
+        $this->euro = $euro;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getTnd()
+    {
+        return $this->tnd;
+    }
+
+    /**
+     * @param mixed $tnd
+     */
+    public function setTnd($tnd)
+    {
+        $this->tnd = $tnd;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getQteAcheter()
+    {
+        return $this->QteAcheter;
+    }
+
+    /**
+     * @param mixed $QteAcheter
+     */
+    public function setQteAcheter($QteAcheter)
+    {
+        $this->QteAcheter = $QteAcheter;
+    }
     /**
      * Get id
      *
@@ -147,7 +243,7 @@ class Produit
     public function setPrixProd($prixProd)
     {
         $this->prixProd = $prixProd;
-    
+
         return $this;
     }
 
@@ -279,5 +375,21 @@ class Produit
     public function getImageProd()
     {
         return $this->imageProd;
+    }
+
+    /**
+     * @return int
+     */
+    public function getValeur()
+    {
+        return $this->valeur;
+    }
+
+    /**
+     * @param int $valeur
+     */
+    public function setValeur($valeur)
+    {
+        $this->valeur = $valeur;
     }
 }

@@ -1,0 +1,32 @@
+{% extends "CupCakesBundle:Formateur:layoutF.html.twig" %}
+{% block containt %}
+
+    {{ form_start(form) }}
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter une promotion</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.tauxPromo, {'label':"pourcentage" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div>
+                <input type="submit" class="btn btn-info btn-fill btn-wd" value="Enregistrer" />
+                {{ form_row(form._token) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

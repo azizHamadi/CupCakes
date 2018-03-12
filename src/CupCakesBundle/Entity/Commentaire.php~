@@ -3,14 +3,19 @@
 namespace CupCakesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\CommentBundle\Entity\Comment as BaseComment;
+use FOS\CommentBundle\Model\SignedCommentInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * Commentaire
  *
  * @ORM\Table(name="commentaire")
  * @ORM\Entity(repositoryClass="CupCakesBundle\Repository\CommentaireRepository")
+ * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Commentaire
+class Commentaire extends BaseComment implements SignedCommentInterface
 {
     /**
      * @var int
@@ -19,42 +24,23 @@ class Commentaire
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
+     * Thread of this comment
      *
-     * @ORM\Column(name="descriptionCmnt", type="string", length=10000, nullable=true)
+     * @var Thread
+     * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\Thread")
+     * @ORM\JoinColumn(name="idRec",referencedColumnName="id")
      */
-    private $descriptionCmnt;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateCmnt", type="date", nullable=true)
-     */
-    private $dateCmnt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etatCmnt", type="string", length=255, nullable=true)
-     */
-    private $etatCmnt;
+    protected $thread;
 
     /**
      * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\User")
      *
      * @ORM\JoinColumn(name="idUser",referencedColumnName="id")
      */
-    private $idUser;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\Recette")
-     *
-     * @ORM\JoinColumn(name="idRec",referencedColumnName="idRec")
-     */
-    private $idRec;
+    protected $idUser;
 
     /**
      * Get id
@@ -67,78 +53,6 @@ class Commentaire
     }
 
     /**
-     * Set descriptionCmnt
-     *
-     * @param string $descriptionCmnt
-     *
-     * @return Commentaire
-     */
-    public function setDescriptionCmnt($descriptionCmnt)
-    {
-        $this->descriptionCmnt = $descriptionCmnt;
-    
-        return $this;
-    }
-
-    /**
-     * Get descriptionCmnt
-     *
-     * @return string
-     */
-    public function getDescriptionCmnt()
-    {
-        return $this->descriptionCmnt;
-    }
-
-    /**
-     * Set dateCmnt
-     *
-     * @param \DateTime $dateCmnt
-     *
-     * @return Commentaire
-     */
-    public function setDateCmnt($dateCmnt)
-    {
-        $this->dateCmnt = $dateCmnt;
-    
-        return $this;
-    }
-
-    /**
-     * Get dateCmnt
-     *
-     * @return \DateTime
-     */
-    public function getDateCmnt()
-    {
-        return $this->dateCmnt;
-    }
-
-    /**
-     * Set etatCmnt
-     *
-     * @param string $etatCmnt
-     *
-     * @return Commentaire
-     */
-    public function setEtatCmnt($etatCmnt)
-    {
-        $this->etatCmnt = $etatCmnt;
-    
-        return $this;
-    }
-
-    /**
-     * Get etatCmnt
-     *
-     * @return string
-     */
-    public function getEtatCmnt()
-    {
-        return $this->etatCmnt;
-    }
-
-    /**
      * Set idUser
      *
      * @param \CupCakesBundle\Entity\User $idUser
@@ -148,7 +62,7 @@ class Commentaire
     public function setIdUser(\CupCakesBundle\Entity\User $idUser = null)
     {
         $this->idUser = $idUser;
-    
+
         return $this;
     }
 
@@ -163,26 +77,32 @@ class Commentaire
     }
 
     /**
-     * Set idRec
+     * Sets the author of the Comment
      *
-     * @param \CupCakesBundle\Entity\Recette $idRec
-     *
-     * @return Commentaire
+     * @param UserInterface $idUser
      */
-    public function setIdRec(\CupCakesBundle\Entity\Recette $idRec = null)
+    public function setAuthor(UserInterface $idUser)
     {
-        $this->idRec = $idRec;
-    
-        return $this;
+        $this->idUser = $idUser;
     }
 
     /**
-     * Get idRec
+     * Gets the author of the Comment
      *
-     * @return \CupCakesBundle\Entity\Recette
+     * @return UserInterface
      */
-    public function getIdRec()
+    public function getAuthor()
     {
-        return $this->idRec;
+        return $this->idUser;
     }
+
+    public function getAuthorName()
+    {
+        if (null === $this->getAuthor()) {
+            return 'Anonymous';
+        }
+
+        return $this->getAuthor()->getUsername();
+    }
+
 }

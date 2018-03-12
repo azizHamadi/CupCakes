@@ -1,0 +1,56 @@
+{% extends "::layoutf.html.twig" %}
+
+{% block containt %}
+
+    {{ form_start(form ,{'attr': {'novalidate':'novalidate'}}) }}
+
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">modifier une formation</h4>
+            </div>
+            <div class="content">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.nomFor, {'label':"Nom formation" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.idTypeFor, {'label':"Type formation" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.dateFor, {'label':"date formation" ,'attr': {'class': 'form-control border-input'}}) }}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                {{ form_row(form.descriptionFor, {'label':"Description" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <input type="submit" class="btn btn-info btn-fill btn-wd" value="Confirmation" id="enregistrer" />
+                    {{ form_row(form._token) }}
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="inputtry">
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

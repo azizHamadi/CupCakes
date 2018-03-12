@@ -56,7 +56,7 @@ class Promotion
     public function setTauxPromo($tauxPromo)
     {
         $this->tauxPromo = $tauxPromo;
-    
+
         return $this;
     }
 
@@ -80,7 +80,7 @@ class Promotion
     public function setEtatPromo($etatPromo)
     {
         $this->etatPromo = $etatPromo;
-    
+
         return $this;
     }
 

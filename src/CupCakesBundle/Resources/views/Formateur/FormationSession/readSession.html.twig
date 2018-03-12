@@ -1,0 +1,76 @@
+{% extends "::layoutf.html.twig" %}
+{% block containt %}
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Liste des sessions affectees</h4>
+
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                    <th>Image</th>
+                    <th>Date debut</th>
+                    <th>Date fin </th>
+                    <th>Etat</th>
+                    <th>Capacite</th>
+                    <th>id formation</th>
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {% if pagination|length==0 %}
+                                <h4>aucune session disponible</h4>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% for session in pagination  %}
+                        <tr>
+                            <td>
+                                <img src="{{ asset('public/uploads/brochures/Formateur/' ~  session.imageSess) }}" style="height: 70px; width: 100px" >
+                            </td>
+
+                            <td>
+                                {{  session.dateDebSes |date('d-M-Y')}}
+                            </td>
+                            <td>
+                                {{  session.dateFinSes |date('d-M-Y')}}
+                            </td>
+                            <td>
+                                {{  session.etatSes }}
+                            </td>
+                            <td>
+                                {{ session.capaciteSes }}
+                            </td>
+                            <td>
+                                {{ session.idFor.nomFor}}
+                            </td>
+                            {% if session.dateDebSes > date %}
+                            <td>
+                                <a href="{{ path('delete_Session',{'id':session.id }) }}" >Supprimer</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('update_Session',{'id':session.id }) }}">Modifier</a>
+                            </td>
+                            {% else %}
+                                <td></td>
+                                <td></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -22,6 +22,13 @@ class LinePromo
     private $id;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="views", type="float", nullable=true)
+     */
+    private $views=null;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateDeb", type="date", nullable=true)
@@ -185,5 +192,29 @@ class LinePromo
     public function getIdPromo()
     {
         return $this->idPromo;
+    }
+
+    /**
+     * Set views.
+     *
+     * @param float|null $views
+     *
+     * @return LinePromo
+     */
+    public function setViews($views = null)
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    /**
+     * Get views.
+     *
+     * @return float|null
+     */
+    public function getViews()
+    {
+        return $this->views;
     }
 }

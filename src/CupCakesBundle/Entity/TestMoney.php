@@ -81,4 +81,52 @@ class TestMoney
 
         return $this;
     }
+
+    /**
+     * Set priceAmount.
+     *
+     * @param int $priceAmount
+     *
+     * @return TestMoney
+     */
+    public function setPriceAmount($priceAmount)
+    {
+        $this->priceAmount = $priceAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get priceAmount.
+     *
+     * @return int
+     */
+    public function getPriceAmount()
+    {
+        return $this->priceAmount;
+    }
+
+    /**
+     * Set priceCurrency.
+     *
+     * @param string $priceCurrency
+     *
+     * @return TestMoney
+     */
+    public function setPriceCurrency($priceCurrency)
+    {
+        $this->priceCurrency = $priceCurrency;
+
+        return $this;
+    }
+
+    /**
+     * Get priceCurrency.
+     *
+     * @return string
+     */
+    public function getPriceCurrency()
+    {
+        return $this->priceCurrency;
+    }
 }

@@ -1,0 +1,45 @@
+{% extends "::layoutf.html.twig" %}
+{% block containt %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste des clients affectés</h4>
+
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Id client </th>
+                            <th>nom client </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {% if clients|length ==0 %}
+                                        <td><center>aucun client affectes</center></td>
+                                    {% endif %}
+                                </tr>
+                            {% for client in clients  %}
+                                <tr>
+                                    <td>
+                                        {{  client.idUser }}
+                                    </td>
+                                    <td>
+                                        {{  client.nomFor }}
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            {% endblock %}

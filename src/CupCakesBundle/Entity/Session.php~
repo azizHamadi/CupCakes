@@ -3,6 +3,12 @@
 namespace CupCakesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Constraints\Range;
+//use Symfony\Component\Validator\Constraints\Re;
+
+
 
 /**
  * Session
@@ -25,6 +31,8 @@ class Session
      * @var \DateTime
      *
      * @ORM\Column(name="dateDebSes", type="date", nullable=true)
+     *
+     * @Assert\GreaterThan("today")
      */
     private $dateDebSes;
 
@@ -32,6 +40,8 @@ class Session
      * @var \DateTime
      *
      * @ORM\Column(name="dateFinSes", type="date", nullable=true)
+
+     *
      */
     private $dateFinSes;
 
@@ -39,6 +49,8 @@ class Session
      * @var int
      *
      * @ORM\Column(name="capaciteSes", type="integer", nullable=true)
+     *
+     * @Assert\GreaterThan(value="0",message="la capacite doit est superieur a 0")
      */
     private $capaciteSes;
 
@@ -47,7 +59,8 @@ class Session
      *
      * @ORM\Column(name="etatSes", type="string", length=255, nullable=true)
      */
-    private $etatSes;
+    private $etatSes="en cours";
+
 
     /**
      * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\Formation")
@@ -56,12 +69,15 @@ class Session
      */
     private $idFor;
 
+
+
     /**
-     * @ORM\ManyToOne(targetEntity="CupCakesBundle\Entity\Promotion")
+     * @ORM\Column(name="imagesess",type="string", length=10000, nullable=true)
      *
-     * @ORM\JoinColumn(name="idPromo",referencedColumnName="idPromo")
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "image/jpeg","image/jpg","image/png","image/gif"})
      */
-    private $idPromo;
+    private $imageSess;
 
     /**
      * Get id
@@ -83,7 +99,7 @@ class Session
     public function setDateDebSes($dateDebSes)
     {
         $this->dateDebSes = $dateDebSes;
-    
+
         return $this;
     }
 
@@ -107,7 +123,7 @@ class Session
     public function setDateFinSes($dateFinSes)
     {
         $this->dateFinSes = $dateFinSes;
-    
+
         return $this;
     }
 
@@ -131,7 +147,7 @@ class Session
     public function setCapaciteSes($capaciteSes)
     {
         $this->capaciteSes = $capaciteSes;
-    
+
         return $this;
     }
 
@@ -155,7 +171,7 @@ class Session
     public function setEtatSes($etatSes)
     {
         $this->etatSes = $etatSes;
-    
+
         return $this;
     }
 
@@ -179,7 +195,7 @@ class Session
     public function setIdFor(\CupCakesBundle\Entity\Formation $idFor = null)
     {
         $this->idFor = $idFor;
-    
+
         return $this;
     }
 
@@ -193,27 +209,121 @@ class Session
         return $this->idFor;
     }
 
+
     /**
-     * Set idPromo
+     * Set imageSess
      *
-     * @param \CupCakesBundle\Entity\Promotion $idPromo
+     * @param string $imageSess
      *
      * @return Session
      */
-    public function setIdPromo(\CupCakesBundle\Entity\Promotion $idPromo = null)
+    public function setImageSess($imageSess)
     {
-        $this->idPromo = $idPromo;
-    
+        $this->imageSess = $imageSess;
+
         return $this;
     }
 
     /**
-     * Get idPromo
+     * Get imageSess
      *
-     * @return \CupCakesBundle\Entity\Promotion
+     * @return string
      */
-    public function getIdPromo()
+    public function getImageSess()
     {
-        return $this->idPromo;
+        return $this->imageSess;
+    }
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix_ses", type="float", nullable=true)
+     */
+    private $prixSes;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="nv_prix_ses", type="float", nullable=true)
+     */
+    private $nv_prixSes = null;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomSes", type="string", length=500, nullable=true)
+     */
+    private $nomSes;
+
+    /**
+     * Set prixSes
+     *
+     * @param float $prixSes
+     *
+     * @return Session
+     */
+    public function setPrixSes($prixSes)
+    {
+        $this->prixSes = $prixSes;
+
+        return $this;
+    }
+
+    /**
+     * Get prixSes
+     *
+     * @return float
+     */
+    public function getPrixSes()
+    {
+        return $this->prixSes;
+    }
+
+    /**
+     * Set nvPrixSes
+     *
+     * @param float $nvPrixSes
+     *
+     * @return Session
+     */
+    public function setNvPrixSes($nvPrixSes)
+    {
+        $this->nv_prixSes = $nvPrixSes;
+
+        return $this;
+    }
+
+    /**
+     * Get nvPrixSes
+     *
+     * @return float
+     */
+    public function getNvPrixSes()
+    {
+        return $this->nv_prixSes;
+    }
+
+    /**
+     * Set nomSes
+     *
+     * @param string $nomSes
+     *
+     * @return Session
+     */
+    public function setNomSes($nomSes)
+    {
+        $this->nomSes = $nomSes;
+
+        return $this;
+    }
+
+    /**
+     * Get nomSes
+     *
+     * @return string
+     */
+    public function getNomSes()
+    {
+        return $this->nomSes;
     }
 }

@@ -1,0 +1,112 @@
+{% extends "::layoutf.html.twig" %}
+
+{% block containt %}
+
+    {{ form_start(form,{'attr': {'novalidate':'novalidate'}}) }}
+
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter une session</h4>
+            </div>
+            <div class="content">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.dateDebSes, {'label':"Date debut session" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.dateFinSes, {'label':"Date fin session" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.nomSes, {'label':"nom" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.capaciteSes, {'label':"Capacite" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.prix, {'label':"prix" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.idFor, {'label':"id formation" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_row(form.imageSess, {'label':"Image" ,'attr': {'class': 'form-control border-input'}}) }}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <input type="submit" class="btn btn-info btn-fill btn-wd" value="Confirmation" id="enreg" />
+                    {{ form_row(form._token) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(function(){
+            $("#enreg").click(function(event){
+                event.preventDefault();
+                if($('#cup_cakes_bundle_session_type_dateDebSes').val() < $('#cup_cakes_bundle_session_type_dateFinSes').val())
+                {
+                    $("form").submit();
+                }
+                else
+                {
+                    demo.initChartist();
+                    $.notify({
+                        icon: 'ti-gift',
+                        message: "date fin superieur que la date debut "
+
+                    }, {
+                        type: 'success',
+                        timer: 4000
+                    });
+                }
+            });
+
+        });
+
+    </script>
+{% endblock %}
+
+
+
+
+

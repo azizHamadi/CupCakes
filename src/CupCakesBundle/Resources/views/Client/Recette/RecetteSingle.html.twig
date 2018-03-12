@@ -1,6 +1,7 @@
 {% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
 
 {% block containt %}
+    <link rel="stylesheet" href="{{ asset('bundles/foscomment/css/commentsF.css') }}" type="text/css" />
     <main>
         <div class="main-part">
             <!-- Start Breadcrumb Part -->
@@ -87,7 +88,7 @@
                             <div class="blog-right-section">
                                 <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                     <div class="feature-img">
-                                        <img src="{{ asset('public/uploads/brochures/Recettes/' ~ recette.imageRec )}}" alt="" alt="" style="height: 370px ;width: 750px;border-radius: 3%" />
+                                        <img src="{{ asset('public/uploads/brochures/Recettes/' ~ recette.imageRec)}}" alt="" alt="" style="height: 370px ;width: 750px;border-radius: 3%" />
                                         <div class="date-feature"><small>{{ recette.dateRec |date('d/m') }}</small>
                                             <small>{{ recette.dateRec |date('y') }}</small></div>
                                     </div>
@@ -170,10 +171,10 @@
             </section>
         </div>
     </main>
+    <script src="{{ asset('bundles/foscomment/js/comments.js') }}"></script>
+
 {% endblock %}
 {% block javascript %}
-    <script src="{{ asset('bundles/foscomment/js/comments.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('bundles/foscomment/css/commentsF.css') }}" type="text/css" />
     <script>
         $('#a1').click(function(event) {
             event.preventDefault();

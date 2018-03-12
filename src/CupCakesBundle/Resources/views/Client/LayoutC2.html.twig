@@ -109,19 +109,22 @@
                                 </ul>
                             </li>
                             <li class="has-child">
-                                <a href="#">Formations</a>
+                                <a href="{{ path('ListFormateur') }}">Formations</a>
                                 <ul class="drop-nav">
-                                    <li><a href="./about.html">Succrés</a></li>
                                     <li>
-                                        <a href="./service1.html">Salés</a>
+                                        <a href="{{ path('ListFormateur') }}">formations</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ path('SessionEncoursEtFinie') }}">mes sessions</a>
+                                    </li>
+
                                 </ul>
                             </li>
                             <li class="has-child">
-                                <a href="./blog_2col.html">Promotions</a>
+                                <a href="{{ path('liste_promo') }}">Promotions</a>
                                 <ul class="drop-nav">
-                                    <li><a href="./blog_list.html">Formations</a></li>
-                                    <li><a href="./blog_2col.html">Produits</a></li>
+                                    <li><a href="{{ path('read_promo_formation') }}">Formations</a></li>
+                                    <li><a href="{{ path('liste_promo') }}">Produits</a></li>
                                 </ul>
                             </li>
                             <li class="has-child">
@@ -253,6 +256,10 @@
 <script src="{{ asset('ClientTemplate/plugin/parallax/jquery.stellar.js') }}"></script>
 <script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
 <script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
+{% block javascript %}
+
+{% endblock %}
+
 </body>
 
 </html>

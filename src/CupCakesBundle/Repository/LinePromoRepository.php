@@ -10,4 +10,24 @@ namespace CupCakesBundle\Repository;
  */
 class LinePromoRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findPlusVu()
+    {
+
+        $query=$this->getEntityManager()
+            ->createQuery(" select m from CupCakesBundle:LinePromo m WHERE m.views=(select MAX(m1.views) from CupCakesBundle:LinePromo m1)");
+        return $query->getResult();
+
+    }
+
+    public function rechercheId($iduser){
+        $query = $this->createQueryBuilder('line_promo')
+            ->from('CupCakesBundle:Produit','produit')
+            ->from('CupCakesBundle:Promotion','promotion')
+            ->Where('produit.id=line_promo.idProd')
+            ->andWhere('produit.idUser=:iduser' )
+            ->andWhere('line_promo.idPromo=promotion.id')
+            ->setParameter(':iduser',$iduser);
+        return $query->getQuery()->getResult();
+
+    }
 }

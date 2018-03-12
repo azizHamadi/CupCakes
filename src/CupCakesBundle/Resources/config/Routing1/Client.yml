@@ -79,6 +79,42 @@ AjouterCategorieCRecette:
 ListCategorieRecetteClient:
     path:     /listeCategorieClient
     defaults: { _controller: CupCakesBundle:CategorieRecette:listeCategorieRecette }
+read_Educate:
+    path:   /readEducate
+    defaults: { _controller: CupCakesBundle:Educate:readEducate }
+create_Educate:
+    path:   /createEducate/{id}
+    defaults: { _controller: CupCakesBundle:Educate:createEducateSansPromo }
+ListFormateur:
+    path:   /ListFormateur
+    defaults: { _controller: CupCakesBundle:Formation:readFormation }
+SessionEncoursEtFinie:
+    path:   /List/Sessionetfinie
+    defaults: { _controller: CupCakesBundle:Session:Sessionencoursfinie }
+ListSession:
+    path:   /Session/{id}
+    defaults: { _controller: CupCakesBundle:Session:readSessionByIdFor }
+map:
+    path:   /map/{id}
+    defaults: { _controller: CupCakesBundle:Map:map }
+
+read_promo_formation:
+    path:     /read_promo_ses
+    defaults: { _controller: CupCakesBundle:Session:readSessionEnPromo }
+
+create_EducateAvecProm:
+    path:     /promo/{id}
+    defaults: { _controller: CupCakesBundle:Educate:createEducateAvecPromo }
+
+liste_promo:
+    path:     /liste_promo_produit
+    defaults: { _controller: CupCakesBundle:LinePromo:ListePromo }
+detail_promo:
+    path:     /detail_promo/{id}
+    defaults: { _controller: CupCakesBundle:LinePromo:detail_promo }
+
+
+
 
 
 

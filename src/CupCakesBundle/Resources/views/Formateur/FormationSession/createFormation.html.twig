@@ -1,0 +1,114 @@
+{% extends "::layoutf.html.twig" %}
+
+{% block containt %}
+    <head>
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+                height: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 256px;
+                width: 1170px;
+                margin-left: 20px;
+
+            }
+            #floating-panel {
+                position: absolute;
+                top: 10px;
+                left: 25%;
+                z-index: 5;
+                background-color: #fff;
+                padding: 5px;
+                border: 1px solid #999;
+                text-align: center;
+                font-family: 'Roboto','sans-serif';
+                line-height: 30px;
+                padding-left: 10px;
+            }
+            #floating-panel {
+                position: absolute;
+                top: 5px;
+                left: 50%;
+                margin-left: -180px;
+                width: 350px;
+                z-index: 5;
+                background-color: #fff;
+                padding: 5px;
+                border: 1px solid #999;
+            }
+            #latlng {
+                width: 225px;
+            }
+        </style>
+    </head>
+
+    {{ form_start(form ,{'attr': {'novalidate':'novalidate'}}) }}
+
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter une formation</h4>
+            </div>
+            <div class="content">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.nomFor, {'label':"Nom formation" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.idTypeFor, {'label':"Type formation" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.dateFor, {'label':"date formation" ,'attr': {'class': 'form-control border-input'}}) }}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.place, {'label':"place" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                {{ form_row(form.descriptionFor, {'label':"Description" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_row(form.imageForm, {'label':"Image" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div>
+                    <input type="submit" class="btn btn-info btn-fill btn-wd" value="Confirmation" id="enregistrer" />
+                    {{ form_row(form._token) }}
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

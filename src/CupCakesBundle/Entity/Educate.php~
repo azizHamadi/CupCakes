@@ -51,7 +51,7 @@ class Educate
     public function setDateIscri($dateIscri)
     {
         $this->dateIscri = $dateIscri;
-    
+
         return $this;
     }
 
@@ -75,7 +75,7 @@ class Educate
     public function setEtatEduc($etatEduc)
     {
         $this->etatEduc = $etatEduc;
-    
+
         return $this;
     }
 
@@ -99,7 +99,7 @@ class Educate
     public function setIdUser(\CupCakesBundle\Entity\User $idUser = null)
     {
         $this->idUser = $idUser;
-    
+
         return $this;
     }
 
@@ -123,7 +123,7 @@ class Educate
     public function setIdSes(\CupCakesBundle\Entity\Session $idSes = null)
     {
         $this->idSes = $idSes;
-    
+
         return $this;
     }
 

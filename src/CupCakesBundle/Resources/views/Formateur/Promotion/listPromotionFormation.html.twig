@@ -1,0 +1,90 @@
+{% extends 'CupCakesBundle:Client:LayoutC2.html.twig' %}
+
+{% block containt %}
+
+    <head>
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+
+    </head>
+    <body>
+    <!-- Start Main -->
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('./images/breadbg1.jpg');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>Nos promotions sur les sessions</h2>
+                        <a href="#">Home</a>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+            <section class="home-icon service-record pad-bottom-remove wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="container">
+
+
+                    {% for session in session %}
+                        <div class="service-port-outer">
+                            <div class="service-port odd wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div class="row" style="border-radius: 10% ">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 service-port-left">
+
+                                        <img style="height: 280px ;width: 360px;border-radius: 10%" src="{{ asset('public/uploads/brochures/Formateur/' ~  session.imagesess) }}"  >
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 service-port-right">
+                                        <div class="service-port-next">
+                                            <h4 style="color: red;border-radius: 10%">
+                                                {{ message }}
+                                            </h4>
+                                            <h6>Date debut: {{ session.dateDebSes |date('d-M-Y')  }}</h6>
+                                            <h6>Date fin: {{ session.dateDebSes |date('d-M-Y') }}</h6>
+                                            <h6>Capacité: {{ session.capaciteSes }}</h6>
+                                            <h6>Prix: <strike>{{ session.prix }}</strike></h6>
+                                            <h6>nouveau prix: {{ session.nvPrix }}</h6>
+
+                                            <!-- <input type="button" class="btn btn-black" data-toggle="modal" data-target="#exampleModal"  value="Add client">
+ -->                                         {% if session.capaciteSes != 0 %}
+                                                <a href="{{ path('create_EducateAvecProm',{'id': session.id }) }}"  >S'inscrire</a>
+                                            {% else %}
+                                                <a >S'inscrire</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">S'inscrire a cette session</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Voulez vous faire partie de cette session ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">non</button>
+                    <button type="button" class="btn btn-primary" ></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+
+{% endblock %}
+
+
+

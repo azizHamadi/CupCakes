@@ -1,0 +1,10 @@
+cup_cakes_DashAdmin:
+    path:   /
+    defaults: { _controller: CupCakesBundle:Admin:index }
+cup_cakes_ListAdmin:
+    path:   /ListAdmin
+    defaults: { _controller: CupCakesBundle:Admin:readUser }
+deleteUser:
+    path:   /DeleteUser/{id}/{etat}
+    defaults: { _controller: CupCakesBundle:Admin:deleteUser }
+

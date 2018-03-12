@@ -1,0 +1,140 @@
+{% extends "CupCakesBundle:Patisserie:layoutP.html.twig" %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('datepicker/css/datepicker.css') }}">
+    {% endblock %}
+{% block containt %}
+
+    {{ form_start(form) }}
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter un produit a une promotion</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.idProd, {'label':"nom du peoduit" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.dateDeb, {'label':"date debut" ,'attr': {'class': 'form-control border-input dateDeb'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        
+                        <div class="form-group">
+                            {{ form_row(form.dateFin, {'label':"date fin" ,'attr': {'class': 'form-control border-input dateFin'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_row(form.idPromo, {'label':"pourcentage" ,'attr': {'class': 'form-control border-input'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-info btn-fill btn-wd" id="enregistrer" value="Enregistrer" />
+                {{ form_row(form._token) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+    <div class="container">
+    
+</div>
+
+
+
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="{{ asset('datepicker/js/bootstrap-datepicker.js') }}"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#enregistrer").click(function(event){
+            event.preventDefault();
+
+            if($("#cupcakesbundle_linepromo_dateDeb").val()<$('#cupcakesbundle_linepromo_dateFin').val())
+            {
+                $("form").submit();
+            }
+            else{
+                demo.initChartist();
+
+                $.notify({
+                    icon: 'ti-gift',
+                    message: "date debut superieur que la date fin "
+
+                },{
+                    type: 'success',
+                    timer: 4000
+                });
+            }
+        });
+
+    });
+
+    /*$(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });*/
+</script>
+
+    <script>
+        $(document).ready(function() {
+
+           /* var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+             $('#cupcakesbundle_linepromo_dateDeb').datepicker();
+           /* var checkin = $('#cupcakesbundle_linepromo_dateDeb').datepicker({
+              onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+              }
+            }).on('changeDate', function(ev) {
+              if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+              }
+              checkin.hide();
+              $('#cupcakesbundle_linepromo_dateFin')[0].focus();
+            }).data('datepicker');
+            var checkout = $('#cupcakesbundle_linepromo_dateFin').datepicker({
+              onRender: function(date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+              }
+            }).on('changeDate', function(ev) {
+              checkout.hide();
+            }).data('datepicker');*/
+            });
+    </script>
+{% endblock %}
+

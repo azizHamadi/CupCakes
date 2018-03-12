@@ -1,0 +1,79 @@
+{% extends "CupCakesBundle:Client:LayoutC2.html.twig" %}
+{% block containt %}
+    <!-- Start Main -->
+    <main>
+        <div class="main-part">
+            <!-- Start Breadcrumb Part -->
+            <section class="breadcrumb-part" data-stellar-offset-parent="true" data-stellar-background-ratio="0.5" style="background-image: url('{{ asset('ClientTemplate/images/breadbg1.jpg') }}');">
+                <div class="container">
+                    <div class="breadcrumb-inner">
+                        <h2>SHOP</h2>
+                        <a href="#">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </section>
+            <!-- End Breadcrumb Part -->
+
+            < class="home-icon blog-main-section shop-page">
+                <div class="icon-default">
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png')}}" alt="" />
+                </div>
+                <div class="container">
+                    <div class="portfolioFilter">
+                        <div class="portfolioFilter-inner bg-skeen">
+                            <a href="javascript:;" data-filter=".breakfast" class="current">BREAKFAST</a>
+                            <a href="javascript:;" data-filter=".dessert">DESSERT</a>
+                            <a href="javascript:;" data-filter=".dinner">DINNER</a>
+                            <a href="javascript:;" data-filter=".freshfood">FRESHFOOD</a>
+                            <a href="javascript:;" data-filter=".lunch">LUNCH</a>
+                        </div>
+                    </div>
+                    <div class="portfolioContainer row" data-defaultfilter=".breakfast">
+                        {% for promotion in promotions  %}
+                            <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div class="shop-main-list">
+                                    <div class="shop-product">
+                                        <img src="{{ asset('public/uploads/brochures/Produit/' ~  promotion.idProd.imageProd) }}" alt="" height="220" width="220" />
+                                        <div class="cart-overlay-wrap">
+                                            <div class="cart-overlay">
+                                                <a href="#" class="shop-cart-btn">ADD TO CART</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="{{ path('detail_promo',{'id':promotion.id }) }}"><h5><font color="#f5deb3">{{ promotion.idProd.nomProd }}</font></h5>
+                                            <h5><strong><strike>{{ promotion.idProd.prixProd }}</strike> </strong></h5><strong><h5><font color="#f5f5dc">{{ promotion.idProd.nvPrix }}<div></div>
+
+                                    </div>
+                                </div>
+                                    <div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        {% endfor %}
+
+
+                        <div class="gallery-pagination">
+                            <div class="gallery-pagination-inner">
+                                <ul>
+                                    <li><a href="#" class="pagination-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i> <span>PREV page</span></a></li>
+                                    <li class="active"><a href="#"><span>1</span></a></li>
+                                    <li><a href="#"><span>2</span></a></li>
+                                    <li><a href="#"><span>3</span></a></li>
+                                    <li><a href="#" class="pagination-next"><span>next page</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+        </div>
+    </main>
+
+    <!-- End Main -->
+
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "::layoutf.html.twig" %}
+{% block containt %}
+
+<div class="col-lg-8 col-md-7">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Chercher une formation</h4>
+        </div>
+        <div class="content">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="cup_cakes_bundle_recherche_formation_nomFor"
+                                   name="cup_cakes_bundle_recherche_formation[nomFor]"
+                                   required="required" maxlength="500" class="form-control border-input" value="heehehe">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <input type="submit" class="btn btn-info btn-fill btn-wd" value="Confirmation" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Liste des formations</h4>
+
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped" id="tableau" >
+                            <thead>
+                            <th>Image</th>
+                            <th>Name </th>
+                            <th>Etat </th>
+                            <th>Type </th>
+                            <th>User</th>
+                            <th>Supprimer</th>
+                            <th>Modifier</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                {% if formation|length ==0 %}
+                                    <td><center>aucune formation trouvée</center></td>
+                                {% endif %}
+                            </tr>
+                            {% for formation in formation  %}
+                                <tr>
+                                    <td>
+                                        <img src="{{ asset('public/uploads/brochures/Formateur/' ~  formation.imageForm) }}" style="height: 70px; width: 100px" >
+                                    </td>
+                                    <td>
+                                        {{  formation.nomFor }}
+                                    </td>
+                                    <td>
+                                        {{  formation.etatFor }}
+                                    </td>
+                                    <td>
+                                        {{  formation.idTypeFor.nomTypeFor }}
+                                    </td>
+                                    <td>
+                                        {{ formation.idUser }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('delete_Formateur', {'id':formation.id }) }}" >Supprimer</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('update_Formateur', {'id':formation.id }) }}">Modifier</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script >
+                $(function () {
+                    $("#cup_cakes_bundle_recherche_formation_nomFor").keyup(function () {
+                        $.ajax({
+                            url : "{{ path('Rechercheform') }}",
+                            data : { 'formation' : $(this).val() }
+                        }).done(function (response) {
+                            var tableau = $(response).find("table");
+                            $('.tableau').empty();
+                            $('.tableau').append(tableau);
+                        });
+                    });
+                })
+            </script>
+            {% endblock %}

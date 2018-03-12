@@ -58,8 +58,15 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
                 $redirection = new RedirectResponse($this->router->generate('cup_cakes_homepage'));
             }
             else {
+                if (in_array('ROLE_SUPER_ADMIN', $rolesTab, true)) {
+                    // c'est un utilisaeur Patisserie : on le rediriger vers l'accueil patisserie
+                    $redirection = new RedirectResponse($this->router->generate('cup_cakes_DashAdmin'));
+                }
+                else
+                {
                 // c'est un utilisaeur formateur : on le rediriger vers l'accueil formateur
                 $redirection = new RedirectResponse($this->router->generate('formateur_accueil'));
+                }
             }
         }}
         return $redirection;

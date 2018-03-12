@@ -55,6 +55,14 @@ class Produit
     private $prixProd;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="nv_prix", type="integer", nullable=true)
+     * @Assert\GreaterThan(value="0", message="le prix superieur à zero")
+     */
+    private $nv_prix;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="etatProd", type="string", length=255, nullable=true)
@@ -383,5 +391,29 @@ class Produit
     public function setValeur($valeur)
     {
         $this->valeur = $valeur;
+    }
+
+    /**
+     * Set nvPrix.
+     *
+     * @param int|null $nvPrix
+     *
+     * @return Produit
+     */
+    public function setNvPrix($nvPrix = null)
+    {
+        $this->nv_prix = $nvPrix;
+
+        return $this;
+    }
+
+    /**
+     * Get nvPrix.
+     *
+     * @return int|null
+     */
+    public function getNvPrix()
+    {
+        return $this->nv_prix;
     }
 }
