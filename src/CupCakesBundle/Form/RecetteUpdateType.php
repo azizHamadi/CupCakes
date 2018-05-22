@@ -2,6 +2,7 @@
 
 namespace CupCakesBundle\Form;
 
+
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

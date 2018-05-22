@@ -154,7 +154,7 @@ knp_snappy:
         enabled:    true
         # If you have wkhtmltopdf as an environment variable you don't need to provide the
         # full path to the executable, use it in the same way as you use in the console
-        binary:   "\"C:\\Programmes\\wkhtmltopdf\\binwkhtmltopdf.exe\""
+        binary:   "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
         options: []
     process_timeout: 200 # In seconds
 

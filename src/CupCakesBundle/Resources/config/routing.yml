@@ -25,3 +25,4 @@ cup_cakes_note:
 cup_cakes_admin:
     resource: "@CupCakesBundle/Resources/config/routing1/Admin.yml"
     prefix:   /Note
+

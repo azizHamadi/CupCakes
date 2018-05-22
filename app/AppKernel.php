@@ -22,11 +22,11 @@ class AppKernel extends Kernel
             new Http\HttplugBundle\HttplugBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Tbbc\MoneyBundle\TbbcMoneyBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         ];
 

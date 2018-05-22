@@ -9,7 +9,6 @@
 namespace CupCakesBundle\Controller;
 use CupCakesBundle\Entity\CategorieRec;
 use CupCakesBundle\Entity\Note;
-use CupCakesBundle\Entity\Produit;
 use CupCakesBundle\Entity\Recette;
 use CupCakesBundle\Form\RecetteType;
 use CupCakesBundle\Form\RecetteUpdateType;

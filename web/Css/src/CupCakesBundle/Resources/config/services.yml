@@ -1,4 +1,0 @@
-services:
-#    cup_cakes.example:
-#        class: CupCakesBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
