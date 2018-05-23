@@ -19,7 +19,8 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('nomFor')
-            ->add('place')
+            ->add('longitude')
+            ->add('atitude')
             ->add('descriptionFor',CKEditorType::class, array('attr' => array('style' => 'width: 800px ; height : 500px')))
             ->add('dateFor' , \Symfony\Component\Form\Extension\Core\Type\DateType::class, array(
                 'widget' => 'single_text',

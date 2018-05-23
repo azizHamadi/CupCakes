@@ -10,11 +10,15 @@ namespace CupCakesBundle\Repository;
  */
 class formationRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findNom($nomfor)
+    public function findNom($nomfor,$etat,$idUser)
     {
         $query = $this->createQueryBuilder('f')
             ->Where('f.nomFor LIKE :nomfor')
-            ->setParameter(':nomfor',"%$nomfor%");
+            ->andWhere('f.etatFor= :etat')
+            ->andWhere('f.idUser = :idUser')
+            ->setParameter(':nomfor',"%$nomfor%")
+            ->setParameter(':etat',"$etat")
+            ->setParameter(':idUser',"$idUser");
         return $query->getQuery()->getResult();
     }
 
@@ -43,11 +47,24 @@ class formationRepository extends \Doctrine\ORM\EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function SelectFormationByidUSerCombo($iduser)
+    {
+        $etatformation="en cours";
+
+        $query = $this->createQueryBuilder('f')
+            // ->Where('f.idUser=:iduser')
+            ->Where('f.etatFor=:etatformation')
+            ->andWhere('f.idUser=:iduser')
+            //->setParameter(':iduser',$iduser)
+            ->setParameter(':etatformation',$etatformation)
+            ->setParameter(':iduser',$iduser);
+        return $query;
+    }
 
     //requete select des formations par id user
     public function SelectFormationByidUSer($iduser)
     {
-        $etatformation="vrai";
+        $etatformation="en cours";
 
         $query = $this->createQueryBuilder('f')
             // ->Where('f.idUser=:iduser')

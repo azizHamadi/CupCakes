@@ -51,45 +51,41 @@
 
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a>
                             <i class="ti-panel"></i>
-                            <p>Dashboard</p>
+                            <p>Formateur</p>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons"></i>
-                            <span>Recette</span>
-                        </a>
                         <ul class="ml-menu">
                             <li>
                                 <a href="{{ path('create_Formateur') }}">
-                                    <i class="ti-pencil-alt2"></i>
+                                    <i class="ti-book"></i>
                                     <p>Ajouter Formation</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('create_Session') }}">
-                                    <i class="ti-pencil-alt2"></i>
+                                    <i class="ti-pencil"></i>
                                     <p>Ajout session</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('read_Formateur') }}">
-                                    <i class="ti-map"></i>
+                                    <i class="ti-layout-grid2-thumb"></i>
                                     <p>Liste formation</p>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ path('Rechercheform') }}">
-                                    <i class="ti-bell"></i>
+                                    <i class="ti-search"></i>
                                     <p>Recherche formation</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('search_Session') }}">
-                                    <i class="ti-bell"></i>
+                                    <i class="ti-search"></i>
                                     <p>Rechercher session</p>
                                 </a>
                             </li>
@@ -101,13 +97,13 @@
                             </li>
                             <li>
                                 <a href="{{ path('creat_Promotion_formation') }}">
-                                    <i class="ti-pencil-alt2"></i>
+                                    <i class="ti-pinterest"></i>
                                     <p>Ajout promotion</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('read_Promotion_formation') }}">
-                                    <i class="ti-user"></i>
+                                    <i class="ti-list"></i>
                                     <p>Liste des promotion</p>
                                 </a>
                             </li>
@@ -115,72 +111,42 @@
 
                             <li>
                                 <a href="{{ path('creat_Promotion_session') }}">
-                                    <i class="ti-pencil-alt2"></i>
+                                    <i class="ti-pinterest"></i>
                                     <p>ajouter promo</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('read_Promotion_session') }}">
-                                    <i class="ti-pencil-alt2"></i>
+                                    <i class="ti-list"></i>
                                     <p>liste promo</p>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ path('ListCategorieRecetteFormateur') }}">
-                                    <i class="ti-user"></i>
-                                    <p>Liste des Categories Recette</p>
+                                    <i class="ti-layout-tab-min"></i>
+                                    <p>Categories Recette</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('AjouterRecetteFormateur') }}">
-                                    <i class="ti-user"></i>
+                                    <i class="ti-crown"></i>
                                     <p>Ajouter une Recette</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('ReadAllRecetteFormateur') }}">
-                                    <i class="ti-user"></i>
+                                    <i class="ti-list"></i>
                                     <p>Tous les recettes</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('ListeMesRecetteFormateur') }}">
-                                    <i class="ti-user"></i>
+                                    <i class="ti-layout-list-thumb-alt"></i>
                                     <p>Mes recettes</p>
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="typography.html">
-                            <i class="ti-text"></i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="icons.html">
-                            <i class="ti-pencil-alt2"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="maps.html">
-                            <i class="ti-map"></i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="notifications.html">
-                            <i class="ti-bell"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="upgrade.html">
-                            <i class="ti-export"></i>
-                            <p>Upgrade to PRO</p>
-                        </a>
                     </li>
                 </ul>
             </div>
@@ -204,6 +170,12 @@
                                 <a href="{{ path('fos_user_profile_edit') }}">
                                     <i class="ti-settings"></i>
                                     <p>Profil</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    <i class="ti-power-off"></i>
+                                    <p>Déconnexion</p>
                                 </a>
                             </li>
                         </ul>

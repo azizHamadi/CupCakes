@@ -12,7 +12,7 @@
             <div class="content">
                 <form method="post">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 {{ form_row(form.dateDebSes, {'label':"Date debut session" ,'attr': {'class': 'form-control border-input'}}) }}
                             </div>
@@ -62,18 +62,18 @@
 {% endblock %}
 
 {% block javascript %}
-    <script type="text/javascript">
+
         $(function(){
             $("#enregistrer").click(function(event){
                 event.preventDefault();
-                if(($('#cup_cakes_bundle_session_type_dateDebSes').val())<($('#cup_cakes_bundle_session_type_dateFinSes').val()))
+                if(($('#cup_cakes_bundle_session_type_dateDebSes').val()) < ($('#cup_cakes_bundleupdate_session_dateFinSes').val()))
                 {
                     $("form").submit();
                 }
                 else{
                     demo.initChartist();
                     $.notify({
-                        icon: 'ti-gift',
+                        icon: 'ti-alert',
                         message: "date debut superieur que la date fin "
 
                     }, {
@@ -85,7 +85,7 @@
 
         });
 
-    </script>
+
 {% endblock %}
 
 

@@ -54,7 +54,7 @@ update_Session:
     path:   /Session/update{id}
     defaults: { _controller: CupCakesBundle:Session:updateSession }
 delete_Session:
-    path:   /delete/Session{id}
+    path:   /delete/Session/{id}
     defaults: { _controller: CupCakesBundle:Session:deleteSession }
 search_Session:
     path:   /search/Session

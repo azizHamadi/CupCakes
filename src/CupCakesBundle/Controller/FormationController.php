@@ -99,7 +99,7 @@ class FormationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $formation= $em->getRepository(Formation::class)->find($id);
-        $formation->setEtatFor("faux");
+        $formation->setEtatFor("finie");
         $em->flush();
         return $this->redirectToRoute("read_Formateur");
     }
@@ -130,7 +130,8 @@ class FormationController extends Controller
 
             $search = $request->query->get('formation');
             $en = $this->getDoctrine()->getManager();
-            $query = $en->getRepository(Formation::class)->findNom($search);
+            $user = $this->getUser();
+            $query = $en->getRepository(Formation::class)->findNom($search,"en cours",$user->getid());
             return $this->render('CupCakesBundle:Formateur/FormationSession:searchFormation.html.twig', array(
                 'formation' => $query
 

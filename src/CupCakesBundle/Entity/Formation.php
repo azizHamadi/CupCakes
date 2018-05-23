@@ -59,7 +59,7 @@ class Formation
      *
      * @ORM\Column(name="etatFor", type="string", length=255, nullable=true)
      */
-    private $etatFor ="vrai";
+    private $etatFor ="en cours";
 
     /**
      * @var string
@@ -69,6 +69,24 @@ class Formation
      *
      */
     private $descriptionFor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="longitude", type="string", length=100, nullable=true)
+     *
+     *
+     */
+    private $longitude;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="atitude", type="string", length=100, nullable=true)
+     *
+     *
+     */
+    private $atitude;
 
     /**
      * Set dateFor
@@ -280,4 +298,52 @@ class Formation
     }
 
 
+
+    /**
+     * Set longitude.
+     *
+     * @param string|null $longitude
+     *
+     * @return Formation
+     */
+    public function setLongitude($longitude = null)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude.
+     *
+     * @return string|null
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * Set atitude.
+     *
+     * @param string|null $atitude
+     *
+     * @return Formation
+     */
+    public function setAtitude($atitude = null)
+    {
+        $this->atitude = $atitude;
+
+        return $this;
+    }
+
+    /**
+     * Get atitude.
+     *
+     * @return string|null
+     */
+    public function getAtitude()
+    {
+        return $this->atitude;
+    }
 }

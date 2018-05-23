@@ -40,10 +40,11 @@
                         <table class="table table-striped" id="tableau">
                             <thead>
                             <th>Image </th>
+                            <th>Nom </th>
                             <th>Date debut</th>
                             <th>Date fin</th>
                             <th>Capacite</th>
-                            <th>id formation</th>
+                            <th>Formation</th>
                             <th>Supprimer</th>
                             <th>Modifier</th>
                             </thead>
@@ -59,20 +60,19 @@
                                         <img src="{{ asset('public/uploads/brochures/Formateur/' ~  session.imageSess) }}" style="height: 70px; width: 100px" >
                                     </td>
                                     <td>
-                                        {{  session.dateDebSes |date('d-M-Y')}}
+                                        {{  session.nomSes}}
                                     </td>
                                     <td>
                                         {{  session.dateDebSes |date('d-M-Y')}}
                                     </td>
                                     <td>
-                                        {{  session.etatSes }}
+                                        {{  session.dateDebSes |date('d-M-Y')}}
                                     </td>
                                     <td>
-                                        {{ session.capaciteSes }}
+                                        {{  session.capaciteSes }}
                                     </td>
                                     <td>
-                                        {{ session.idFor.nomFor}}
-
+                                        {{ session.idFor.nomFor }}
                                     </td>
                                     <td>
                                         <a href="{{ path('delete_Session',{'id':session.id  }) }}" >Supprimer</a>
@@ -93,14 +93,14 @@
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script >
                 $(function () {
-                    $("#confirmer").onclick(function () {
+                    $("#cup_cakes_bundle_recherche_session_idFor").change(function () {
                         $.ajax({
                             url : "{{ path('search_Session') }}",
                             data : { 'session' : $(this).val() }
                         }).done(function (response) {
                             var tableau = $(response).find("table");
-                            $('.tableau').empty();
-                            $('.tableau').append(tableau);
+                            $('#tableau').empty();
+                            $('#tableau').append(tableau);
                         });
                     });
                 })

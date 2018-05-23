@@ -9,12 +9,7 @@
                 height: 100%;
             }
             /* Optional: Makes the sample page fill the window. */
-            html, body {
-                height: 256px;
-                width: 1170px;
-                margin-left: 20px;
 
-            }
             #floating-panel {
                 position: absolute;
                 top: 10px;
@@ -47,7 +42,7 @@
 
     {{ form_start(form ,{'attr': {'novalidate':'novalidate'}}) }}
 
-    <div class="col-lg-8 col-md-7">
+    <div class="col-lg-10 col-md-10">
         <div class="card">
             <div class="header">
                 <h4 class="title">Ajouter une formation</h4>
@@ -79,7 +74,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                {{ form_row(form.place, {'label':"place" ,'attr': {'class': 'form-control border-input'}}) }}
+                                {{ form_row(form.longitude, {'label':"longitude" ,'attr': {'class': 'form-control border-input'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_row(form.atitude, {'label':"atitude" ,'attr': {'class': 'form-control border-input'}}) }}
                             </div>
                         </div>
                     </div>

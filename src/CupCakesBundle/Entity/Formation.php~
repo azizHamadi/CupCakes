@@ -71,6 +71,24 @@ class Formation
     private $descriptionFor;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="longitude", type="string", length=100, nullable=true)
+     *
+     *
+     */
+    private $longitude;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="atitude", type="string", length=100, nullable=true)
+     *
+     *
+     */
+    private $atitude;
+
+    /**
      * Set dateFor
      *
      * @param \DateTime $dateFor

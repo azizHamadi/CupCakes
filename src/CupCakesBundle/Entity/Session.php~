@@ -239,14 +239,14 @@ class Session
      *
      * @ORM\Column(name="prix_ses", type="float", nullable=true)
      */
-    private $prixSes;
+    private $prix;
 
     /**
      * @var float
      *
      * @ORM\Column(name="nv_prix_ses", type="float", nullable=true)
      */
-    private $nv_prixSes = null;
+    private $nv_prix = null;
 
     /**
      * @var string
@@ -256,51 +256,51 @@ class Session
     private $nomSes;
 
     /**
-     * Set prixSes
+     * Set prix
      *
-     * @param float $prixSes
+     * @param float $prix
      *
      * @return Session
      */
-    public function setPrixSes($prixSes)
+    public function setPrix($prix)
     {
-        $this->prixSes = $prixSes;
+        $this->prixSes = $prix;
 
         return $this;
     }
 
     /**
-     * Get prixSes
+     * Get prix
      *
      * @return float
      */
-    public function getPrixSes()
+    public function getPrix()
     {
-        return $this->prixSes;
+        return $this->prix;
     }
 
     /**
-     * Set nvPrixSes
+     * Set nvPrix
      *
-     * @param float $nvPrixSes
+     * @param float $nvPrix
      *
      * @return Session
      */
-    public function setNvPrixSes($nvPrixSes)
+    public function setNvPrix($nvPrix)
     {
-        $this->nv_prixSes = $nvPrixSes;
+        $this->nv_prixSes = $nvPrix;
 
         return $this;
     }
 
     /**
-     * Get nvPrixSes
+     * Get nvPrix
      *
      * @return float
      */
-    public function getNvPrixSes()
+    public function getNvPrix()
     {
-        return $this->nv_prixSes;
+        return $this->nv_prix;
     }
 
     /**

@@ -59,12 +59,14 @@ class SessionRepository extends \Doctrine\ORM\EntityRepository
     }
 
     //requete pour les sessions dun formateur
-    public function ListesessionsAffectes($id)
+    public function ListesessionsAffectes($id,$idFor)
     {
         $query = $this->createQueryBuilder('s')
             ->from('CupCakesBundle:Formation','f')
             ->Where('f.id=s.idFor')
             ->andWhere('f.idUser=:iduser')
+            ->andWhere('s.idFor= :idFor')
+            ->setParameter(':idFor',$idFor)
             ->setParameter(':iduser',$id);
         return $query->getQuery()->getResult();
     }
@@ -85,6 +87,16 @@ class SessionRepository extends \Doctrine\ORM\EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function SelectSessionByidFor($id)
+    {
+        $etat="en cours";
+        $query = $this->createQueryBuilder('s')
+            ->Where('s.etatSes = :etat')
+            ->andWhere('s.idFor=:idFor')
+            ->setParameter(':idFor',$id)
+            ->setParameter(':etat',$etat);
+        return $query->getQuery()->getResult();
+    }
 
     //requete select des sessions qui ont une promotion
     public function findSessionPromo()

@@ -23,8 +23,10 @@ class SessionController extends Controller
     }
     public function createSessionAction(Request $request)
     {
-
+        $em=$this->getDoctrine()->getManager();
         $session = new Session();
+        $formation = $em->getRepository(Formation::class)->findOneByidUser($this->getUser()->getid());
+        $session->setIdFor($formation);
         $form=$this->createForm(SessionType::class,$session);
         $form->handleRequest($request);
 
@@ -37,7 +39,7 @@ class SessionController extends Controller
             );
             $session->setImageSess($filename);
             $session->setEtatSes("en cours");
-            $em=$this->getDoctrine()->getManager();
+
             $em->persist($session);
             /*$datefin = new \DateTime($session->getDateFinSes());
             $datedebut = new \DateTime($session->getDateDebSes());
@@ -104,7 +106,7 @@ class SessionController extends Controller
     {
 
         $em= $this->getDoctrine()->getManager();
-        $sessions=$em->getRepository(Session::class)->findByidFor($id);
+        $sessions=$em->getRepository(Session::class)->SelectSessionByidFor($id);
 
         $paginator  = $this->get('knp_paginator');
         $pagination=$paginator->paginate(
@@ -113,10 +115,10 @@ class SessionController extends Controller
             10/*limit per page*/
         );
 
-            return $this->render('CupCakesBundle:Formateur/FormationSession:readSession.html.twig', array(
-                //"formations"=>$formations
-                'pagination' => $pagination , 'date' => (new \DateTime())
-            ));
+        return $this->render('CupCakesBundle:Formateur/FormationSession:readSession.html.twig', array(
+            //"formations"=>$formations
+            'pagination' => $pagination , 'date' => (new \DateTime())
+        ));
 
     }
 
@@ -144,7 +146,7 @@ class SessionController extends Controller
     {
          $em = $this->getDoctrine()->getManager();
          $session= $em->getRepository(Session::class)->find($id);
-         $session->setEtatSes("out");
+         $session->setEtatSes("finie");
          $em->flush();
          return $this->redirectToRoute("read_Session");
     }
@@ -168,8 +170,7 @@ class SessionController extends Controller
 
     }
 
-
-    //rechercher une session par date debut
+//rechercher une session par date debut
     public function searchSessionAction(Request $request)
     {
         $session = new Session();
@@ -178,12 +179,12 @@ class SessionController extends Controller
         $form->handleRequest($request);
 
 
-            $search =$request->query->get('session');
-            $dateDebut=$session->getDateDebSes();
-            $em = $this->getDoctrine();
-            $query=$em->getRepository(Session::class)->ListesessionsAffectes($this->getUser());
-            $paginator  = $this->get('knp_paginator');
-            $pagination=$paginator->paginate(
+        $search =$request->query->get('session');
+        $dateDebut=$session->getDateDebSes();
+        $em = $this->getDoctrine();
+        $query=$em->getRepository(Session::class)->ListesessionsAffectes($this->getUser(),$search);
+        $paginator  = $this->get('knp_paginator');
+        $pagination=$paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
             5/*limit per page*/

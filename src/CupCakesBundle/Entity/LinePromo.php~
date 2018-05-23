@@ -193,4 +193,28 @@ class LinePromo
     {
         return $this->idPromo;
     }
+
+    /**
+     * Set views.
+     *
+     * @param float|null $views
+     *
+     * @return LinePromo
+     */
+    public function setViews($views = null)
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    /**
+     * Get views.
+     *
+     * @return float|null
+     */
+    public function getViews()
+    {
+        return $this->views;
+    }
 }
