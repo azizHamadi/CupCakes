@@ -13,63 +13,63 @@
                     </div>
                 </div>
             </section>
+
             <!-- End Breadcrumb Part -->
 
-            < class="home-icon blog-main-section shop-page">
+
+            <section class="home-icon blog-main-section shop-page bg-skeen">
                 <div class="icon-default">
-                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png')}}" alt="" />
+                    <img src="{{ asset('ClientTemplate/images/scroll-arrow.png')}}" alt="" style="border-radius: 100px"/>
                 </div>
                 <div class="container">
                     <div class="portfolioFilter">
                         <div class="portfolioFilter-inner bg-skeen">
-                            <a href="javascript:;" data-filter=".breakfast" class="current">BREAKFAST</a>
-                            <a href="javascript:;" data-filter=".dessert">DESSERT</a>
-                            <a href="javascript:;" data-filter=".dinner">DINNER</a>
-                            <a href="javascript:;" data-filter=".freshfood">FRESHFOOD</a>
-                            <a href="javascript:;" data-filter=".lunch">LUNCH</a>
+
                         </div>
                     </div>
-                    <div class="portfolioContainer row" data-defaultfilter=".breakfast">
+                </div>
+                <div class="portfolioContainer row" data-defaultfilter=".breakfast">
+                    <div id="tableau">
                         {% for promotion in promotions  %}
-                            <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                <div class="shop-main-list">
-                                    <div class="shop-product">
-                                        <img src="{{ asset('public/uploads/brochures/Produit/' ~  promotion.idProd.imageProd) }}" alt="" height="220" width="220" />
-                                        <div class="cart-overlay-wrap">
-                                            <div class="cart-overlay">
-                                                <a href="#" class="shop-cart-btn">ADD TO CART</a>
-
-                                            </div>
+                        {% if promotion.etatLinePromo == 'en cours' %}
+                            <div class="col-md-3 col-sm-4 col-xs-12 breakfast dessert dinner wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms"id="tableau">
+                            <div class="shop-main-list">
+                                <div class="shop-product"  >
+                                    <img src="{{ asset('public/uploads/brochures/Produit/' ~ promotion.idProd.imageProd) }}" alt="" style="border-radius: 20px;" height="220" width="420" />
+                                    <div class="cart-overlay-wrap">
+                                        <div class="cart-overlay">
+                                            {% if  promotion.idProd.qteStockProd==0 %}
+                                                <a class="shop-cart-btn">OUT OF STOCK </a>
+                                            {% else %}
+                                                <a href="{{ path('PasserCommande',{'id': promotion.idProd.id}) }}" class="shop-cart-btn">Ajouter au panier</a>
+                                            {% endif %}
                                         </div>
                                     </div>
-                                    <div>
-                                        <a href="{{ path('detail_promo',{'id':promotion.id }) }}"><h5><font color="#f5deb3">{{ promotion.idProd.nomProd }}</font></h5>
-                                            <h5><strong><strike>{{ promotion.idProd.prixProd }}</strike> </strong></h5><strong><h5><font color="#f5f5dc">{{ promotion.idProd.nvPrix }}<div></div>
-
-                                    </div>
                                 </div>
-                                    <div>
-                                    </div>
-
-                                </div>
+                                <a href="{{ path('detail_promo',{'id': promotion.id }) }}"><h5><strong>{{ promotion.idProd.nomProd }}</strong></h5></a>
+                                <h5><strong><strike>{{ promotion.idProd.prixProd }}</strike> </strong></h5><strong><h5><font color="#f5f5dc">{{ promotion.idProd.nvPrix }}</font></h5></strong>
 
                             </div>
+
+                        </div>
+                        {% endif %}
                         {% endfor %}
 
 
-                        <div class="gallery-pagination">
-                            <div class="gallery-pagination-inner">
-                                <ul>
-                                    <li><a href="#" class="pagination-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i> <span>PREV page</span></a></li>
-                                    <li class="active"><a href="#"><span>1</span></a></li>
-                                    <li><a href="#"><span>2</span></a></li>
-                                    <li><a href="#"><span>3</span></a></li>
-                                    <li><a href="#" class="pagination-next"><span>next page</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="gallery-pagination">
+                        <div class="gallery-pagination-inner">
+                            <ul>
+                                <li><a href="#" class="pagination-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i> <span>PREV page</span></a></li>
+                                <li class="active"><a href="#"><span>1</span></a></li>
+                                <li><a href="#"><span>2</span></a></li>
+                                <li><a href="#"><span>3</span></a></li>
+                                <li><a href="#" class="pagination-next"><span>next page</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-
+                </div>
+            </section>
         </div>
     </main>
 

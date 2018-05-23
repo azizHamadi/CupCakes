@@ -61,7 +61,7 @@
                                 <th>Prix Unitaire</th>
                                 <td>
                                     <div class="product-cart-title">
-                                        <span class="pu">{{ produit.prixProd }}</span>
+                                        <span class="pu">{{ produit.prixProd * 3 }}</span>
                                     </div>
                                 </td>
                                 <th>Quantité</th>
@@ -76,14 +76,14 @@
                                 </td>
                                 <th>prix</th>
                                 <td>
-                                    <span class="price">{{ produit.prixProd * panier[produit.id] }}</span>
+                                    <span class="price">{{ produit.prixProd * 3 * panier[produit.id] }}</span>
                                 </td>
                                 <th>Action</th>
                                 <td>
                                <span><a href="{{ path('SupprimerPanier', { 'id' : produit.id }) }}"><img src="{{ asset('ClientTemplate/images/close-blue.png') }}"></a></span>
                                 </td>
                             </tr>
-                                {% set totalPrix = totalPrix + (produit.prixProd * panier[produit.id]) %}
+                                {% set totalPrix = totalPrix + (produit.prixProd * 3 * panier[produit.id]) %}
                                 {% set totalQuantite = totalQuantite + panier[produit.id] %}
                             {% endfor %}
                             </tbody>

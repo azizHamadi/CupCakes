@@ -60,6 +60,12 @@ class LinePromoSes
      */
     private $idSes;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatLinePromosession", type="string", length=255, nullable=true)
+     */
+    private $etatLinePromoSess;
 
     /**
      * Get idLine
@@ -169,5 +175,29 @@ class LinePromoSes
     public function getIdSes()
     {
         return $this->idSes;
+    }
+
+    /**
+     * Set etatLinePromoSess.
+     *
+     * @param string|null $etatLinePromoSess
+     *
+     * @return LinePromoSes
+     */
+    public function setEtatLinePromoSess($etatLinePromoSess = null)
+    {
+        $this->etatLinePromoSess = $etatLinePromoSess;
+
+        return $this;
+    }
+
+    /**
+     * Get etatLinePromoSess.
+     *
+     * @return string|null
+     */
+    public function getEtatLinePromoSess()
+    {
+        return $this->etatLinePromoSess;
     }
 }

@@ -34,6 +34,7 @@ class LinePromoController extends Controller
             $prix_promotion=$prix_produit-(($prix_produit/100)*$taux_promotion);
             $produit=$em->getRepository(Produit::class)->find($promotion->getIdProd()->getId());
             $produit->setNvPrix($prix_promotion);
+            $promotion->setEtatLinePromo("en cours");
             $em->persist($produit);
             $em->flush();
             $em=$this->getDoctrine()->getManager();
@@ -61,7 +62,7 @@ class LinePromoController extends Controller
     {
         $date_now=new \DateTime();
         if($date_now>$promo->getDateFin()){
-            $em->remove($promo);
+            $promo->setEtatLinePromo("finie");
             $em->flush();
         }
     }
@@ -92,11 +93,9 @@ class LinePromoController extends Controller
 
     public function deleteAction(Request $request , $id )
     {
-        $promotion=new LinePromo();
-
         $em = $this->getDoctrine()->getManager();
         $promotion= $em->getRepository('CupCakesBundle:LinePromo')->find($id);
-        $em -> remove($promotion) ;
+        $promotion->setEtatLinePromo("finie") ;
         $em -> flush() ;
         return $this->redirectToRoute('liste_Linepromo_produit');
 

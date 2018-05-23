@@ -11,14 +11,17 @@ namespace CupCakesBundle\Repository;
 class LinePromoSesRepository extends \Doctrine\ORM\EntityRepository
 {
     public function rechercheLinePromoSession($iduser){
+        $etat = 'en cours';
         $query = $this->createQueryBuilder('line_promo_ses')
             ->from('CupCakesBundle:Promotion','promotion')
             ->from('CupCakesBundle:Session','session')
             ->from('CupCakesBundle:Formation','formation')
             ->Where('promotion.id=line_promo_ses.idPromo')
+            ->andWhere('line_promo_ses.etatLinePromoSess = :etat')
             ->andWhere('line_promo_ses.idSes=session.id')
             ->andWhere('session.idFor=formation.id')
             ->andWhere('formation.idUser=:iduser' )
+            ->setParameter(':etat',$etat)
             ->setParameter(':iduser',$iduser);
         return $query->getQuery()->getResult();
 

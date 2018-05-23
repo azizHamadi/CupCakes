@@ -63,6 +63,7 @@ class ProduitController extends Controller
             $file->move(
                 $this->getParameter('brochures_directory'),$filename
             );
+            $produit->setPrixProd($produit->getPrixProd() / 3);
             $produit->setImageProd($filename);
             $em->persist($produit);
             $em->flush();
@@ -85,6 +86,7 @@ class ProduitController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $produit = $em->getRepository(Produit::class)->find($id);
+        $produit->setPrixProd($produit->getPrixProd() * 3);
         $form=$this->createForm(UpdateType::class,$produit);
         $form->handleRequest($request);
         if($form->isSubmitted()){

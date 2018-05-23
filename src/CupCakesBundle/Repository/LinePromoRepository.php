@@ -20,12 +20,15 @@ class LinePromoRepository extends \Doctrine\ORM\EntityRepository
     }
 
     public function rechercheId($iduser){
+        $etat = 'en cours';
         $query = $this->createQueryBuilder('line_promo')
             ->from('CupCakesBundle:Produit','produit')
             ->from('CupCakesBundle:Promotion','promotion')
             ->Where('produit.id=line_promo.idProd')
+            ->andWhere('line_promo.etatLinePromo = :etat')
             ->andWhere('produit.idUser=:iduser' )
             ->andWhere('line_promo.idPromo=promotion.id')
+            ->setParameter(':etat',$etat)
             ->setParameter(':iduser',$iduser);
         return $query->getQuery()->getResult();
 

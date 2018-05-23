@@ -14,7 +14,7 @@
                 </div>
             </section>
             <!-- End Breadcrumb Part -->
-            <section class="home-icon blog-main-section blog-list-outer">
+            <section class="home-icon blog-main-section blog-list-outer bg-skeen">
                 <div class="icon-default">
                     <img src="{{ asset('ClientTemplate/images/scroll-arrow.png') }}" alt="" />
                 </div>
@@ -90,17 +90,16 @@
                                         {% if recette.etatRec =='oui' %}
                                             <div class="blog-right-listing wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                                                 <div class="feature-img">
-                                                    <img src="{{ asset('public/uploads/brochures/Recettes/' ~  recette.imageRec )}}" alt="" style="height: 280px ;width: 360px;border-radius: 10%" />
+                                                    <img src="{{ asset('public/uploads/brochures/Recettes/' ~  recette.imageRec)}}" alt="" style="height: 280px ;width: 360px;border-radius: 10%" />
                                                     <div class="date-feature"><small> {{ recette.dateRec |date('d/m') }} </small>
                                                         <small> {{ recette.dateRec |date('y') }} </small></div>
                                                 </div>
                                                 <div class="feature-info">
                                                     <span><i class="icon-user"></i> {{  recette.idUser.username }}</span>
-                                                    <span>5 Comments</span>
+                                                    <span><i class="icon-comment"></i></span>
                                                     <h5>{{ recette.nomRec }}</h5>
-                                                    <p>{{ recette.descriptionRec |truncate(190, true, '...')|raw }}</p>
-                                                    <a href="{{ path('ModifierRecetteClient',{'id': recette.id }) }}" class="read-arrow">Afficher</a>
-                                                    <a href="{{ path('SupprimerRecetteClient',{'id': recette.id,'type':'client' }) }}" class="read-arrow">Supprimer</a>
+                                                    <p>{{ recette.descriptionRec |truncate(175, true, '...')|raw }}</p>
+                                                    <a href="{{ path('SingleRecette',{'id': recette.id,'type': "client" }) }}" class="read-arrow">Read More</a>
                                                 </div>
                                             </div>
                                         {% endif %}
@@ -125,7 +124,9 @@
         </div>
     </main>
     <!-- End Main -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script >
+
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script >
     $(function () {
         $("#recherche").keyup(function () {
             $.ajax({
@@ -150,7 +151,7 @@
                         +"<span><i class=\"icon-comment\"></i> 5 Comments</span>"
                         +"<h5> "+ el.nomRec +" </h5>"
                         +"<p>"+ el.descriptionRec.substr(0,190) +"... </p>"
-                        +"<di><a href=\"/Recette/SingleRecette/client/"+ el.id +"\" class=\"read-arrow\">Read More</a></div>"
+                        +"<div><a href=\"/Recette/SingleRecette/client/"+ el.id +"\" class=\"read-arrow\">Read More</a></div>"
                         +"</div>"
                         +"</div>"
                     );

@@ -38,11 +38,11 @@
 
                                         {% for produit in produits %}
                                         <div>
-                                            <tr><td>{{ produit.nomProd }}</td><td>{{ panier[produit.id] }}</td><td >{{ produit.prixProd * panier[produit.id] }}</td></tr>
+                                            <tr><td>{{ produit.nomProd }}</td><td>{{ panier[produit.id] }}</td><td >{{ produit.prixProd * 3 * panier[produit.id] }}</td></tr>
                                             <input hidden name="Qte" value="{{ panier[produit.id] }}">
                                         </div>
                                         <input hidden name="idProd" value="{{ produit.id }}">
-                                    {% set totalPrix = totalPrix + (produit.prixProd * panier[produit.id]) %}
+                                    {% set totalPrix = totalPrix + (produit.prixProd * 3 * panier[produit.id]) %}
 
                                     {% endfor %}
                                     <div class="checkout-total">

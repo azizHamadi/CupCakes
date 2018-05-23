@@ -16,8 +16,8 @@ class CommandeType extends AbstractType
 
             ->add('etatLivCmd', ChoiceType::class,array(
                 'choices' =>array(
-                    'passée'=> 'passée',
-                    'en preparation' => 'en preparation',
+                    'Prete'=> 'Prete',
+                    'en cour' => 'en cour',
                     'Livrée' => 'Livrée'
                 )
             ))

@@ -65,7 +65,6 @@ class EducateController extends Controller
     //Ajouter un client a une session avec promo en effectuant les tests necessaires
     public function createEducateAvecPromoAction(Request $request,$id)
     {
-
         $educate = new Educate();
         $educate->setEtatEduc("inscri");
         $em=$this->getDoctrine()->getManager();
@@ -80,7 +79,6 @@ class EducateController extends Controller
         //afficher le nom de la formation a partir de la session
         $sessionsnom=$em->getRepository(Formation::class)->find($sessionsByIdFor->getIdFor());
         //afficher la liste des sessions a partir
-        $sessions =$em->getRepository(Session::class)->findByidFor($sessionsByIdFor->getIdFor());
         //$count=$em->getRepository(Educate::class)->CountNbrClient($id);//ne9es id session
         //afficher la capacite de la session a partir de son id
         //$capacite=$sessionsByIdFor->getCapaciteSes();
@@ -92,6 +90,7 @@ class EducateController extends Controller
             $em->persist($educate);
             $sessionsByIdFor->setCapaciteSes($sessionsByIdFor->getCapaciteSes() - 1 );
             $em->flush();
+            $sessions =$em->getRepository(Session::class)->findSessionPromo();
             return $this->render('CupCakesBundle:Formateur/Promotion:listPromotionFormation.html.twig', array(
                 "session"=>$sessions , "message"=>null,"test"=>$test
             ));
@@ -100,6 +99,7 @@ class EducateController extends Controller
         {
             if ($test !=null ) $message="client deja inscri";
             else $message="capacite = 0";
+            $sessions =$em->getRepository(Session::class)->findSessionPromo();
             return $this->render('CupCakesBundle:Formateur/Promotion:listPromotionFormation.html.twig', array(
                 "session"=>$sessions,"message"=>$message,"test"=>$test
             ));

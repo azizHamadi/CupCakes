@@ -60,6 +60,12 @@ class LinePromoSes
      */
     private $idSes;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatLinePromosession", type="string", length=255, nullable=true)
+     */
+    private $etatLinePromoSess;
 
     /**
      * Get idLine

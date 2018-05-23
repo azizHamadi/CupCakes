@@ -20,7 +20,8 @@
     <link href="{{ asset('ClientTemplate/plugin/animation/animate.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('ClientTemplate/css/theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('ClientTemplate/css/responsive.css') }}" rel="stylesheet" />
-{% block stylesheet %}{% endblock %}
+
+    {% block stylesheet %}{% endblock %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
@@ -37,24 +38,14 @@
     <header>
         <div class="header-part header-on header-near">
             <div class="header-bottom">
-                <div class="container">
+                <div class="container2">
                     <div class="header-info">
                         <div class="header-info-inner">
                             <div class="book-table header-collect book-md">
                                 <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
                             </div>
                             <div class="shop-cart header-collect">
-                                <a href="#"><img src="{{ asset('ClientTemplate/images/icon-basket.png') }}" alt="" /></a>
-                                <div class="cart-wrap">
-                                    <div class="cart-blog">
-                                        <div class="cart-item">
-
-                                          </div>
-                                        <div class="cart-btn">
-                                            <a href="{{ path('AfficherPanier') }}" class="btn-black view">Afficher</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="{{ path('AfficherPanier') }}"><img src="{{ asset('ClientTemplate/images/icon-basket.png') }}" alt="" /></a>
                             </div>
                             <div class="search-part">
                                 <a href="#"></a>
@@ -137,7 +128,7 @@
                         </ul>
                     </div>
                     <div class="logo">
-                        <a href="./index.html"><img src="./images/logo3.png" alt="" /></a>
+                        <a href="{{ path('cup_cakes_Eshop') }}"><img src="{{ asset('ClientTemplate/images/Logo Png.png') }}" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -145,14 +136,38 @@
     </header>
     <!-- End Header -->
 
+
+            {% block containt %}
     <main>
         <div class="main-part">
+            <section class="home-slider home-ride">
+                <div class="home-slider-target">
+                    <div class="tp-banner-container">
+                        <div class="tp-banner">
+                            <ul>
+                                <li data-transition="zoomout" data-slotamount="2" data-masterspeed="1000" data-thumb="" data-saveperformance="on" data-title="Slide">
+                                    <img src="{{ asset('ClientTemplate/images/test3.jpg') }}" alt="slidebg1" data-lazyload="{{ asset('ClientTemplate/images/test3.jpg') }}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption very_large_text" data-x="center" data-hoffset="0" data-y="250" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">CupCakes <i></i>
+                                    </div>
+                                    <!-- LAYERS -->
+                                    <div class="tp-caption medium_text" data-x="center" data-hoffset="0" data-y="340" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="500" data-easing="Back.easeInOut" data-endspeed="300">Premiere Platforme de vente de gateau en Tunisie
+                                    </div>
+                                    <!-- LAYERS -->
 
-        {% block containt %}
-        <!-- Start Main -->
-                {% endblock %}
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
         </div>
     </main>
+            <!-- Start Main -->
+                {% endblock %}
+
     <!-- End Main -->
 
     <!-- Start Footer -->
@@ -161,82 +176,25 @@
             <div class="container">
                 <div class="footer-inner">
                     <div class="footer-info">
-                        <h3>La boom Restaurant</h3>
-                        <p>329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
-                        <p><a href="#">123 456 7890</a></p>
-                        <p><a href="#">support@laboom.com</a></p>
+                        <h3>CupCake</h3>
+                        <p>Z.I.Chotrana II - B.P.160-2083-Pole Technologique - El Ghazela</p>
+                        <p><a href="#">+216 90 114 064</a></p>
+                        <p><a href="#">Cupcake@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="footer-round-left">
-                    <span>Copyright © 2017 Polygon Theme. All rights reserved.</span>
+                    <span>Copyright © 2018 . All rights reserved.</span>
                 </div>
                 <div class="footer-round-middle">
                     <a href="#"><img src="./images/logo4.png" alt="" /></a>
                 </div>
-                <div class="footer-round-right">
-                    <div class="social-top">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
         </div>
     </footer>
     <!-- End Footer -->
     <!-- Start Book Table -->
-    <div class="modal fade booktable" id="booktable" tabindex="-1" role="dialog" aria-labelledby="booktable">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="table-title">
-                        <h2>Reservation</h2>
-                        <h6 class="heade-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="select-dropbox">
-                                <option>Hour</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="select-dropbox">
-                                <option>Number of People</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="txt" placeholder="Pick a Date" class="date-pick" />
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="txt" placeholder="Phone Number" />
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="email" name="email" placeholder="Email Address" />
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <button class="btn-main btn-big">BOOK A TABLE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- End Book Table -->
 </div>
 <!-- Back To Top Arrow -->
@@ -244,6 +202,7 @@
 <script src="{{ asset('ClientTemplate/js/jquery.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/bootstrap/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('ClientTemplate/plugin/form-field/jquery.formstyler.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.plugins.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/revolution-plugin/jquery.themepunch.revolution.min.js') }}"></script>
 <script src="{{ asset('ClientTemplate/plugin/owl-carousel/owl.carousel.min.js') }}"></script>
@@ -257,7 +216,6 @@
 <script src="{{ asset('ClientTemplate/js/app.js') }}"></script>
 <script src="{{ asset('ClientTemplate/js/script.js') }}"></script>
 {% block javascript %}
-
 {% endblock %}
 
 </body>

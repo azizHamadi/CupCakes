@@ -101,10 +101,12 @@ class SessionRepository extends \Doctrine\ORM\EntityRepository
     //requete select des sessions qui ont une promotion
     public function findSessionPromo()
     {
-        $promo=null;
+        $etat = 'en cours';
         $query = $this->createQueryBuilder('s')
             ->from('CupCakesBundle:LinePromoSes','lp')
-            ->Where('s.id=lp.idSes');
+            ->Where('s.id=lp.idSes')
+            ->andWhere('lp.etatLinePromoSess=:etat')
+            ->setParameter(':etat',$etat);
 
         return $query->getQuery()->getResult();
     }

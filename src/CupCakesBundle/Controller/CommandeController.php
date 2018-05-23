@@ -119,6 +119,7 @@ class CommandeController extends Controller
         if ($request->isMethod("POST")) {
 
         foreach ($produit as $p){
+
             $line = new LineCmd();
                 $line->setQteAcheter($request->get("Qte"))
                     ->setIdCmd($em->getRepository(Commande::class)->find($cmd->getId()))
